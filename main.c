@@ -2,10 +2,12 @@
 
 int main(int ac, char **argv)
 {
-	if(ac >= 5 && ac <= 6)
-	{
-		printf("parsing->%d", parsing(ac - 1, argv + 1));
-	}
-	else
-		ft_putstr_fd("invalid number of args\n", 2);
+	t_params params;
+
+	if(ac < 5 || ac > 6)
+		show_error("invalid nums of arguments\n");
+	if (parsing(ac - 1, argv + 1, &params) != 1)
+		show_error("invalid args");
+	philosophy_start(params);
 }
+

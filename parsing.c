@@ -34,10 +34,27 @@ int	isvalid(char **s, int ac)
 	return (err_flag == ac);
 }
 
-int	parsing(int ac, char **av)
+int fill_params(char **av, int ac, t_params *params)
+{
+	long	*ptr;
+	int		i;
+
+	i = -1;
+	ptr = (long *)params;
+	while(++i < ac)
+	{
+		if(ft_atoi(av[i]) > INT_MAX)
+			return 0;
+		*ptr++ = ft_atoi(av[i]) ;
+	}
+	if(ac == 4)
+		*ptr = -1;
+	return (1);
+}
+
+int	parsing(int ac, char **av, t_params *params)
 {
 	if (!isvalid(av, ac))
-		return 0;
-
-	return (1);
+		return (0);
+	return (fill_params(av, ac, params));
 }
