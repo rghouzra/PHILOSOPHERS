@@ -43,11 +43,11 @@ int fill_params(char **av, int ac, t_params *params)
 	ptr = (long *)params;
 	while(++i < ac)
 	{
-		if(ft_atoi(av[i]) > INT_MAX)
-			return 0;
+		if (ft_atoi(av[i]) > INT_MAX)
+			return (0);
 		*ptr++ = ft_atoi(av[i]) ;
 	}
-	if(ac == 4)
+	if (ac == 4)
 		*ptr = -1;
 	return (1);
 }

@@ -10,4 +10,3 @@ int main(int ac, char **argv)
 		show_error("invalid args");
 	philosophy_start(params);
 }
-

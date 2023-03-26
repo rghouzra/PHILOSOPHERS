@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <string.h>
+#include <sys/time.h>
 typedef struct s_params
 {
 	long nb_philos;
@@ -14,11 +15,13 @@ typedef struct s_params
 	long time_to_sleep;
 	long eat_count;
 }t_params;
+
 typedef struct s_philo
 {
-	t_params	params;
+
 }t_philo;
 long	ft_atoi(const char *nptr);
+void	philosophy_start(t_params args);
 int		ft_isdigit(char c);
 int		parsing(int ac, char **av, t_params *params);
 void	ft_putstr_fd(char const *s, int fd);
