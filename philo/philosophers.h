@@ -22,7 +22,7 @@ typedef struct s_philo
 
 }t_philo;
 long	ft_atoi(const char *nptr);
-void    *ft_calloc(size_t nelem, size_t elsize);
+void	*ft_calloc(size_t nelem, size_t elsize);
 void	philosophy_start(t_params args);
 int		ft_isdigit(char c);
 int		parsing(int ac, char **av, t_params *params);

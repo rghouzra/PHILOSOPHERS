@@ -9,4 +9,5 @@ int main(int ac, char **argv)
 	if (parsing(ac - 1, argv + 1, &params) != 1)
 		return(ft_putstr_fd("invalid args", 2), 1);
 	philosophy_start(params);
+	return (0);
 }

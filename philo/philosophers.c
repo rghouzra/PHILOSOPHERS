@@ -1,20 +1,17 @@
 #include "philosophers.h"
 
-void *print_tree(void *a)
+int struct_init(t_philo *philo)
 {
-
+	if(!philo)
+		return 0;
+	// philo
 }
 
 void	philosophy_start(t_params args)
 {
 	t_philo	*philo;
-	int		i;
 
-	i = 0;
-	philo = ft_calloc(1, sizeof(t_philo));
-	if (!philo)
+	philo = malloc(sizeof(t_philo));
+	if(!struct_init(philo))
 		return ;
-	philo->philos = ft_calloc(args.nb_philos, sizeof(pthread_t));
-	if (!philo->philos)
-		return;
 }
