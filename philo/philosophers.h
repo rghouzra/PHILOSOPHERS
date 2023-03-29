@@ -7,6 +7,7 @@
 #include <pthread.h>
 #include <string.h>
 #include <sys/time.h>
+
 typedef struct s_params
 {
 	long nb_philos;
@@ -15,15 +16,19 @@ typedef struct s_params
 	long time_to_sleep;
 	long eat_count;
 }t_params;
-
 typedef struct s_philo
 {
 	pthread_t *philos;
-
 }t_philo;
+typedef struct s_philos_table
+{
+	t_params		params;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	t_philo			*philos;
+}t_philos_table;
 long	ft_atoi(const char *nptr);
-void	*ft_calloc(size_t nelem, size_t elsize);
-void	philosophy_start(t_params args);
+void	prepare_table(t_params args);
 int		ft_isdigit(char c);
 int		parsing(int ac, char **av, t_params *params);
 void	ft_putstr_fd(char const *s, int fd);
