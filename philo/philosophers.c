@@ -14,21 +14,22 @@ int struct_init(t_philos_table *table, t_params arg)
 void *philosophy(void *philosopher)
 {
 	t_philo *philo = (t_philo *)philosopher;
-	// while (1)
-	// {
-	// 	//think
-	// 	//
-	// 	//take forks
-	// 	//	//if (philo->id % 2 == 0)
-	// 	//	//	pthread_mutex_lock(philo->left_fork);	
-	// 	//	//else
-	// 	//	//	pthread_mutex_lock(philo->right_fork);
-	// 	//	//pthread_mutex_lock(philo->left_fork);
+
+	while (1)
+	{
+		//think
+		//
+		//take forks
+		//	//if (philo->id % 2 == 0)
+		//	//	pthread_mutex_lock(philo->left_fork);	
+		//	//else
+		//	//	pthread_mutex_lock(philo->right_fork);
+		//	//pthread_mutex_lock(philo->left_fork);
 
 
-	// 	//eat
-	// 	//sleep
-	// }
+		//eat
+		//sleep
+	}
 	return NULL;
 
 }
@@ -38,7 +39,6 @@ void philosophy_start(t_philos_table *table)
 	pthread_t	*philos_thread;
 	int			i;
 
-	fprintf(stderr, "%lu\n", table->params.nb_philos);
 	philos_thread = malloc(table->params.nb_philos * sizeof(pthread_t));
 	if (!philos_thread)
 		return ;
@@ -47,7 +47,7 @@ void philosophy_start(t_philos_table *table)
 		pthread_create(&philos_thread[i], NULL, &philosophy, &table->philos[i]);
 	i = -1;
 	while (++i < table->params.nb_philos)
-		pthread_join(philos_thread[i], NULL);
+		pthread_join(philos_thread[i+1], NULL);
 }
 
 void	prepare_table(t_params args)
@@ -57,5 +57,6 @@ void	prepare_table(t_params args)
 	table = malloc(sizeof(t_philos_table));
 	if (!struct_init(table, args))
 		return ;
+	table->params = args;
 	philosophy_start(table);
 }
