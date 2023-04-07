@@ -1,0 +1,16 @@
+{
+	"files.associations": {
+		"pthread.h": "c",
+		"philosophers.h": "c",
+		"limits.h": "c",
+		"string.h": "c",
+		"unistd.h": "c",
+		"libc.h": "c",
+		"stdlib.h": "c",
+		"_types.h": "c",
+		"availability.h": "c",
+		"cdefs.h": "c",
+		"__config": "c",
+		"time.h": "c"
+	}
+}

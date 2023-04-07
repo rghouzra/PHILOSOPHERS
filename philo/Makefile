@@ -2,7 +2,7 @@ NAME = philo
 SRCS = main.c libft_utils2.c ft_putstr_fd.c parsing.c show_error.c philosophers.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -Wall -g
+FLAGS = -Wall -g -fsanitize=address
 INC = philosophers.h
 
 all: $(NAME)
