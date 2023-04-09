@@ -1,8 +1,9 @@
 NAME = philo
-SRCS = main.c libft_utils2.c ft_putstr_fd.c parsing.c show_error.c philosophers.c
+SRCS = main.c libft_utils2.c ft_putstr_fd.c parsing.c show_error.c philosophers.c init.c
 OBJS = $(SRCS:%.c=%.o)
-CC   = cc
-FLAGS = -Wall -g -fsanitize=address
+CC   = clang
+FLAGS = -fsanitize=thread -g
+FLAGS = -g
 INC = philosophers.h
 
 all: $(NAME)
