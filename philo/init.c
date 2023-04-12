@@ -1,31 +1,55 @@
 #include "philosophers.h"
 
 
-t_philo *init_philos(t_params arg)
+t_philo **init_philos(t_params arg)
 {
-    int i = 0;
-    t_philo *philos;
+    int     i;
+    t_philo **philos;
 
-    philos = malloc(sizeof(t_philo) * arg.nb_philos);
-    philos->params = arg;
+    i = -1;
+    philos = malloc(sizeof(t_philo *) * arg.nb_philos);
     if (!philos)
-        return NULL;
-    while (i < arg.nb_philos)
+        return (NULL);
+    while (++i < arg.nb_philos)
     {
-        philos[i].id = i + 1;
-        i++;
+        philos[i] = malloc(sizeof(t_philo));
+        if (!philos[i])
+            return NULL;
+        philos[i]->id = i + 1;
     }
-    return NULL;
+    return philos;
 }
 
-int init(t_philos_table *table, t_params arg)
+
+
+void init_mutexes(t_philos_table **table)
 {
-    table = malloc(sizeof(t_philos_table));
-    if(!table)
+    int i;
+
+    (*table)->forks = malloc(sizeof(pthread_mutex_t) * ((*table)->params.nb_philos + 1));
+    if (!(*table)->forks)
+        return ; 
+    (*table)->forks[(*table)->params.nb_philos] = NULL;
+    i = -1;
+    while(++i < (*table)->params.nb_philos)
+    {
+         (*table)->forks[i] = malloc(sizeof(pthread_mutex_t));
+        if (!(*table)->forks[i])
+            free_mutexes((*table)->forks, (*table)->params.nb_philos);
+    }
+}
+
+int init(t_philos_table **table, t_params arg)
+{
+    int condition;
+
+    condition = 0;
+    *table = malloc(sizeof(t_philos_table));
+    if (!table)
         return 1;
-    table->params = arg;
-    table->philos = init_philos(arg);
-    if(!table->philos)
-        return 1;
-    return 0;
+    (*table)->params = arg;
+    init_mutexes(table);
+    (*table)->philos = init_philos(arg);
+    condition = ((*table)->forks == NULL) + ((*table)->philos == NULL);
+    return condition;
 }

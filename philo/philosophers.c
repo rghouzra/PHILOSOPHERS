@@ -1,85 +1,122 @@
 #include "philosophers.h"
 
-int struct_init(t_philos_table *table, t_params arg)
-{
-	if(!table)
-		return 0;
-	pthread_mutex_init(table->left_fork, NULL);
-	pthread_mutex_init(table->right_fork, NULL);
-	if(!table->philos)
-		return 0;
-	return 1;
-}
 
-void philo_take_fork(t_philo *philo)
+void philo_take_fork(t_philo	*philo)
 {
-	printf("philo id %d take fork\n", philo->id);
+	printf("%d has taken fork\n" ,philo->id);
 	pthread_mutex_lock(philo->left_fork);
 	pthread_mutex_lock(philo->right_fork);
 }
 
+long get_time(void)
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+}
+
+void ft_usleep(long time)
+{
+	long start;
+	long end;
+
+	start = get_time();
+	end = start + time;
+	while (get_time() < end)
+		usleep(time);
+}
+
 void philo_eat(t_philo *philo)
 {
-	printf("philo id %d eat\n", philo->philos->id);
+	printf("%d eat\n", philo->id);
+	ft_usleep(philo->params.time_to_eat );
+}
+
+void philo_sleep(t_philo *philo)
+{
+	gettimeofday(&philo->last_meal, NULL);
+	printf("%d sleeping\n", philo->id);
+	ft_usleep(philo->params.time_to_sleep);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
 }
 
-void ft_usleep(unsigned int microseconds) {
-    struct timeval start_time;
-    gettimeofday(&start_time, NULL);
-
-    unsigned int end_time_us = start_time.tv_usec + microseconds;
-    time_t end_time_s = start_time.tv_sec + (end_time_us / 1000000);
-    end_time_us %= 1000000;
-
-    while (1) {
-        struct timeval current_time;
-        gettimeofday(&current_time, NULL);
-        if (current_time.tv_sec > end_time_s ||
-            (current_time.tv_sec == end_time_s && current_time.tv_usec >= end_time_us)) {
-            break;
-        }
-    }
-}
-
-void philo_sleep(t_philos_table *philo)
+void philo_think(t_philo *philo)
 {
-	printf("philo id %d sleeping\n", philo->philos->id);
-	ft_usleep(philo->params.time_to_sleep);
+	printf("%d thinking\n", philo->id);
+	ft_usleep(100);
 }
 
-void *philosophy(void *philosopher)
+void *philosophers_routine(void *param)
 {
 	t_philo *philo;
+	long long i;
 
-	philo = (t_philo *)philosopher;
+	philo = (t_philo *)param;
+	i = 0;
 	while(1)
 	{
 		philo_take_fork(philo);
 		philo_eat(philo);
 		philo_sleep(philo);
+		philo_think(philo);
 	}
 	return (NULL);
 }
+/*
+	?: suppose i have mutexes point to all mutexes which represent forks
+	TODO FREE MEMORY ALLOCATION
+*/
 
+void *philo_checker(void *ptr)
+ {
+	t_philos_table *table;
+	int i;
+	long long timestamp_timetodie;
+	long long timestamp_currtime;
+
+	table = (t_philos_table *)ptr;
+	while(1)
+	{
+		i = -1;
+		timestamp_currtime = table->start_time.tv_sec * 1000 + table->start_time.tv_usec / 1000;
+		timestamp_timetodie = timestamp_currtime 
+		while(++i < table->params.nb_philos)
+		{
+
+		}
+	}
+	return (NULL);
+ }
 void philosophy_start(t_philos_table *table)
 {
 	int			i;
+	t_philo 	**philos;
+	pthread_t		death_checker;
+	
+	philos = table->philos;
+	i = -1;
 
+	pthread_create(&death_checker, NULL, philo_checker, table);
+	while (++i < table->params.nb_philos)
+	{
+		philos[i]->left_fork = (table)->forks[i];
+		philos[i]->right_fork = (table)->forks[(i + 1) * !(table->forks[i + 1] == NULL)];
+		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
+	}
+	print_philos_dot(philos, table->params.nb_philos);	
+	pthread_join(death_checker, NULL);
 	i = -1;
 	while (++i < table->params.nb_philos)
-		pthread_create(&table->philos[i], NULL, philosophy, &table->philos[i]);
-	i = -1;
-	while (++i < table->params.nb_philos)
-		pthread_join(table->philos[i], NULL);
+		pthread_join(philos[i]->philo, NULL);
 }
 
 void	prepare_table(t_params args)
 {
 	t_philos_table	*table;
 
-	if (init(table, args))
+	if (init(&table, args))
 		return ;
 	philosophy_start(table);
 }
