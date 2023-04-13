@@ -70,34 +70,26 @@ void *philosophers_routine(void *param)
 */
 
 void *philo_checker(void *ptr)
- {
+{
 	t_philos_table *table;
-	int i;
-	long long timestamp_timetodie;
-	long long timestamp_currtime;
+	long long	curr_time;
+	struct timeval current_time;
 
-	table = (t_philos_table *)ptr;
+	table  = (t_philos_table *)ptr;
 	while(1)
 	{
-		i = -1;
-		timestamp_currtime = table->start_time.tv_sec * 1000 + table->start_time.tv_usec / 1000;
-		timestamp_timetodie = timestamp_currtime 
-		while(++i < table->params.nb_philos)
-		{
-
-		}
+				
 	}
 	return (NULL);
- }
+}
 void philosophy_start(t_philos_table *table)
 {
 	int			i;
 	t_philo 	**philos;
 	pthread_t		death_checker;
-	
+
 	philos = table->philos;
 	i = -1;
-
 	pthread_create(&death_checker, NULL, philo_checker, table);
 	while (++i < table->params.nb_philos)
 	{
@@ -105,7 +97,6 @@ void philosophy_start(t_philos_table *table)
 		philos[i]->right_fork = (table)->forks[(i + 1) * !(table->forks[i + 1] == NULL)];
 		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
 	}
-	print_philos_dot(philos, table->params.nb_philos);	
 	pthread_join(death_checker, NULL);
 	i = -1;
 	while (++i < table->params.nb_philos)
