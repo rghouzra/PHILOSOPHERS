@@ -72,13 +72,19 @@ void *philosophers_routine(void *param)
 void *philo_checker(void *ptr)
 {
 	t_philos_table *table;
-	long long curr_time;
+	long long		curr_time;
+	int				i;
 
 	table  = (t_philos_table *)ptr;
 	while(1)
 	{
+		i = -1;
 		curr_time = get_time_in_ms((struct timeval){0, 0}, 0);
-		printf("%lld\n", curr_time - get_time_in_ms(table->start_time, 1));
+		printf("cu-> %lld\n{\n", curr_time - get_time_in_ms(table->start_time, 1));
+		while(++i < table->params.nb_philos)	
+			printf("last_meal-> %lld\n", curr_time - get_time_in_ms(table->philos[i]->last_meal, 1));
+		printf("}\n");
+		// sleep(1);
 	}
 	return (NULL);
 }
@@ -95,7 +101,7 @@ void philosophy_start(t_philos_table *table)
 	{
 		philos[i]->left_fork = (table)->forks[i];
 		philos[i]->right_fork = (table)->forks[(i + 1) * !(table->forks[i + 1] == NULL)];
-		// pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
+		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
 	}
 	pthread_join(death_checker, NULL);
 	i = -1;
