@@ -1,31 +1,35 @@
 #include "philosophers.h"
 
-long long get_time_in_ms(struct timeval time)
+long long get_time_in_ms(struct timeval time_par, int checker)
 {
 	long long milliseconds;
+    struct timeval time;
 
+    time = time_par;
+    if (!checker)
+        gettimeofday(&time, NULL);
 	milliseconds = time.tv_sec * 1000 + time.tv_usec / 1000;
 	return (milliseconds);
 }
 
 
-int main() {
+// int main() {
 
-    long long lastMealTimestamp = 1681335899721;
-
-
-    int timeToDieInSeconds = 200;
+//     long long lastMealTimestamp = 1681335899721;
 
 
-    struct timeval currentTime;
-    gettimeofday(&currentTime, NULL);
-    long long currentTimestamp = currentTime.tv_sec * 1000LL + currentTime.tv_usec / 1000LL;
+//     int timeToDieInSeconds = 200;
 
 
-    long long timeToDieTimestamp = currentTimestamp + (long long)timeToDieInSeconds * 1000LL;
-    long long durationMilliseconds = timeToDieTimestamp - lastMealTimestamp;
+//     struct timeval currentTime;
+//     gettimeofday(&currentTime, NULL);
+//     long long currentTimestamp = currentTime.tv_sec * 1000LL + currentTime.tv_usec / 1000LL;
 
-    printf("Duration until death: %lld ms\n", durationMilliseconds);
 
-    return 0;
-}
+//     long long timeToDieTimestamp = currentTimestamp + (long long)timeToDieInSeconds * 1000LL;
+//     long long durationMilliseconds = timeToDieTimestamp - lastMealTimestamp;
+
+//     printf("Duration until death: %lld ms\n", durationMilliseconds);
+
+//     return 0;
+// }

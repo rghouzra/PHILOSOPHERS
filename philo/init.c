@@ -14,7 +14,7 @@ t_philo **init_philos(t_params arg)
     {
         philos[i] = malloc(sizeof(t_philo));
         if (!philos[i])
-            return NULL;
+            return (NULL);
         philos[i]->id = i + 1;
     }
     return philos;
@@ -48,6 +48,7 @@ int init(t_philos_table **table, t_params arg)
     if (!table)
         return 1;
     (*table)->params = arg;
+    gettimeofday(&(*table)->start_time, NULL);
     init_mutexes(table);
     (*table)->philos = init_philos(arg);
     condition = ((*table)->forks == NULL) + ((*table)->philos == NULL);

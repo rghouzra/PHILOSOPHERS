@@ -44,5 +44,5 @@ void	ft_putstr_fd(char const *s, int fd);
 void	show_error(char *s);
 void print_philos_dot(t_philo **philos, int nb_philos);
 void free_mutexes(pthread_mutex_t **ptr, int size);
-long long get_time_in_ms(struct timeval time);
+long long get_time_in_ms(struct timeval time_par, int checker);
 #endif
