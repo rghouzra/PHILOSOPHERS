@@ -30,22 +30,23 @@ void ft_usleep(long time)
 void philo_eat(t_philo *philo)
 {
 	printf("%d eating\n", philo->id);
-	usleep(philo->params.time_to_eat );
+	ft_usleep(philo->params.time_to_eat );
+	philo->eat_counter = philo->eat_counter + 1;
+	pthread_mutex_lock(philo->left_fork);
+	pthread_mutex_lock(philo->right_fork);
 }
 
 void philo_sleep(t_philo *philo)
 {
 	gettimeofday(&philo->last_meal, NULL);
 	printf("%d sleeping\n", philo->id);
-	usleep(philo->params.time_to_sleep);
-	pthread_mutex_unlock(philo->left_fork);
-	pthread_mutex_unlock(philo->right_fork);
+	ft_usleep(philo->params.time_to_sleep);
 }
 
 void philo_think(t_philo *philo)
 {
 	printf("%d thinking\n", philo->id);
-	usleep(200);
+	ft_usleep(200);
 }
 
 void *philosophers_routine(void *param)
@@ -55,8 +56,8 @@ void *philosophers_routine(void *param)
 
 	philo = (t_philo *)param;
 	i = 0;
-	// if(!(philo->id % 2))
-	// 	usleep(200);
+	if(!(philo->id % 2))
+		ft_usleep(200);
 	while(1)
 	{
 		philo_take_fork(philo);
@@ -88,6 +89,11 @@ void *philo_checker(void *ptr)
 			if(curr_time - get_time_in_ms(table->philos[i]->last_meal, 1) >= table->params.time_to_die)
 			{
 				printf("%lld %d Died\n", curr_time,table->philos[i]->id);
+				exit(1);
+			}
+			if (table->philos[i]->eat_counter > table->params.eat_count && table->params.eat_count != -1)
+			{
+				printf("philos has reached the max");
 				exit(1);
 			}
 		}

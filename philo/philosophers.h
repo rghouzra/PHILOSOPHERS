@@ -20,6 +20,7 @@ typedef struct s_philo
 {
 	struct timeval	start_time;
 	int			id;
+	int			eat_counter;
 	t_params 	params;
 	pthread_t	philo;
 	pthread_mutex_t	*left_fork;

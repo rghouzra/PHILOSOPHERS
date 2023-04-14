@@ -17,6 +17,7 @@ t_philo **init_philos(t_params arg)
             return (NULL);
         gettimeofday(&philos[i]->last_meal, NULL);
         philos[i]->id = i + 1;
+        philos[i]->eat_counter = 0;
     }
     return philos;
 }
