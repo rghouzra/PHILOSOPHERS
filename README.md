@@ -47,3 +47,23 @@ https://miro.com/app/board/o9J_l0AjIkc=/
 https://github.com/lorenuars19
 
 https://nafuka11.github.io/philosophers-visualizer/
+/*
+The implementation of the Dining Philosophers problem in the provided code seems to have covered the basic structure, but there are several potential issues and areas for improvement. Here's a list of observations and suggestions:
+
+    Deadlock prevention: One common issue with the Dining Philosophers problem is the possibility of deadlocks. In the philo_take_fork function, you lock both the left and right forks sequentially. This could lead to a deadlock if all philosophers grab their left fork at the same time. To avoid this, you can use an asymmetric approach where philosophers with an odd ID grab their left fork first and those with an even ID grab their right fork first. This ensures that at least one philosopher can eat.
+
+    Use of printf: The use of printf statements for tracing the status of the philosophers might lead to unexpected behavior, as printf is not thread-safe. Instead, you can use write or wrap the printf calls with a mutex to make them thread-safe.
+
+    ft_usleep implementation: The ft_usleep function may cause busy waiting since the while loop keeps checking the time without giving other threads a chance to run. Instead of using usleep(time) within the loop, consider using usleep(1000) or another small value to avoid hogging the CPU.
+
+    Memory management: The code has a commented "TODO" mentioning memory allocation. Make sure to clean up and free all allocated memory before exiting the program, including the memory allocated for philosophers, forks, and mutexes.
+
+    Error checking: Add error checking for functions that could fail, such as pthread_create, pthread_mutex_lock, and pthread_mutex_unlock. This will help you identify issues more quickly and make the code more robust.
+
+    Code organization: It might be helpful to separate the logic for creating and initializing the philosophers, forks, and mutexes into separate functions. This will make the code more modular and easier to read.
+
+    Infinite loop: The while (1) loop in the philosophers_routine function might be better served with a condition tied to the program's exit criteria, such as the number of times a philosopher has eaten. This will help ensure a clean exit under normal circumstances.
+
+    Variable naming: Some variables have unclear names or use a mix of naming conventions. Consider using more descriptive names and a consistent naming convention for better readability.
+
+*/

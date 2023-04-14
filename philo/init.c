@@ -15,6 +15,7 @@ t_philo **init_philos(t_params arg)
         philos[i] = malloc(sizeof(t_philo));
         if (!philos[i])
             return (NULL);
+        gettimeofday(&philos[i]->last_meal, NULL);
         philos[i]->id = i + 1;
     }
     return philos;
@@ -33,7 +34,7 @@ void init_mutexes(t_philos_table **table)
     i = -1;
     while(++i < (*table)->params.nb_philos)
     {
-         (*table)->forks[i] = malloc(sizeof(pthread_mutex_t));
+        (*table)->forks[i] = malloc(sizeof(pthread_mutex_t));
         if (!(*table)->forks[i])
             free_mutexes((*table)->forks, (*table)->params.nb_philos);
     }
