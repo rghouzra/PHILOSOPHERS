@@ -38,6 +38,7 @@ void init_mutexes(t_philos_table **table)
         (*table)->forks[i] = malloc(sizeof(pthread_mutex_t));
         if (!(*table)->forks[i])
             free_mutexes((*table)->forks, (*table)->params.nb_philos);
+        pthread_mutex_init((*table)->forks[i], NULL);
     }
 }
 

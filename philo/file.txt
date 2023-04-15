@@ -1,0 +1,138 @@
+left_fork[0]->0x7b0c00000000
+right_fork[0]->0x7b0c00000060
+left_fork[1]->0x7b0c00000060
+right_fork[1]->0x7b0c00000090
+left_fork[2]->0x7b0c00000090
+right_fork[2]->0x7b0c000000c0
+left_fork[3]->0x7b0c000000c0
+right_fork[3]->0x7b0c000000f0
+left_fork[4]->0x7b0c000000f0
+right_fork[4]->0x7b0c00000120
+left_fork[5]->0x7b0c00000120
+right_fork[5]->0x7b0c00000150
+left_fork[6]->0x7b0c00000150
+right_fork[6]->0x7b0c00000180
+left_fork[7]->0x7b0c00000180
+right_fork[7]->0x7b0c000001b0
+left_fork[8]->0x7b0c000001b0
+right_fork[8]->0x7b0c000001e0
+left_fork[9]->0x7b0c000001e0
+right_fork[9]->0x7b0c00000000
+==================
+WARNING: ThreadSanitizer: lock-order-inversion (potential deadlock) (pid=503)
+  Cycle in lock order graph: M9 (0x7b0c000001e0) => M8 (0x7b0c000001b0) => M7 (0x7b0c00000180) => M6 (0x7b0c00000150) => M5 (0x7b0c00000120) => M4 (0x7b0c000000f0) => M3 (0x7b0c000000c0) => M2 (0x7b0c00000090) => M1 (0x7b0c00000060) => M0 (0x7b0c00000000) => M9
+
+  Mutex M8 acquired here while holding mutex M9 in thread T10:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+    Hint: use TSAN_OPTIONS=second_deadlock_stack=1 to get more informative warning message
+
+  Mutex M7 acquired here while holding mutex M8 in thread T9:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M6 acquired here while holding mutex M7 in thread T8:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M5 acquired here while holding mutex M6 in thread T7:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M4 acquired here while holding mutex M5 in thread T6:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M3 acquired here while holding mutex M4 in thread T5:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M2 acquired here while holding mutex M3 in thread T4:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M1 acquired here while holding mutex M2 in thread T3:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M0 acquired here while holding mutex M1 in thread T2:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Mutex M9 acquired here while holding mutex M0 in thread T11:
+    #0 pthread_mutex_lock <null> (philo+0x441e06)
+    #1 philo_take_fork /workspaces/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0x4b2417)
+    #2 philosophers_routine /workspaces/PHILOSOPHERS/philo/philosophers.c:59:3 (philo+0x4b27db)
+
+  Thread T10 (tid=514, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T9 (tid=513, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T8 (tid=512, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T7 (tid=511, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T6 (tid=510, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T5 (tid=509, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T4 (tid=508, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T3 (tid=507, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T2 (tid=506, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+  Thread T11 (tid=515, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x424a3b)
+    #1 philosophy_start /workspaces/PHILOSOPHERS/philo/philosophers.c:116:3 (philo+0x4b2d1c)
+    #2 prepare_table /workspaces/PHILOSOPHERS/philo/philosophers.c:130:2 (philo+0x4b2e71)
+    #3 main /workspaces/PHILOSOPHERS/philo/main.c:11:2 (philo+0x4b198d)
+
+SUMMARY: ThreadSanitizer: lock-order-inversion (potential deadlock) (/workspaces/PHILOSOPHERS/philo/philo+0x441e06) in pthread_mutex_lock
+==================
