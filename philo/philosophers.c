@@ -19,11 +19,20 @@ long long get_time(void)
 	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
+void ft_usleep(long long time)
+{
+	long long start;
+
+	start = get_time();
+	while (get_time() - start < time)
+		usleep(100);
+}
+
 void philo_eat(t_philo *philo)
 {
 	printf("%d eating\n", philo->id);
-	usleep(philo->params.time_to_eat );
-	usleep(philo->params.time_to_eat );
+	ft_usleep(philo->params.time_to_eat );
+	ft_usleep(philo->params.time_to_eat );
 	philo->eat_counter = philo->eat_counter + 1;
 	if(philo->left_fork && philo->right_fork)
 	{
@@ -36,13 +45,13 @@ void philo_sleep(t_philo *philo)
 {
 	gettimeofday(&philo->last_meal, NULL);
 	printf("%d sleeping\n", philo->id);
-	usleep(philo->params.time_to_sleep);
+	ft_usleep(philo->params.time_to_sleep);
 }
 
 void philo_think(t_philo *philo)
 {
 	printf("%d thinking\n", philo->id);
-	usleep(200);
+	ft_usleep(100);
 }
 
 void *philosophers_routine(void *param)
@@ -53,7 +62,7 @@ void *philosophers_routine(void *param)
 	philo = (t_philo *)param;
 	i = 0;
 	if(!(philo->id % 2))
-		usleep(200);
+		ft_usleep(100);
 	while(1)
 	{
 		philo_take_fork(philo);
