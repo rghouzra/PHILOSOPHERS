@@ -8,8 +8,8 @@ SRCS =	main.c\
 		print_philo_dot.c\
 		utils.c
 OBJS = $(SRCS:%.c=%.o)
-CC   = clang
-FLAGS = -g -fsanitize=thread
+CC   = gcc
+FLAGS = -g -fsanitize=thread,undefined
 INC = philosophers.h
 
 all: $(NAME)
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $@
 
-%.o: %.c $(INC)
+%.o:%.c $(INC)
 	$(CC) $(FLAGS) -c $<
 
 clean:

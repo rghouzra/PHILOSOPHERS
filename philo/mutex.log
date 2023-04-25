@@ -1,0 +1,118 @@
+==================
+WARNING: ThreadSanitizer: lock-order-inversion (potential deadlock) (pid=9099)
+  Cycle in lock order graph: M0 (0x7b0c000001b0) => M1 (0x7b0c00000180) => M2 (0x7b0c00000150) => M3 (0x7b0c00000120) => M4 (0x7b0c000000f0) => M5 (0x7b0c000000c0) => M6 (0x7b0c00000090) => M7 (0x7b0c00000060) => M8 (0x7b0c00000000) => M9 (0x7b0c000001e0) => M0
+
+  Mutex M1 acquired here while holding mutex M0 in thread T9:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+    Hint: use TSAN_OPTIONS=second_deadlock_stack=1 to get more informative warning message
+
+  Mutex M2 acquired here while holding mutex M1 in thread T8:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M3 acquired here while holding mutex M2 in thread T7:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M4 acquired here while holding mutex M3 in thread T6:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M5 acquired here while holding mutex M4 in thread T5:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M6 acquired here while holding mutex M5 in thread T4:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M7 acquired here while holding mutex M6 in thread T3:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M8 acquired here while holding mutex M7 in thread T2:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M9 acquired here while holding mutex M8 in thread T11:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Mutex M0 acquired here while holding mutex M9 in thread T10:
+    #0 pthread_mutex_lock <null> (philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philo_take_fork /home/reda/PHILOSOPHERS/philo/philosophers.c:10:3 (philo+0xd0b29) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 philosophers_routine /home/reda/PHILOSOPHERS/philo/philosophers.c:103:3 (philo+0xd16a2) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T9 (tid=9114, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T8 (tid=9113, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T7 (tid=9112, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T6 (tid=9111, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T5 (tid=9110, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T4 (tid=9109, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T3 (tid=9108, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T2 (tid=9107, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T11 (tid=9116, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+  Thread T10 (tid=9115, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x503bd) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #1 philosophy_start /home/reda/PHILOSOPHERS/philo/philosophers.c:125:3 (philo+0xd2318) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #2 prepare_table /home/reda/PHILOSOPHERS/philo/philosophers.c:139:2 (philo+0xd261e) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+    #3 main /home/reda/PHILOSOPHERS/philo/main.c:11:2 (philo+0xcf233) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72)
+
+SUMMARY: ThreadSanitizer: lock-order-inversion (potential deadlock) (/home/reda/PHILOSOPHERS/philo/philo+0x6df4a) (BuildId: 5a50d9b4e5c5bfda36bd067483e7c5f7bbf36a72) in __interceptor_pthread_mutex_lock
+==================

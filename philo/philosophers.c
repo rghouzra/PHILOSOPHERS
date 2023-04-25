@@ -4,7 +4,7 @@
 void philo_take_fork(t_philo	*philo)
 {
 	printf("%d has taken fork\n" ,philo->id);
-	if(philo->left_fork && philo->right_fork)
+	if (philo->left_fork && philo->right_fork)
 	{
 		pthread_mutex_lock(philo->right_fork);
 		pthread_mutex_lock(philo->left_fork);
@@ -25,14 +25,13 @@ void ft_usleep(long long time)
 
 	start = get_time();
 	while (get_time() - start < time)
-		usleep(100);
+		usleep(time );
 }
 
 void philo_eat(t_philo *philo)
 {
 	printf("%d eating\n", philo->id);
-	ft_usleep(philo->params.time_to_eat );
-	ft_usleep(philo->params.time_to_eat );
+	ft_usleep(philo->params.time_to_eat);
 	philo->eat_counter = philo->eat_counter + 1;
 	if(philo->left_fork && philo->right_fork)
 	{
@@ -45,7 +44,7 @@ void philo_sleep(t_philo *philo)
 {
 	gettimeofday(&philo->last_meal, NULL);
 	printf("%d sleeping\n", philo->id);
-	ft_usleep(philo->params.time_to_sleep);
+	ft_usleep(philo->params.time_to_sleep * 1000);
 }
 
 void philo_think(t_philo *philo)
@@ -54,24 +53,6 @@ void philo_think(t_philo *philo)
 	ft_usleep(100);
 }
 
-void *philosophers_routine(void *param)
-{
-	t_philo		*philo;
-	long long	i;
-
-	philo = (t_philo *)param;
-	i = 0;
-	if(!(philo->id % 2))
-		ft_usleep(100);
-	while(1)
-	{
-		philo_take_fork(philo);
-		philo_eat(philo);
-		philo_sleep(philo);
-		philo_think(philo);
-	}
-	return (NULL);
-}
 /*
 	?: suppose i have mutexes point to all mutexes which represent forks
 
@@ -107,6 +88,25 @@ void *philo_checker(void *ptr)
 	return (NULL);
 }
 
+void *philosophers_routine(void *param)
+{
+	t_philo		*philo;
+	long long	i;
+
+	philo = (t_philo *)param;
+	i = 0;
+	while(1)
+	{
+		if(!(philo->id % 2))
+			ft_usleep(200);
+		philo_take_fork(philo);
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
+	return (NULL);
+}
+
 void philosophy_start(t_philos_table *table)
 {
 	int			i;
@@ -117,15 +117,11 @@ void philosophy_start(t_philos_table *table)
 	i = -1;
 	pthread_create(&death_checker, NULL, philo_checker, table);
 	while (++i < table->params.nb_philos)
-	{
-		philos[i]->left_fork = (table)->forks[i];
-		philos[i]->right_fork = (table)->forks[(i + 1) * ((table->forks[i + 1] != NULL) + (table->params.nb_philos == 1))];
 		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
-	}
 	pthread_join(death_checker, NULL);
 	i = -1;
 	while (++i < table->params.nb_philos)
-		pthread_join(philos[i]->philo, NULL);
+		pthread_detach(philos[i]->philo);
 }
 
 void	prepare_table(t_params args)
