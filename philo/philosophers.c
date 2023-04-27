@@ -31,26 +31,26 @@ void ft_usleep(long long time)
 void philo_eat(t_philo *philo)
 {
 	printf("%d eating\n", philo->id);
-	ft_usleep(philo->params.time_to_eat);
 	philo->eat_counter = philo->eat_counter + 1;
 	if(philo->left_fork && philo->right_fork)
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
 	}
+	ft_usleep(philo->params.time_to_eat);
 }
 
 void philo_sleep(t_philo *philo)
 {
 	gettimeofday(&philo->last_meal, NULL);
 	printf("%d sleeping\n", philo->id);
-	ft_usleep(philo->params.time_to_sleep * 1000);
+	ft_usleep(philo->params.time_to_sleep);
 }
 
 void philo_think(t_philo *philo)
 {
 	printf("%d thinking\n", philo->id);
-	ft_usleep(100);
+	ft_usleep(200);
 }
 
 /*
@@ -94,11 +94,11 @@ void *philosophers_routine(void *param)
 	long long	i;
 
 	philo = (t_philo *)param;
+	if(!(philo->id % 2))
+		ft_usleep(200);
 	i = 0;
 	while(1)
 	{
-		if(!(philo->id % 2))
-			ft_usleep(200);
 		philo_take_fork(philo);
 		philo_eat(philo);
 		philo_sleep(philo);
