@@ -1,0 +1,29 @@
+AddressSanitizer:DEADLYSIGNAL
+AddressSanitizer=================================================================
+:DEADLYSIGNAL
+==10147==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x7fff7ccc3137 bp 0x70000af08ed0 sp 0x70000af08e58 T1)
+==10147==The signal is caused by a READ memory access.
+==10147==Hint: address points to the zero page.
+AddressSanitizer:DEADLYSIGNAL
+AddressSanitizer:DEADLYSIGNAL
+    #0 0x7fff7ccc3136 in _pthread_mutex_global_init (libsystem_pthread.dylib:x86_64+0x1136)
+    #1 0x10dcb5487 in philosophers_routine philosophers.c:98
+    #2 0x7fff7ccc52ea in _pthread_body (libsystem_pthread.dylib:x86_64+0x32ea)
+    #3 0x7fff7ccc8248 in _pthread_start (libsystem_pthread.dylib:x86_64+0x6248)
+    #4 0x7fff7ccc440c in thread_start (libsystem_pthread.dylib:x86_64+0x240c)
+
+==10147==Register values:
+rax = 0x000060b000000088  rbx = 0x000070000af09000  rcx = 0x00001c1600000011  rdx = 0x0000100000000000  
+rdi = 0xbebebebebebebebe  rsi = 0x0000000000000300  rbp = 0x000070000af08ed0  rsp = 0x000070000af08e58  
+ r8 = 0x00000000000130a8   r9 = 0x00007fffb30f8f78  r10 = 0x000000010eb23c30  r11 = 0x000000010dcffce0  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (libsystem_pthread.dylib:x86_64+0x1136) in _pthread_mutex_global_init
+Thread T1 created by T0 here:
+    #0 0x10dd1678d in wrap_pthread_create (libclang_rt.asan_osx_dynamic.dylib:x86_64h+0x5978d)
+    #1 0x10dcb55f0 in philosophy_start philosophers.c:115
+    #2 0x10dcb5898 in prepare_table philosophers.c:128
+    #3 0x10dcb37f9 in main main.c:11
+    #4 0x7fff7cad13d4 in start (libdyld.dylib:x86_64+0x163d4)
+
+==10147==ABORTING

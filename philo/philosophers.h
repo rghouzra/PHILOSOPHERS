@@ -23,6 +23,8 @@ typedef struct s_philo
 	int			eat_counter;
 	t_params 	params;
 	pthread_t	philo;
+	pthread_mutex_t *meal;
+	pthread_mutex_t *eat_count;
 	pthread_mutex_t	*left_fork;
 	struct timeval last_meal;
 	pthread_mutex_t	*right_fork;
@@ -31,9 +33,9 @@ typedef struct s_philos_table
 {
 	t_params		params;
 	t_philo			**philos;
+	pthread_mutex_t **meals;
 	pthread_mutex_t **forks;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
+	pthread_mutex_t **eat_counts;
 	struct timeval	start_time;
 }t_philos_table;
 int		init(t_philos_table **table, t_params arg);
