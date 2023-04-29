@@ -63,11 +63,12 @@ void init_mutexes(t_philos_table *table)
     int i;
 
     i = -1;
-    (*table).forks = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
+    (*table).forks = malloc(sizeof(pthread_mutex_t *) * ((*table).params.nb_philos + 1));
     (*table).meals = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     (*table).eat_counts = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     if(protect_mutexes(table))
         return;
+	(*table).forks[(*table).params.nb_philos] = NULL;
     while (++i < (*table).params.nb_philos)
     {
         (*table).forks[i] = malloc(sizeof(pthread_mutex_t));
