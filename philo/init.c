@@ -16,7 +16,7 @@ t_philo **init_philos(t_philos_table *table)
         if (!philos[i])
             return ( NULL);
         gettimeofday(&philos[i]->start_time, NULL);
-        philos[i]->last_meal = (struct timeval){-1, -1};
+        philos[i]->last_meal = (struct timeval){0, 0};
         philos[i]->id = i + 1;
         philos[i]->eat_counter = 0;
         philos[i]->params = (*table).params;

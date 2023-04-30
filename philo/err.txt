@@ -1,1760 +1,263 @@
-0 2 has taken a fork
-0 2 has taken a fork
-0 2 is eating
-0 4 has taken a fork
-0 4 has taken a fork
-0 4 is eating
-1 6 has taken a fork
-1 6 has taken a fork
-1 6 is eating
-1 8 has taken a fork
-1 8 has taken a fork
-1 8 is eating
-1 10 has taken a fork
-1 10 has taken a fork
-1 10 is eating
-2 12 has taken a fork
-2 12 has taken a fork
-2 12 is eating
-2 14 has taken a fork
-2 14 has taken a fork
-2 14 is eating
-2 16 has taken a fork
-2 16 has taken a fork
-2 16 is eating
-2 18 has taken a fork
-2 18 has taken a fork
-2 18 is eating
-2 20 has taken a fork
-2 20 has taken a fork
-2 20 is eating
-3 22 has taken a fork
-3 22 has taken a fork
-3 22 is eating
-3 24 has taken a fork
-3 24 has taken a fork
-3 24 is eating
-3 26 has taken a fork
-3 26 has taken a fork
-3 26 is eating
-3 28 has taken a fork
-3 28 has taken a fork
-3 28 is eating
-3 30 has taken a fork
-3 30 has taken a fork
-3 30 is eating
-3 32 has taken a fork
-3 32 has taken a fork
-3 32 is eating
-4 34 has taken a fork
-4 34 has taken a fork
-4 34 is eating
-4 36 has taken a fork
-4 36 has taken a fork
-4 36 is eating
-4 38 has taken a fork
-4 38 has taken a fork
-4 38 is eating
-4 40 has taken a fork
-4 40 has taken a fork
-4 40 is eating
-4 42 has taken a fork
-4 42 has taken a fork
-4 42 is eating
-5 44 has taken a fork
-5 44 has taken a fork
-5 44 is eating
-5 46 has taken a fork
-5 46 has taken a fork
-5 46 is eating
-5 48 has taken a fork
-5 48 has taken a fork
-5 48 is eating
-5 50 has taken a fork
-5 50 has taken a fork
-5 50 is eating
-5 52 has taken a fork
-5 52 has taken a fork
-5 52 is eating
-6 54 has taken a fork
-6 54 has taken a fork
-6 54 is eating
-6 56 has taken a fork
-6 56 has taken a fork
-6 56 is eating
-6 58 has taken a fork
-6 58 has taken a fork
-6 58 is eating
-6 60 has taken a fork
-6 60 has taken a fork
-6 60 is eating
-6 62 has taken a fork
-6 62 has taken a fork
-6 62 is eating
-7 64 has taken a fork
-7 64 has taken a fork
-7 64 is eating
-7 66 has taken a fork
-7 66 has taken a fork
-7 66 is eating
-7 68 has taken a fork
-7 68 has taken a fork
-7 68 is eating
-7 70 has taken a fork
-7 70 has taken a fork
-7 70 is eating
-7 72 has taken a fork
-7 72 has taken a fork
-7 72 is eating
-8 74 has taken a fork
-8 74 has taken a fork
-8 74 is eating
-8 76 has taken a fork
-8 76 has taken a fork
-8 76 is eating
-8 78 has taken a fork
-8 78 has taken a fork
-8 78 is eating
-8 80 has taken a fork
-8 80 has taken a fork
-8 80 is eating
-9 82 has taken a fork
-9 82 has taken a fork
-9 82 is eating
-9 84 has taken a fork
-9 84 has taken a fork
-9 84 is eating
-9 86 has taken a fork
-9 86 has taken a fork
-9 86 is eating
-9 88 has taken a fork
-9 88 has taken a fork
-9 88 is eating
-10 90 has taken a fork
-10 90 has taken a fork
-10 90 is eating
-10 92 has taken a fork
-10 92 has taken a fork
-10 92 is eating
-10 94 has taken a fork
-10 94 has taken a fork
-10 94 is eating
-10 96 has taken a fork
-10 96 has taken a fork
-10 96 is eating
-11 98 has taken a fork
-11 98 has taken a fork
-11 98 is eating
-11 100 has taken a fork
-11 100 has taken a fork
-11 100 is eating
-200 4 is sleeping
-200 2 is sleeping
-201 8 is sleeping
-201 6 is sleeping
-201 10 is sleeping
-202 16 is sleeping
-202 20 is sleeping
-202 14 is sleeping
-202 18 is sleeping
-202 12 is sleeping
-203 32 is sleeping
-203 28 is sleeping
-203 26 is sleeping
-203 22 is sleeping
-203 30 is sleeping
-203 24 is sleeping
-204 38 is sleeping
-204 40 is sleeping
-204 42 is sleeping
-204 36 is sleeping
-204 34 is sleeping
-205 48 is sleeping
-205 52 is sleeping
-205 50 is sleeping
-205 46 is sleeping
-205 44 is sleeping
-206 62 is sleeping
-206 58 is sleeping
-206 60 is sleeping
-206 56 is sleeping
-206 54 is sleeping
-207 70 is sleeping
-207 66 is sleeping
-207 72 is sleeping
-207 64 is sleeping
-207 68 is sleeping
-208 74 is sleeping
-208 80 is sleeping
-208 78 is sleeping
-208 76 is sleeping
-209 88 is sleeping
-209 82 is sleeping
-209 86 is sleeping
-209 84 is sleeping
-210 92 is sleeping
-210 90 is sleeping
-210 94 is sleeping
-210 96 is sleeping
-211 98 is sleeping
-211 100 is sleeping
-300 3 has taken a fork
-300 3 has taken a fork
-300 3 is eating
-300 1 has taken a fork
-300 1 has taken a fork
-300 1 is eating
-301 9 has taken a fork
-301 9 has taken a fork
-301 9 is eating
-301 7 has taken a fork
-301 7 has taken a fork
-301 11 has taken a fork
-301 11 has taken a fork
-301 7 is eating
-301 11 is eating
-301 5 has taken a fork
-301 5 has taken a fork
-301 5 is eating
-302 13 has taken a fork
-302 13 has taken a fork
-302 13 is eating
-302 21 has taken a fork
-302 21 has taken a fork
-302 21 is eating
-302 19 has taken a fork
-302 19 has taken a fork
-302 19 is eating
-302 15 has taken a fork
-302 15 has taken a fork
-302 15 is eating
-302 17 has taken a fork
-302 17 has taken a fork
-302 17 is eating
-303 27 has taken a fork
-303 27 has taken a fork
-303 27 is eating
-303 25 has taken a fork
-303 25 has taken a fork
-303 25 is eating
-303 23 has taken a fork
-303 23 has taken a fork
-303 23 is eating
-303 29 has taken a fork
-303 29 has taken a fork
-303 29 is eating
-303 31 has taken a fork
-303 31 has taken a fork
-303 31 is eating
-304 33 has taken a fork
-304 33 has taken a fork
-304 33 is eating
-304 39 has taken a fork
-304 39 has taken a fork
-304 39 is eating
-304 37 has taken a fork
-304 35 has taken a fork
-304 41 has taken a fork
-304 37 has taken a fork
-304 35 has taken a fork
-304 41 has taken a fork
-304 37 is eating
-304 35 is eating
-304 41 is eating
-305 51 has taken a fork
-305 51 has taken a fork
-305 51 is eating
-305 43 has taken a fork
-305 43 has taken a fork
-305 49 has taken a fork
-305 49 has taken a fork
-305 43 is eating
-305 49 is eating
-305 45 has taken a fork
-305 45 has taken a fork
-305 45 is eating
-305 53 has taken a fork
-305 47 has taken a fork
-305 53 has taken a fork
-305 53 is eating
-305 47 has taken a fork
-305 47 is eating
-306 63 has taken a fork
-306 63 has taken a fork
-306 63 is eating
-306 59 has taken a fork
-306 59 has taken a fork
-306 59 is eating
-306 57 has taken a fork
-306 57 has taken a fork
-306 57 is eating
-306 55 has taken a fork
-306 55 has taken a fork
-306 55 is eating
-306 61 has taken a fork
-306 61 has taken a fork
-306 61 is eating
-307 67 has taken a fork
-307 67 has taken a fork
-307 67 is eating
-307 65 has taken a fork
-307 65 has taken a fork
-307 65 is eating
-307 69 has taken a fork
-307 69 has taken a fork
-307 69 is eating
-307 71 has taken a fork
-307 71 has taken a fork
-307 71 is eating
-308 73 has taken a fork
-308 73 has taken a fork
-308 73 is eating
-308 75 has taken a fork
-308 75 has taken a fork
-308 75 is eating
-308 81 has taken a fork
-308 81 has taken a fork
-308 81 is eating
-308 77 has taken a fork
-308 77 has taken a fork
-308 79 has taken a fork
-308 79 has taken a fork
-308 77 is eating
-308 79 is eating
-309 85 has taken a fork
-309 85 has taken a fork
-309 85 is eating
-309 87 has taken a fork
-309 87 has taken a fork
-309 87 is eating
-309 83 has taken a fork
-309 83 has taken a fork
-309 83 is eating
-309 89 has taken a fork
-309 89 has taken a fork
-309 89 is eating
-310 91 has taken a fork
-310 91 has taken a fork
-310 93 has taken a fork
-310 91 is eating
-310 93 has taken a fork
-310 93 is eating
-310 97 has taken a fork
-310 97 has taken a fork
-310 97 is eating
-310 95 has taken a fork
-310 95 has taken a fork
-310 95 is eating
-311 99 has taken a fork
-311 99 has taken a fork
-311 99 is eating
-400 4 is thinking
-400 2 is thinking
-401 6 is thinking
-401 8 is thinking
-401 10 is thinking
-402 20 is thinking
-402 12 is thinking
-402 18 is thinking
-402 14 is thinking
-402 16 is thinking
-403 22 is thinking
-403 30 is thinking
-403 28 is thinking
-403 32 is thinking
-403 24 is thinking
-403 26 is thinking
-404 42 is thinking
-404 40 is thinking
-404 38 is thinking
-404 34 is thinking
-404 36 is thinking
-405 48 is thinking
-405 50 is thinking
-405 52 is thinking
-405 46 is thinking
-405 44 is thinking
-406 60 is thinking
-406 54 is thinking
-406 62 is thinking
-406 58 is thinking
-406 56 is thinking
-407 70 is thinking
-407 64 is thinking
-407 66 is thinking
-407 72 is thinking
-407 68 is thinking
-408 76 is thinking
-408 78 is thinking
-408 80 is thinking
-408 74 is thinking
-409 86 is thinking
-409 84 is thinking
-409 88 is thinking
-409 82 is thinking
-410 92 is thinking
-410 90 is thinking
-410 96 is thinking
-410 94 is thinking
-411 98 is thinking
-411 100 is thinking
-500 1 is sleeping
-500 3 is sleeping
-501 11 is sleeping
-501 5 is sleeping
-501 9 is sleeping
-501 7 is sleeping
-502 13 is sleeping
-502 15 is sleeping
-502 19 is sleeping
-502 21 is sleeping
-502 17 is sleeping
-503 25 is sleeping
-503 27 is sleeping
-503 23 is sleeping
-503 31 is sleeping
-503 29 is sleeping
-504 37 is sleeping
-504 39 is sleeping
-504 41 is sleeping
-504 35 is sleeping
-504 33 is sleeping
-505 51 is sleeping
-505 49 is sleeping
-505 45 is sleeping
-505 47 is sleeping
-505 53 is sleeping
-505 43 is sleeping
-506 55 is sleeping
-506 61 is sleeping
-506 63 is sleeping
-506 57 is sleeping
-506 59 is sleeping
-507 69 is sleeping
-507 71 is sleeping
-507 65 is sleeping
-507 67 is sleeping
-508 79 is sleeping
-508 75 is sleeping
-508 81 is sleeping
-508 73 is sleeping
-508 77 is sleeping
-509 85 is sleeping
-509 89 is sleeping
-509 87 is sleeping
-509 83 is sleeping
-510 91 is sleeping
-510 93 is sleeping
-510 95 is sleeping
-510 97 is sleeping
-511 99 is sleeping
-600 2 has taken a fork
-600 2 has taken a fork
-600 2 is eating
-600 4 has taken a fork
-600 4 has taken a fork
-600 4 is eating
-601 6 has taken a fork
-601 6 has taken a fork
-601 6 is eating
-601 8 has taken a fork
-601 8 has taken a fork
-601 8 is eating
-601 10 has taken a fork
-601 10 has taken a fork
-601 10 is eating
-602 18 has taken a fork
-602 18 has taken a fork
-602 18 is eating
-602 16 has taken a fork
-602 16 has taken a fork
-602 16 is eating
-602 20 has taken a fork
-602 20 has taken a fork
-602 20 is eating
-602 14 has taken a fork
-602 14 has taken a fork
-602 14 is eating
-602 12 has taken a fork
-602 12 has taken a fork
-602 12 is eating
-603 28 has taken a fork
-603 28 has taken a fork
-603 28 is eating
-603 30 has taken a fork
-603 30 has taken a fork
-603 30 is eating
-603 24 has taken a fork
-603 24 has taken a fork
-603 24 is eating
-603 22 has taken a fork
-603 22 has taken a fork
-603 22 is eating
-603 32 has taken a fork
-603 32 has taken a fork
-603 32 is eating
-603 26 has taken a fork
-603 26 has taken a fork
-603 26 is eating
-604 40 has taken a fork
-604 40 has taken a fork
-604 40 is eating
-604 42 has taken a fork
-604 42 has taken a fork
-604 42 is eating
-604 36 has taken a fork
-604 36 has taken a fork
-604 36 is eating
-604 38 has taken a fork
-604 38 has taken a fork
-604 38 is eating
-604 34 has taken a fork
-604 34 has taken a fork
-604 34 is eating
-605 52 has taken a fork
-605 52 has taken a fork
-605 52 is eating
-605 50 has taken a fork
-605 50 has taken a fork
-605 48 has taken a fork
-605 48 has taken a fork
-605 50 is eating
-605 48 is eating
-605 44 has taken a fork
-605 44 has taken a fork
-605 44 is eating
-605 46 has taken a fork
-605 46 has taken a fork
-605 46 is eating
-606 60 has taken a fork
-606 60 has taken a fork
-606 60 is eating
-606 54 has taken a fork
-606 54 has taken a fork
-606 54 is eating
-606 62 has taken a fork
-606 62 has taken a fork
-606 62 is eating
-606 56 has taken a fork
-606 56 has taken a fork
-606 56 is eating
-606 58 has taken a fork
-606 58 has taken a fork
-606 58 is eating
-607 70 has taken a fork
-607 70 has taken a fork
-607 70 is eating
-607 64 has taken a fork
-607 64 has taken a fork
-607 64 is eating
-607 68 has taken a fork
-607 68 has taken a fork
-607 68 is eating
-607 72 has taken a fork
-607 72 has taken a fork
-607 72 is eating
-607 66 has taken a fork
-607 66 has taken a fork
-607 66 is eating
-608 80 has taken a fork
-608 80 has taken a fork
-608 80 is eating
-608 78 has taken a fork
-608 78 has taken a fork
-608 78 is eating
-608 74 has taken a fork
-608 74 has taken a fork
-608 74 is eating
-608 76 has taken a fork
-608 76 has taken a fork
-608 76 is eating
-609 86 has taken a fork
-609 86 has taken a fork
-609 86 is eating
-609 84 has taken a fork
-609 84 has taken a fork
-609 84 is eating
-609 88 has taken a fork
-609 88 has taken a fork
-609 88 is eating
-609 82 has taken a fork
-609 82 has taken a fork
-609 82 is eating
-610 96 has taken a fork
-610 96 has taken a fork
-610 96 is eating
-610 92 has taken a fork
-610 92 has taken a fork
-610 92 is eating
-610 90 has taken a fork
-610 90 has taken a fork
-610 90 is eating
-610 94 has taken a fork
-610 94 has taken a fork
-610 94 is eating
-611 98 has taken a fork
-611 98 has taken a fork
-611 98 is eating
-611 100 has taken a fork
-611 100 has taken a fork
-611 100 is eating
-700 1 is thinking
-700 3 is thinking
-701 11 is thinking
-701 9 is thinking
-701 5 is thinking
-701 7 is thinking
-702 19 is thinking
-702 21 is thinking
-702 17 is thinking
-702 13 is thinking
-702 15 is thinking
-703 29 is thinking
-703 31 is thinking
-703 25 is thinking
-703 23 is thinking
-703 27 is thinking
-704 41 is thinking
-704 33 is thinking
-704 35 is thinking
-704 39 is thinking
-704 37 is thinking
-705 51 is thinking
-705 53 is thinking
-705 45 is thinking
-705 43 is thinking
-705 49 is thinking
-705 47 is thinking
-706 61 is thinking
-706 63 is thinking
-706 57 is thinking
-706 59 is thinking
-706 55 is thinking
-707 71 is thinking
-707 69 is thinking
-707 65 is thinking
-707 67 is thinking
-708 73 is thinking
-708 81 is thinking
-708 77 is thinking
-708 75 is thinking
-708 79 is thinking
-709 85 is thinking
-709 89 is thinking
-709 83 is thinking
-709 87 is thinking
-710 91 is thinking
-710 93 is thinking
-710 95 is thinking
-710 97 is thinking
-711 99 is thinking
-800 4 is sleeping
-800 2 is sleeping
-801 6 is sleeping
-801 8 is sleeping
-801 10 is sleeping
-802 12 is sleeping
-802 20 is sleeping
-802 18 is sleeping
-802 16 is sleeping
-802 14 is sleeping
-803 26 is sleeping
-803 28 is sleeping
-803 32 is sleeping
-803 30 is sleeping
-803 22 is sleeping
-803 24 is sleeping
-804 38 is sleeping
-804 36 is sleeping
-804 40 is sleeping
-804 42 is sleeping
-804 34 is sleeping
-805 46 is sleeping
-805 48 is sleeping
-805 44 is sleeping
-805 52 is sleeping
-805 50 is sleeping
-806 62 is sleeping
-806 54 is sleeping
-806 56 is sleeping
-806 60 is sleeping
-806 58 is sleeping
-807 72 is sleeping
-807 64 is sleeping
-807 66 is sleeping
-807 70 is sleeping
-807 68 is sleeping
-808 78 is sleeping
-808 80 is sleeping
-808 74 is sleeping
-808 76 is sleeping
-809 88 is sleeping
-809 86 is sleeping
-809 84 is sleeping
-809 82 is sleeping
-810 96 is sleeping
-810 94 is sleeping
-810 90 is sleeping
-810 92 is sleeping
-811 100 is sleeping
-811 98 is sleeping
-900 1 has taken a fork
-900 1 has taken a fork
-900 1 is eating
-900 3 has taken a fork
-900 3 has taken a fork
-900 3 is eating
-901 11 has taken a fork
-901 11 has taken a fork
-901 11 is eating
-901 5 has taken a fork
-901 5 has taken a fork
-901 5 is eating
-901 7 has taken a fork
-901 7 has taken a fork
-901 7 is eating
-901 9 has taken a fork
-901 9 has taken a fork
-901 9 is eating
-902 21 has taken a fork
-902 21 has taken a fork
-902 21 is eating
-902 19 has taken a fork
-902 19 has taken a fork
-902 19 is eating
-902 13 has taken a fork
-902 13 has taken a fork
-902 13 is eating
-902 15 has taken a fork
-902 15 has taken a fork
-902 15 is eating
-902 17 has taken a fork
-902 17 has taken a fork
-902 17 is eating
-903 27 has taken a fork
-903 27 has taken a fork
-903 27 is eating
-903 29 has taken a fork
-903 29 has taken a fork
-903 29 is eating
-903 31 has taken a fork
-903 31 has taken a fork
-903 31 is eating
-903 25 has taken a fork
-903 25 has taken a fork
-903 25 is eating
-903 23 has taken a fork
-903 23 has taken a fork
-903 23 is eating
-904 33 has taken a fork
-904 33 has taken a fork
-904 33 is eating
-904 39 has taken a fork
-904 39 has taken a fork
-904 39 is eating
-904 41 has taken a fork
-904 41 has taken a fork
-904 37 has taken a fork
-904 37 has taken a fork
-904 41 is eating
-904 37 is eating
-904 35 has taken a fork
-904 35 has taken a fork
-904 35 is eating
-905 53 has taken a fork
-905 53 has taken a fork
-905 53 is eating
-905 49 has taken a fork
-905 49 has taken a fork
-905 49 is eating
-905 47 has taken a fork
-905 47 has taken a fork
-905 47 is eating
-905 51 has taken a fork
-905 51 has taken a fork
-905 51 is eating
-905 43 has taken a fork
-905 43 has taken a fork
-905 43 is eating
-905 45 has taken a fork
-905 45 has taken a fork
-905 45 is eating
-906 63 has taken a fork
-906 63 has taken a fork
-906 63 is eating
-906 61 has taken a fork
-906 61 has taken a fork
-906 61 is eating
-906 57 has taken a fork
-906 57 has taken a fork
-906 57 is eating
-906 59 has taken a fork
-906 59 has taken a fork
-906 59 is eating
-906 55 has taken a fork
-906 55 has taken a fork
-906 55 is eating
-907 67 has taken a fork
-907 67 has taken a fork
-907 67 is eating
-907 69 has taken a fork
-907 65 has taken a fork
-907 65 has taken a fork
-907 65 is eating
-907 69 has taken a fork
-907 69 is eating
-907 71 has taken a fork
-907 71 has taken a fork
-907 71 is eating
-908 75 has taken a fork
-908 75 has taken a fork
-908 75 is eating
-908 77 has taken a fork
-908 77 has taken a fork
-908 77 is eating
-908 81 has taken a fork
-908 81 has taken a fork
-908 81 is eating
-908 73 has taken a fork
-908 73 has taken a fork
-908 73 is eating
-908 79 has taken a fork
-908 79 has taken a fork
-908 79 is eating
-909 87 has taken a fork
-909 87 has taken a fork
-909 87 is eating
-909 89 has taken a fork
-909 89 has taken a fork
-909 89 is eating
-909 83 has taken a fork
-909 83 has taken a fork
-909 83 is eating
-909 85 has taken a fork
-909 85 has taken a fork
-909 85 is eating
-910 93 has taken a fork
-910 95 has taken a fork
-910 95 has taken a fork
-910 95 is eating
-910 93 has taken a fork
-910 93 is eating
-910 91 has taken a fork
-910 91 has taken a fork
-910 91 is eating
-910 97 has taken a fork
-910 97 has taken a fork
-910 97 is eating
-911 99 has taken a fork
-911 99 has taken a fork
-911 99 is eating
-1000 2 is thinking
-1000 4 is thinking
-1001 8 is thinking
-1001 6 is thinking
-1001 10 is thinking
-1002 18 is thinking
-1002 16 is thinking
-1002 12 is thinking
-1002 14 is thinking
-1002 20 is thinking
-1003 24 is thinking
-1003 30 is thinking
-1003 26 is thinking
-1003 32 is thinking
-1003 28 is thinking
-1003 22 is thinking
-1004 34 is thinking
-1004 42 is thinking
-1004 36 is thinking
-1004 38 is thinking
-1004 40 is thinking
-1005 52 is thinking
-1005 50 is thinking
-1005 46 is thinking
-1005 44 is thinking
-1005 48 is thinking
-1006 56 is thinking
-1006 62 is thinking
-1006 58 is thinking
-1006 54 is thinking
-1006 60 is thinking
-1007 72 is thinking
-1007 66 is thinking
-1007 70 is thinking
-1007 68 is thinking
-1007 64 is thinking
-1008 78 is thinking
-1008 74 is thinking
-1008 76 is thinking
-1008 80 is thinking
-1009 82 is thinking
-1009 86 is thinking
-1009 84 is thinking
-1009 88 is thinking
-1010 90 is thinking
-1010 94 is thinking
-1010 96 is thinking
-1010 92 is thinking
-1011 100 is thinking
-1011 98 is thinking
-1100 1 is sleeping
-1100 3 is sleeping
-1101 7 is sleeping
-1101 5 is sleeping
-1101 11 is sleeping
-1101 9 is sleeping
-1102 13 is sleeping
-1102 15 is sleeping
-1102 21 is sleeping
-1102 17 is sleeping
-1102 19 is sleeping
-1103 29 is sleeping
-1103 25 is sleeping
-1103 27 is sleeping
-1103 23 is sleeping
-1103 31 is sleeping
-1104 39 is sleeping
-1104 35 is sleeping
-1104 33 is sleeping
-1104 37 is sleeping
-1104 41 is sleeping
-1105 49 is sleeping
-1105 43 is sleeping
-1105 53 is sleeping
-1105 51 is sleeping
-1105 45 is sleeping
-1105 47 is sleeping
-1106 61 is sleeping
-1106 57 is sleeping
-1106 63 is sleeping
-1106 55 is sleeping
-1106 59 is sleeping
-1107 71 is sleeping
-1107 67 is sleeping
-1107 69 is sleeping
-1107 65 is sleeping
-1108 79 is sleeping
-1108 77 is sleeping
-1108 73 is sleeping
-1108 81 is sleeping
-1108 75 is sleeping
-1109 87 is sleeping
-1109 85 is sleeping
-1109 83 is sleeping
-1109 89 is sleeping
-1110 91 is sleeping
-1110 93 is sleeping
-1110 97 is sleeping
-1110 95 is sleeping
-1111 99 is sleeping
-1200 2 has taken a fork
-1200 2 has taken a fork
-1200 4 has taken a fork
-1200 2 is eating
-1200 4 has taken a fork
-1200 4 is eating
-1201 8 has taken a fork
-1201 8 has taken a fork
-1201 10 has taken a fork
-1201 10 has taken a fork
-1201 10 is eating
-1201 6 has taken a fork
-1201 6 has taken a fork
-1201 6 is eating
-1201 8 is eating
-1202 14 has taken a fork
-1202 14 has taken a fork
-1202 14 is eating
-1202 20 has taken a fork
-1202 20 has taken a fork
-1202 20 is eating
-1202 18 has taken a fork
-1202 18 has taken a fork
-1202 18 is eating
-1202 16 has taken a fork
-1202 16 has taken a fork
-1202 16 is eating
-1202 12 has taken a fork
-1202 12 has taken a fork
-1202 12 is eating
-1203 28 has taken a fork
-1203 28 has taken a fork
-1203 32 has taken a fork
-1203 28 is eating
-1203 32 has taken a fork
-1203 32 is eating
-1203 26 has taken a fork
-1203 26 has taken a fork
-1203 26 is eating
-1203 22 has taken a fork
-1203 22 has taken a fork
-1203 22 is eating
-1203 24 has taken a fork
-1203 24 has taken a fork
-1203 24 is eating
-1203 30 has taken a fork
-1203 30 has taken a fork
-1203 30 is eating
-1204 34 has taken a fork
-1204 34 has taken a fork
-1204 34 is eating
-1204 38 has taken a fork
-1204 42 has taken a fork
-1204 42 has taken a fork
-1204 42 is eating
-1204 38 has taken a fork
-1204 38 is eating
-1204 36 has taken a fork
-1204 36 has taken a fork
-1204 36 is eating
-1204 40 has taken a fork
-1204 40 has taken a fork
-1204 40 is eating
-1205 48 has taken a fork
-1205 48 has taken a fork
-1205 50 has taken a fork
-1205 50 has taken a fork
-1205 48 is eating
-1205 50 is eating
-1205 44 has taken a fork
-1205 44 has taken a fork
-1205 44 is eating
-1205 52 has taken a fork
-1205 52 has taken a fork
-1205 52 is eating
-1205 46 has taken a fork
-1205 46 has taken a fork
-1205 46 is eating
-1206 58 has taken a fork
-1206 58 has taken a fork
-1206 58 is eating
-1206 54 has taken a fork
-1206 54 has taken a fork
-1206 54 is eating
-1206 60 has taken a fork
-1206 60 has taken a fork
-1206 60 is eating
-1206 62 has taken a fork
-1206 62 has taken a fork
-1206 62 is eating
-1206 56 has taken a fork
-1206 56 has taken a fork
-1206 56 is eating
-1207 68 has taken a fork
-1207 68 has taken a fork
-1207 68 is eating
-1207 66 has taken a fork
-1207 66 has taken a fork
-1207 66 is eating
-1207 72 has taken a fork
-1207 72 has taken a fork
-1207 72 is eating
-1207 64 has taken a fork
-1207 64 has taken a fork
-1207 64 is eating
-1207 70 has taken a fork
-1207 70 has taken a fork
-1207 70 is eating
-1208 80 has taken a fork
-1208 80 has taken a fork
-1208 80 is eating
-1208 76 has taken a fork
-1208 76 has taken a fork
-1208 76 is eating
-1208 78 has taken a fork
-1208 78 has taken a fork
-1208 78 is eating
-1208 74 has taken a fork
-1208 74 has taken a fork
-1208 74 is eating
-1209 84 has taken a fork
-1209 84 has taken a fork
-1209 84 is eating
-1209 86 has taken a fork
-1209 86 has taken a fork
-1209 86 is eating
-1209 82 has taken a fork
-1209 82 has taken a fork
-1209 88 has taken a fork
-1209 88 has taken a fork
-1209 82 is eating
-1209 88 is eating
-1210 96 has taken a fork
-1210 96 has taken a fork
-1210 96 is eating
-1210 90 has taken a fork
-1210 90 has taken a fork
-1210 90 is eating
-1210 94 has taken a fork
-1210 94 has taken a fork
-1210 94 is eating
-1210 92 has taken a fork
-1210 92 has taken a fork
-1210 92 is eating
-1211 98 has taken a fork
-1211 98 has taken a fork
-1211 98 is eating
-1211 100 has taken a fork
-1211 100 has taken a fork
-1211 100 is eating
-1300 1 is thinking
-1300 3 is thinking
-1301 11 is thinking
-1301 9 is thinking
-1301 7 is thinking
-1301 5 is thinking
-1302 17 is thinking
-1302 15 is thinking
-1302 13 is thinking
-1302 21 is thinking
-1302 19 is thinking
-1303 27 is thinking
-1303 23 is thinking
-1303 25 is thinking
-1303 31 is thinking
-1303 29 is thinking
-1304 37 is thinking
-1304 41 is thinking
-1304 33 is thinking
-1304 35 is thinking
-1304 39 is thinking
-1305 53 is thinking
-1305 47 is thinking
-1305 51 is thinking
-1305 45 is thinking
-1305 43 is thinking
-1305 49 is thinking
-1306 57 is thinking
-1306 61 is thinking
-1306 63 is thinking
-1306 55 is thinking
-1306 59 is thinking
-1307 71 is thinking
-1307 69 is thinking
-1307 65 is thinking
-1307 67 is thinking
-1308 73 is thinking
-1308 81 is thinking
-1308 75 is thinking
-1308 77 is thinking
-1308 79 is thinking
-1309 89 is thinking
-1309 85 is thinking
-1309 87 is thinking
-1309 83 is thinking
-1310 93 is thinking
-1310 97 is thinking
-1310 91 is thinking
-1310 95 is thinking
-1311 99 is thinking
-1400 4 is sleeping
-1400 2 is sleeping
-1401 6 is sleeping
-1401 10 is sleeping
-1401 8 is sleeping
-1402 16 is sleeping
-1402 18 is sleeping
-1402 20 is sleeping
-1402 14 is sleeping
-1402 12 is sleeping
-1403 28 is sleeping
-1403 24 is sleeping
-1403 30 is sleeping
-1403 32 is sleeping
-1403 26 is sleeping
-1403 22 is sleeping
-1404 38 is sleeping
-1404 36 is sleeping
-1404 42 is sleeping
-1404 40 is sleeping
-1404 34 is sleeping
-1405 46 is sleeping
-1405 52 is sleeping
-1405 50 is sleeping
-1405 44 is sleeping
-1405 48 is sleeping
-1406 60 is sleeping
-1406 56 is sleeping
-1406 62 is sleeping
-1406 58 is sleeping
-1406 54 is sleeping
-1407 70 is sleeping
-1407 68 is sleeping
-1407 64 is sleeping
-1407 72 is sleeping
-1407 66 is sleeping
-1408 74 is sleeping
-1408 78 is sleeping
-1408 80 is sleeping
-1408 76 is sleeping
-1409 86 is sleeping
-1409 88 is sleeping
-1409 84 is sleeping
-1409 82 is sleeping
-1410 90 is sleeping
-1410 94 is sleeping
-1410 96 is sleeping
-1410 92 is sleeping
-1411 100 is sleeping
-1411 98 is sleeping
-1500 1 has taken a fork
-1500 1 has taken a fork
-1500 1 is eating
-1500 3 has taken a fork
-1500 3 has taken a fork
-1500 3 is eating
-1501 7 has taken a fork
-1501 7 has taken a fork
-1501 7 is eating
-1501 9 has taken a fork
-1501 5 has taken a fork
-1501 9 has taken a fork
-1501 5 has taken a fork
-1501 5 is eating
-1501 9 is eating
-1501 11 has taken a fork
-1501 11 has taken a fork
-1501 11 is eating
-1502 21 has taken a fork
-1502 21 has taken a fork
-1502 21 is eating
-1502 15 has taken a fork
-1502 15 has taken a fork
-1502 15 is eating
-1502 19 has taken a fork
-1502 19 has taken a fork
-1502 19 is eating
-1502 13 has taken a fork
-1502 17 has taken a fork
-1502 13 has taken a fork
-1502 17 has taken a fork
-1502 17 is eating
-1502 13 is eating
-1503 23 has taken a fork
-1503 23 has taken a fork
-1503 23 is eating
-1503 29 has taken a fork
-1503 29 has taken a fork
-1503 29 is eating
-1503 27 has taken a fork
-1503 27 has taken a fork
-1503 27 is eating
-1503 25 has taken a fork
-1503 25 has taken a fork
-1503 25 is eating
-1503 31 has taken a fork
-1503 31 has taken a fork
-1503 31 is eating
-1504 35 has taken a fork
-1504 35 has taken a fork
-1504 35 is eating
-1504 41 has taken a fork
-1504 41 has taken a fork
-1504 41 is eating
-1504 37 has taken a fork
-1504 37 has taken a fork
-1504 37 is eating
-1504 39 has taken a fork
-1504 39 has taken a fork
-1504 39 is eating
-1504 33 has taken a fork
-1504 33 has taken a fork
-1504 33 is eating
-1505 45 has taken a fork
-1505 45 has taken a fork
-1505 45 is eating
-1505 43 has taken a fork
-1505 43 has taken a fork
-1505 43 is eating
-1505 53 has taken a fork
-1505 53 has taken a fork
-1505 53 is eating
-1505 47 has taken a fork
-1505 47 has taken a fork
-1505 47 is eating
-1505 51 has taken a fork
-1505 51 has taken a fork
-1505 51 is eating
-1505 49 has taken a fork
-1505 49 has taken a fork
-1505 49 is eating
-1506 61 has taken a fork
-1506 61 has taken a fork
-1506 61 is eating
-1506 63 has taken a fork
-1506 63 has taken a fork
-1506 63 is eating
-1506 55 has taken a fork
-1506 55 has taken a fork
-1506 55 is eating
-1506 59 has taken a fork
-1506 59 has taken a fork
-1506 59 is eating
-1506 57 has taken a fork
-1506 57 has taken a fork
-1506 57 is eating
-1507 69 has taken a fork
-1507 67 has taken a fork
-1507 67 has taken a fork
-1507 69 has taken a fork
-1507 69 is eating
-1507 67 is eating
-1507 65 has taken a fork
-1507 65 has taken a fork
-1507 71 has taken a fork
-1507 71 has taken a fork
-1507 65 is eating
-1507 71 is eating
-1508 81 has taken a fork
-1508 81 has taken a fork
-1508 81 is eating
-1508 79 has taken a fork
-1508 79 has taken a fork
-1508 79 is eating
-1508 75 has taken a fork
-1508 75 has taken a fork
-1508 75 is eating
-1508 73 has taken a fork
-1508 73 has taken a fork
-1508 73 is eating
-1508 77 has taken a fork
-1508 77 has taken a fork
-1508 77 is eating
-1509 83 has taken a fork
-1509 83 has taken a fork
-1509 83 is eating
-1509 85 has taken a fork
-1509 85 has taken a fork
-1509 85 is eating
-1509 89 has taken a fork
-1509 89 has taken a fork
-1509 89 is eating
-1509 87 has taken a fork
-1509 87 has taken a fork
-1509 87 is eating
-1510 97 has taken a fork
-1510 97 has taken a fork
-1510 97 is eating
-1510 91 has taken a fork
-1510 91 has taken a fork
-1510 91 is eating
-1510 93 has taken a fork
-1510 93 has taken a fork
-1510 93 is eating
-1510 95 has taken a fork
-1510 95 has taken a fork
-1510 95 is eating
-1511 99 has taken a fork
-1511 99 has taken a fork
-1511 99 is eating
-1600 4 is thinking
-1600 2 is thinking
-1601 8 is thinking
-1601 10 is thinking
-1601 6 is thinking
-1602 20 is thinking
-1602 16 is thinking
-1602 18 is thinking
-1602 12 is thinking
-1602 14 is thinking
-1603 22 is thinking
-1603 32 is thinking
-1603 24 is thinking
-1603 26 is thinking
-1603 28 is thinking
-1603 30 is thinking
-1604 40 is thinking
-1604 36 is thinking
-1604 34 is thinking
-1604 38 is thinking
-1604 42 is thinking
-1605 44 is thinking
-1605 48 is thinking
-1605 52 is thinking
-1605 50 is thinking
-1605 46 is thinking
-1606 60 is thinking
-1606 62 is thinking
-1606 58 is thinking
-1606 56 is thinking
-1606 54 is thinking
-1607 66 is thinking
-1607 72 is thinking
-1607 68 is thinking
-1607 64 is thinking
-1607 70 is thinking
-1608 78 is thinking
-1608 74 is thinking
-1608 80 is thinking
-1608 76 is thinking
-1609 84 is thinking
-1609 86 is thinking
-1609 82 is thinking
-1609 88 is thinking
-1610 90 is thinking
-1610 96 is thinking
-1610 92 is thinking
-1610 94 is thinking
-1611 98 is thinking
-1611 100 is thinking
-1700 1 is sleeping
-1700 3 is sleeping
-1701 9 is sleeping
-1701 7 is sleeping
-1701 5 is sleeping
-1701 11 is sleeping
-1702 15 is sleeping
-1702 21 is sleeping
-1702 13 is sleeping
-1702 17 is sleeping
-1702 19 is sleeping
-1703 31 is sleeping
-1703 29 is sleeping
-1703 23 is sleeping
-1703 25 is sleeping
-1703 27 is sleeping
-1704 35 is sleeping
-1704 39 is sleeping
-1704 33 is sleeping
-1704 37 is sleeping
-1704 41 is sleeping
-1705 47 is sleeping
-1705 43 is sleeping
-1705 51 is sleeping
-1705 53 is sleeping
-1705 45 is sleeping
-1705 49 is sleeping
-1706 63 is sleeping
-1706 57 is sleeping
-1706 59 is sleeping
-1706 61 is sleeping
-1706 55 is sleeping
-1707 69 is sleeping
-1707 71 is sleeping
-1707 65 is sleeping
-1707 67 is sleeping
-1708 81 is sleeping
-1708 77 is sleeping
-1708 73 is sleeping
-1708 75 is sleeping
-1708 79 is sleeping
-1709 83 is sleeping
-1709 85 is sleeping
-1709 87 is sleeping
-1709 89 is sleeping
-1710 95 is sleeping
-1710 91 is sleeping
-1710 93 is sleeping
-1710 97 is sleeping
-1711 99 is sleeping
-1800 2 has taken a fork
-1800 4 has taken a fork
-1800 2 has taken a fork
-1800 2 is eating
-1800 4 has taken a fork
-1800 4 is eating
-1801 10 has taken a fork
-1801 10 has taken a fork
-1801 10 is eating
-1801 8 has taken a fork
-1801 8 has taken a fork
-1801 8 is eating
-1801 6 has taken a fork
-1801 6 has taken a fork
-1801 6 is eating
-1802 12 has taken a fork
-1802 12 has taken a fork
-1802 12 is eating
-1802 16 has taken a fork
-1802 16 has taken a fork
-1802 16 is eating
-1802 20 has taken a fork
-1802 20 has taken a fork
-1802 20 is eating
-1802 14 has taken a fork
-1802 14 has taken a fork
-1802 14 is eating
-1802 18 has taken a fork
-1802 18 has taken a fork
-1802 18 is eating
-1803 30 has taken a fork
-1803 30 has taken a fork
-1803 30 is eating
-1803 24 has taken a fork
-1803 24 has taken a fork
-1803 24 is eating
-1803 32 has taken a fork
-1803 32 has taken a fork
-1803 32 is eating
-1803 28 has taken a fork
-1803 28 has taken a fork
-1803 28 is eating
-1803 26 has taken a fork
-1803 26 has taken a fork
-1803 26 is eating
-1803 22 has taken a fork
-1803 22 has taken a fork
-1803 22 is eating
-1804 38 has taken a fork
-1804 38 has taken a fork
-1804 38 is eating
-1804 36 has taken a fork
-1804 36 has taken a fork
-1804 36 is eating
-1804 40 has taken a fork
-1804 40 has taken a fork
-1804 40 is eating
-1804 42 has taken a fork
-1804 42 has taken a fork
-1804 42 is eating
-1804 34 has taken a fork
-1804 34 has taken a fork
-1804 34 is eating
-1805 50 has taken a fork
-1805 50 has taken a fork
-1805 50 is eating
-1805 52 has taken a fork
-1805 52 has taken a fork
-1805 52 is eating
-1805 46 has taken a fork
-1805 46 has taken a fork
-1805 46 is eating
-1805 48 has taken a fork
-1805 48 has taken a fork
-1805 48 is eating
-1805 44 has taken a fork
-1805 44 has taken a fork
-1805 44 is eating
-1806 56 has taken a fork
-1806 56 has taken a fork
-1806 60 has taken a fork
-1806 60 has taken a fork
-1806 56 is eating
-1806 60 is eating
-1806 58 has taken a fork
-1806 58 has taken a fork
-1806 58 is eating
-1806 62 has taken a fork
-1806 62 has taken a fork
-1806 62 is eating
-1806 54 has taken a fork
-1806 54 has taken a fork
-1806 54 is eating
-1807 64 has taken a fork
-1807 64 has taken a fork
-1807 64 is eating
-1807 68 has taken a fork
-1807 68 has taken a fork
-1807 68 is eating
-1807 70 has taken a fork
-1807 70 has taken a fork
-1807 70 is eating
-1807 66 has taken a fork
-1807 66 has taken a fork
-1807 66 is eating
-1807 72 has taken a fork
-1807 72 has taken a fork
-1807 72 is eating
-1808 74 has taken a fork
-1808 74 has taken a fork
-1808 74 is eating
-1808 76 has taken a fork
-1808 76 has taken a fork
-1808 76 is eating
-1808 78 has taken a fork
-1808 80 has taken a fork
-1808 78 has taken a fork
-1808 78 is eating
-1808 80 has taken a fork
-1808 80 is eating
-1809 88 has taken a fork
-1809 88 has taken a fork
-1809 88 is eating
-1809 82 has taken a fork
-1809 82 has taken a fork
-1809 82 is eating
-1809 84 has taken a fork
-1809 84 has taken a fork
-1809 84 is eating
-1809 86 has taken a fork
-1809 86 has taken a fork
-1809 86 is eating
-1810 96 has taken a fork
-1810 96 has taken a fork
-1810 96 is eating
-1810 94 has taken a fork
-1810 94 has taken a fork
-1810 94 is eating
-1810 90 has taken a fork
-1810 90 has taken a fork
-1810 90 is eating
-1810 92 has taken a fork
-1810 92 has taken a fork
-1810 92 is eating
-1811 98 has taken a fork
-1811 98 has taken a fork
-1811 98 is eating
-1811 100 has taken a fork
-1811 100 has taken a fork
-1811 100 is eating
-1900 3 is thinking
-1900 1 is thinking
-1901 9 is thinking
-1901 7 is thinking
-1901 11 is thinking
-1901 5 is thinking
-1902 13 is thinking
-1902 19 is thinking
-1902 15 is thinking
-1902 17 is thinking
-1902 21 is thinking
-1903 25 is thinking
-1903 29 is thinking
-1903 27 is thinking
-1903 31 is thinking
-1903 23 is thinking
-1904 33 is thinking
-1904 37 is thinking
-1904 39 is thinking
-1904 41 is thinking
-1904 35 is thinking
-1905 47 is thinking
-1905 45 is thinking
-1905 43 is thinking
-1905 51 is thinking
-1905 53 is thinking
-1905 49 is thinking
-1906 59 is thinking
-1906 61 is thinking
-1906 57 is thinking
-1906 63 is thinking
-1906 55 is thinking
-1907 65 is thinking
-1907 67 is thinking
-1907 69 is thinking
-1907 71 is thinking
-1908 81 is thinking
-1908 79 is thinking
-1908 73 is thinking
-1908 75 is thinking
-1908 77 is thinking
-1909 85 is thinking
-1909 89 is thinking
-1909 83 is thinking
-1909 87 is thinking
-1910 93 is thinking
-1910 95 is thinking
-1910 97 is thinking
-1910 91 is thinking
-1911 99 is thinking
-2000 2 is sleeping
-2000 4 is sleeping
-2001 10 is sleeping
-2001 6 is sleeping
-2001 8 is sleeping
-2002 14 is sleeping
-2002 20 is sleeping
-2002 12 is sleeping
-2002 18 is sleeping
-2002 16 is sleeping
-2003 24 is sleeping
-2003 32 is sleeping
-2003 30 is sleeping
-2003 26 is sleeping
-2003 28 is sleeping
-2003 22 is sleeping
-2004 36 is sleeping
-2004 38 is sleeping
-2004 40 is sleeping
-2004 42 is sleeping
-2004 34 is sleeping
-2005 44 is sleeping
-2005 52 is sleeping
-2005 50 is sleeping
-2005 46 is sleeping
-2005 48 is sleeping
-2006 58 is sleeping
-2006 60 is sleeping
-2006 62 is sleeping
-2006 54 is sleeping
-2006 56 is sleeping
-2007 66 is sleeping
-2007 70 is sleeping
-2007 68 is sleeping
-2007 72 is sleeping
-2007 64 is sleeping
-2008 76 is sleeping
-2008 74 is sleeping
-2008 80 is sleeping
-2008 78 is sleeping
-2009 84 is sleeping
-2009 88 is sleeping
-2009 86 is sleeping
-2009 82 is sleeping
-2010 94 is sleeping
-2010 92 is sleeping
-2010 90 is sleeping
-2010 96 is sleeping
-2011 98 is sleeping
-2011 100 is sleeping
-2100 3 has taken a fork
-2100 3 has taken a fork
-2100 3 is eating
-2100 1 has taken a fork
-2100 1 has taken a fork
-2100 1 is eating
-2101 9 has taken a fork
-2101 9 has taken a fork
-2101 9 is eating
-2101 7 has taken a fork
-2101 7 has taken a fork
-2101 7 is eating
-2101 5 has taken a fork
-2101 5 has taken a fork
-2101 5 is eating
-2101 11 has taken a fork
-2101 11 has taken a fork
-2101 11 is eating
-2102 21 has taken a fork
-2102 21 has taken a fork
-2102 21 is eating
-2102 19 has taken a fork
-2102 19 has taken a fork
-2102 19 is eating
-2102 17 has taken a fork
-2102 17 has taken a fork
-2102 17 is eating
-2102 13 has taken a fork
-2102 13 has taken a fork
-2102 13 is eating
-2102 15 has taken a fork
-2102 15 has taken a fork
-2102 15 is eating
-2103 23 has taken a fork
-2103 23 has taken a fork
-2103 23 is eating
-2103 27 has taken a fork
-2103 27 has taken a fork
-2103 27 is eating
-2103 29 has taken a fork
-2103 29 has taken a fork
-2103 29 is eating
-2103 31 has taken a fork
-2103 31 has taken a fork
-2103 31 is eating
-2103 25 has taken a fork
-2103 25 has taken a fork
-2103 25 is eating
-2104 33 has taken a fork
-2104 33 has taken a fork
-2104 33 is eating
-2104 39 has taken a fork
-2104 39 has taken a fork
-2104 39 is eating
-2104 35 has taken a fork
-2104 35 has taken a fork
-2104 35 is eating
-2104 37 has taken a fork
-2104 37 has taken a fork
-2
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+==================
+WARNING: ThreadSanitizer: data race (pid=41415)
+  Write of size 4 at 0x7b0c000002d4 by thread T1:
+    #0 philo_checker philosophers.c:82 (philo:x86_64+0x10000239c) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+
+  Previous read of size 4 at 0x7b0c000002d4 by main thread:
+    #0 philosophy_start philosophers.c:135 (philo:x86_64+0x100002774) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #1 prepare_table philosophers.c:152 (philo:x86_64+0x10000288e) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #2 main main.c:11 (philo:x86_64+0x1000010b9) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+
+  Location is heap block of size 40 at 0x7b0c000002d0 allocated by main thread:
+    #0 malloc <null>:166907705 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x35abc) (BuildId: 1d46c68ed9133483ad89113be76835112400000010000000000a0a00000e0a00)
+    #1 init_philos_stat init.c:90 (philo:x86_64+0x100003628) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #2 init init.c:113 (philo:x86_64+0x100003946) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #3 prepare_table philosophers.c:150 (philo:x86_64+0x10000286e) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #4 main main.c:11 (philo:x86_64+0x1000010b9) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+
+  Thread T1 (tid=261041, running) created by main thread at:
+    #0 pthread_create <null>:166907705 (libclang_rt.tsan_osx_dynamic.dylib:x86_64h+0x763f) (BuildId: 1d46c68ed9133483ad89113be76835112400000010000000000a0a00000e0a00)
+    #1 philosophy_start philosophers.c:127 (philo:x86_64+0x10000263b) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #2 prepare_table philosophers.c:152 (philo:x86_64+0x10000288e) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #3 main main.c:11 (philo:x86_64+0x1000010b9) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+
+SUMMARY: ThreadSanitizer: data race philosophers.c:82 in philo_checker
+==================
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+philo->died = 0
+ThreadSanitizer:DEADLYSIGNAL
+==41415==ERROR: ThreadSanitizer: SEGV on unknown address 0x000000000040 (pc 0x000109eb7768 bp 0x7ffee5d4a3a0 sp 0x7ffee5d4a2e0 T261039)
+==41415==The signal is caused by a READ memory access.
+==41415==Hint: address points to the zero page.
+    #0 philosophy_start philosophers.c:135 (philo:x86_64+0x100002768) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #1 prepare_table philosophers.c:152 (philo:x86_64+0x10000288e) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #2 main main.c:11 (philo:x86_64+0x1000010b9) (BuildId: edb6fd5c3d9a39ee9b9c3756ce3ba177320000002000000001000000000e0a00)
+    #3 start <null>:166907705 (libdyld.dylib:x86_64+0x163d4) (BuildId: 002418ccad113d10865b015591d24e6c320000002000000001000000000e0a00)
+
+==41415==Register values:
+rax = 0x0000000000000000  rbx = 0x0000000000000000  rcx = 0x000000000000000f  rdx = 0x00000000407600ff  
+rdi = 0x000000010c59ae78  rsi = 0x0000080000000080  rbp = 0x00007ffee5d4a3a0  rsp = 0x00007ffee5d4a2e0  
+ r8 = 0x000000010c59ae70   r9 = 0x0000000109eb7761  r10 = 0x00007fff5c643322  r11 = 0x0000000000000246  
+r12 = 0x0000000000000000  r13 = 0x0000000000000000  r14 = 0x0000000000000000  r15 = 0x0000000000000000  
+ThreadSanitizer can not provide additional info.
+SUMMARY: ThreadSanitizer: SEGV philosophers.c:135 in philosophy_start
+==41415==ABORTING

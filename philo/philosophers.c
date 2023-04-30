@@ -23,7 +23,7 @@ void ft_usleep(long long time)
 
 	start = get_time();
 	while (get_time() - start < time)
-		usleep(200);
+		usleep(100);
 }
 
 void philo_eat(t_philo *philo)
@@ -68,26 +68,28 @@ void *philo_checker(void *ptr)
 	mutex2 = malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(mutex2, NULL);
 	table  = (t_philos_table *)ptr;
-	while(1)
+	while (1)
 	{
 		i = -1;
 		while(++i < table->params.nb_philos)	
 		{
 			curr_time = get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[i]->start_time, 1);
-			pthread_mutex_lock(mutex);
-			if (curr_time - get_time_in_ms(table->philos[i]->last_meal, 1) >= table->params.time_to_die && table->philos[i]->last_meal.tv_sec != -1)
+			// pthread_mutex_lock(mutex);
+			if (curr_time - (get_time_in_ms(table->philos[i]->last_meal, 1) - get_time_in_ms(table->philos[i]->start_time, 1))\
+			 >= table->params.time_to_die && get_time_in_ms(table->philos[i]->last_meal, 1) != 0)
 			{
 				printf("%lld %d Died\n", curr_time,table->philos[i]->id);
 				*table->philos[i]->died = 1;
+				return (NULL);
 			}
-			pthread_mutex_unlock(mutex);
-			pthread_mutex_lock(mutex2);
+			// pthread_mutex_unlock(mutex);
+			// pthread_mutex_lock(mutex2);
 			if (table->philos[i]->eat_counter > table->params.eat_count && table->params.eat_count != -1)
 			{
 				printf("philos has reached the max");
 				exit(1);
 			}
-			pthread_mutex_unlock(mutex2);
+			// pthread_mutex_unlock(mutex2);
 		}
 	}
 	return (NULL);
@@ -100,7 +102,7 @@ void *philosophers_routine(void *param)
 
 	philo = (t_philo *)param;
 	if((philo->id & 1))
-		ft_usleep(500);
+		ft_usleep(250);
 	i = 0;
 	while(1)
 	{
@@ -108,7 +110,7 @@ void *philosophers_routine(void *param)
 		philo_sleep(philo);
 		philo_think(philo);
 		if(*philo->died || !philo->right_fork)
-			break;
+			return (NULL);
 	}
 	return (NULL);
 }
@@ -124,10 +126,10 @@ void philosophy_start(t_philos_table *table)
 	pthread_create(&death_checker, NULL, philo_checker, table);
 	while (++i < table->params.nb_philos)
 		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
-	pthread_join(death_checker, NULL);
 	i = -1;
 	while (++i < table->params.nb_philos)
-		pthread_join(philos[i]->philo, NULL);
+			pthread_join(philos[i]->philo, NULL);
+	pthread_join(death_checker, NULL);
 }
 
 void	prepare_table(t_params args)
