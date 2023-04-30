@@ -9,7 +9,7 @@ SRCS =	main.c\
 		utils.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = clang
-FLAGS = -g
+FLAGS = -g -fsanitize=thread
 INC = philosophers.h
 
 all: $(NAME)

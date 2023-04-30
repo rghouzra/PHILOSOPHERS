@@ -25,15 +25,12 @@ typedef struct s_philo
 	int			*died;
 	pthread_t	philo;
 	pthread_mutex_t	*meal;
+	pthread_mutex_t	*stat;
 	pthread_mutex_t	*eat_count;
 	pthread_mutex_t	*left_fork;
 	struct timeval	last_meal;
 	pthread_mutex_t	*right_fork;
 }t_philo;
-typedef struct s_philo_checker
-{
-	
-}t_philo_checker;
 
 typedef struct s_philos_table
 {
@@ -41,11 +38,19 @@ typedef struct s_philos_table
 	t_params		params;
 	t_philo			**philos;
 	int				*philos_stat;
+	pthread_mutex_t	**stats;
 	pthread_mutex_t **meals;
 	pthread_mutex_t **forks;
 	pthread_mutex_t **eat_counts;
 	struct timeval	start_time;
 }t_philos_table;
+typedef struct s_philo_checker
+{
+	long long	current_time;
+	pthread_t	death_checker;
+	pthread_mutex_t	*death;
+	t_philos_table	*table;
+}t_philo_checker;
 int		init(t_philos_table **table, t_params arg);
 long	ft_atoi(const char *nptr);
 void	prepare_table(t_params args);

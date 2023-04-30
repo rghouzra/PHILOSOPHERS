@@ -1,5 +1,13 @@
 #include "philosophers.h"
 
+void init_philo_mutexes(t_philo *philo, t_philos_table *table, int i)
+{ 
+    philo->left_fork = (*table).forks[i];
+
+    philo->meal = (*table).meals[i];
+    philo->eat_count = (*table).eat_counts[i];
+}
+
 t_philo **init_philos(t_philos_table *table)
 {
     int     i;
@@ -9,7 +17,6 @@ t_philo **init_philos(t_philos_table *table)
     philos = malloc(sizeof(t_philo *) * (*table).params.nb_philos);
     if (!philos)
         return (NULL);
-    //free philos if malloc fails inside the loop
     while (++i < (*table).params.nb_philos)
     {
         philos[i] = malloc(sizeof(t_philo));
@@ -43,7 +50,7 @@ void free_mutexes(pthread_mutex_t **ptr, int size)
 
 int protect_mutexes(t_philos_table *table)
 {
-    if(!(*table).forks || !(*table).meals || !(*table).eat_counts)
+    if(!(*table).forks || !(*table).meals || !(*table).eat_counts || !(*table).stats)
     {
         free_mutexes((*table).forks, (*table).params.nb_philos);
         free_mutexes((*table).meals, (*table).params.nb_philos);
@@ -67,6 +74,7 @@ void init_mutexes(t_philos_table *table)
     (*table).forks = malloc(sizeof(pthread_mutex_t *) * ((*table).params.nb_philos + 1));
     (*table).meals = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     (*table).eat_counts = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
+    (*table).stats = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     if(protect_mutexes(table))
         return;
 	(*table).forks[(*table).params.nb_philos] = NULL;
