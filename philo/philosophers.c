@@ -3,9 +3,9 @@
 
 void philo_take_fork(t_philo	*philo)
 {
-		printf("%lld %d has taken fork\n",  get_time_in_ms((struct timeval){0, 0}, 0) ,philo->id);
+		printf("%lld %d has taken a fork\n",  get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
 		pthread_mutex_lock(philo->right_fork);
-		printf("%lld %d has taken fork\n" , get_time_in_ms((struct timeval){0, 0}, 0) ,philo->id);
+		printf("%lld %d has taken a fork\n" , get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
 		pthread_mutex_lock(philo->left_fork);
 }
 
@@ -23,15 +23,15 @@ void ft_usleep(long long time)
 
 	start = get_time();
 	while (get_time() - start < time)
-		usleep(500);
+		usleep(200);
 }
 
 void philo_eat(t_philo *philo)
 {
-	if(philo->left_fork && philo->right_fork)
-	{
+		if(philo->right_fork == NULL || philo->left_fork == NULL)
+			return ;
 		philo_take_fork(philo);
-		printf("%lld %d eating\n", get_time_in_ms((struct timeval){0, 0}, 0), philo->id);
+		printf("%lld %d is eating\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1), philo->id);
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_lock(philo->meal);
@@ -41,18 +41,17 @@ void philo_eat(t_philo *philo)
 		// philo->eat_counter++;
 		pthread_mutex_unlock(philo->eat_count);
 		ft_usleep(philo->params.time_to_eat);
-	}
 }
 
 void philo_sleep(t_philo *philo)
 {
-	printf("%lld %d sleeping\n", get_time_in_ms((struct timeval){0, 0}, 0), philo->id);
+	printf("%lld %d is sleeping\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1), philo->id);
 	ft_usleep(philo->params.time_to_sleep);
 }
 
 void philo_think(t_philo *philo)
 {
-	printf("%lld %d thinking\n", get_time_in_ms((struct timeval){0, 0}, 0), philo->id);
+	printf("%lld %d is thinking\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1), philo->id);
 	ft_usleep(200);
 }
 
@@ -74,12 +73,12 @@ void *philo_checker(void *ptr)
 		i = -1;
 		while(++i < table->params.nb_philos)	
 		{
-			curr_time = get_time_in_ms((struct timeval){0, 0}, 0);
+			curr_time = get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[i]->start_time, 1);
 			pthread_mutex_lock(mutex);
-			if(curr_time - get_time_in_ms(table->philos[i]->last_meal, 1) >= table->params.time_to_die)
+			if (curr_time - get_time_in_ms(table->philos[i]->last_meal, 1) >= table->params.time_to_die && table->philos[i]->last_meal.tv_sec != -1)
 			{
 				printf("%lld %d Died\n", curr_time,table->philos[i]->id);
-				exit(1);
+				*table->philos[i]->died = 1;
 			}
 			pthread_mutex_unlock(mutex);
 			pthread_mutex_lock(mutex2);
@@ -100,14 +99,16 @@ void *philosophers_routine(void *param)
 	long long	i;
 
 	philo = (t_philo *)param;
-	if(!(philo->id % 2))
-		ft_usleep(200);
+	if((philo->id & 1))
+		ft_usleep(500);
 	i = 0;
 	while(1)
 	{
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
+		if(*philo->died || !philo->right_fork)
+			break;
 	}
 	return (NULL);
 }

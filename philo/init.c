@@ -15,7 +15,8 @@ t_philo **init_philos(t_philos_table *table)
         philos[i] = malloc(sizeof(t_philo));
         if (!philos[i])
             return ( NULL);
-        gettimeofday(&philos[i]->last_meal, NULL);
+        gettimeofday(&philos[i]->start_time, NULL);
+        philos[i]->last_meal = (struct timeval){-1, -1};
         philos[i]->id = i + 1;
         philos[i]->eat_counter = 0;
         philos[i]->params = (*table).params;
@@ -81,6 +82,21 @@ void init_mutexes(t_philos_table *table)
 
 }
 
+void init_philos_stat(t_philos_table *table)
+{
+    int i;
+
+    i = -1;
+    table->philos_stat = malloc(sizeof(int) * table->params.nb_philos);
+    if(!table->philos_stat)
+        return;
+    while (++i < table->params.nb_philos)
+    {
+        table->philos_stat[i] = 0;
+        table->philos[i]->died = &table->philos_stat[i];
+    }
+}
+
 int init(t_philos_table **table, t_params arg)
 {
     int condition;
@@ -91,8 +107,9 @@ int init(t_philos_table **table, t_params arg)
         return 1;
     (*table)->params = arg;
     init_mutexes(*table);
-    (*table)->philos = init_philos(*table);
     gettimeofday(&(*table)->start_time, NULL);
+    (*table)->philos = init_philos(*table);
     condition = ((*table)->forks == NULL) + ((*table)->philos == NULL);
+    init_philos_stat(*table);
     return condition;
 }
