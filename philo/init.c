@@ -1,11 +1,13 @@
 #include "philosophers.h"
 
-void init_philo_mutexes(t_philo *philo, t_philos_table *table, int i)
+void init_philo_mutexes(t_philo **philo, t_philos_table *table, int i)
 { 
-    philo->left_fork = (*table).forks[i];
-
-    philo->meal = (*table).meals[i];
-    philo->eat_count = (*table).eat_counts[i];
+    (*philo)->left_fork = (*table).forks[i];
+    (*philo)->right_fork = (*table).forks[(i + 1)\
+    * (((*table).forks[i + 1] != NULL) + ((*table).params.nb_philos == 1))];
+    (*philo)->meal = (*table).meals[i];
+    (*philo)->eat_count = (*table).eat_counts[i];
+    (*philo)->stat = (*table).stats[i];
 }
 
 t_philo **init_philos(t_philos_table *table)
@@ -27,11 +29,12 @@ t_philo **init_philos(t_philos_table *table)
         philos[i]->id = i + 1;
         philos[i]->eat_counter = 0;
         philos[i]->params = (*table).params;
-        philos[i]->left_fork = (*table).forks[i];
-        philos[i]->right_fork = (*table).forks[(i + 1)\
-		* (((*table).forks[i + 1] != NULL) + ((*table).params.nb_philos == 1))];
-        philos[i]->meal = (*table).meals[i];
-        philos[i]->eat_count = (*table).eat_counts[i];
+        init_philo_mutexes(&philos[i], table, i);
+        // philos[i]->left_fork = (*table).forks[i];
+        // philos[i]->right_fork = (*table).forks[(i + 1)\
+		// * (((*table).forks[i + 1] != NULL) + ((*table).params.nb_philos == 1))];
+        // philos[i]->meal = (*table).meals[i];
+        // philos[i]->eat_count = (*table).eat_counts[i];
     }
     return philos;
 }
@@ -83,6 +86,8 @@ void init_mutexes(t_philos_table *table)
         (*table).forks[i] = malloc(sizeof(pthread_mutex_t));
         (*table).meals[i] = malloc(sizeof(pthread_mutex_t));
         (*table).eat_counts[i] = malloc(sizeof(pthread_mutex_t));
+        (*table).stats[i] = malloc(sizeof(pthread_mutex_t));
+        pthread_mutex_init((*table).stats[i], NULL);
         pthread_mutex_init((*table).forks[i], NULL);
         pthread_mutex_init((*table).meals[i], NULL);
         pthread_mutex_init((*table).eat_counts[i], NULL);

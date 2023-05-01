@@ -1,12 +1,11 @@
 #include "philosophers.h"
 
-
 void philo_take_fork(t_philo	*philo)
 {
-		printf("%lld %d has taken a fork\n",  get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
-		pthread_mutex_lock(philo->right_fork);
-		printf("%lld %d has taken a fork\n" , get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
-		pthread_mutex_lock(philo->left_fork);
+	printf("%lld %d has taken a fork\n",  get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
+	pthread_mutex_lock(philo->right_fork);
+	printf("%lld %d has taken a fork\n" , get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(philo->start_time, 1),philo->id);
+	pthread_mutex_lock(philo->left_fork);
 }
 
 long long get_time(void)
@@ -55,32 +54,40 @@ void philo_think(t_philo *philo)
 	ft_usleep(200);
 }
 
+long long get_diff_time(struct timeval start, struct timeval end)
+{
+	return ((end.tv_sec - start.tv_sec) * 1000 + (end.tv_usec - start.tv_usec) / 1000);
+}
+
+struct timeval get_time_of_day(void)
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	return (tv);
+}
+
 void *philo_checker(void *ptr)
 {
 	int i;
 	t_philo_checker *checker;
 
+	ft_usleep(100);
 	checker  = (t_philo_checker *)ptr;
 	while (1)
 	{
 		i = -1;
-		while(++i < checker->table->params.nb_philos)	
+		while (++i < checker->table->params.nb_philos)	
 		{
-			checker->current_time = get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(checker->table->philos[i]->start_time, 1);
-			if (checker->current_time - (get_time_in_ms(checker->table->philos[i]->last_meal, 1) - get_time_in_ms(checker->table->philos[i]->start_time, 1))\
-			 >= checker->table->params.time_to_die && get_time_in_ms(checker->table->philos[i]->last_meal, 1) != 0)
+			checker->current_time = get_diff_time(checker->table->start_time, get_time_of_day());
+			if (checker->current_time < checker->table->params.time_to_die)
 			{
-				printf("%lld %d Died\n", checker->current_time, checker->table->philos[i]->id);
-				pthread_mutex_lock(checker->death);
+				pthread_mutex_lock(checker->table->philos[i]->stat);
 				*checker->table->philos[i]->died = 1;
-				pthread_mutex_unlock(checker->death);
+				pthread_mutex_unlock(checker->table->philos[i]->stat);
+				printf("\033[0;31m%lld %d died\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(checker->table->start_time, 1), checker->table->philos[i]->id);
 				return (NULL);
-			}
-			if (checker->table->philos[i]->eat_counter > checker->table->params.eat_count && checker->table->params.eat_count != -1)
-			{
-				printf("philos has reached the max");
-				exit(1);
-			}
+			}		
 		}
 	}
 	return (NULL);
@@ -90,6 +97,7 @@ void *philosophers_routine(void *param)
 {
 	t_philo		*philo;
 	long long	i;
+	int cond;
 
 	philo = (t_philo *)param;
 	if((philo->id & 1))
@@ -100,7 +108,10 @@ void *philosophers_routine(void *param)
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
-		if (*philo->died || !philo->right_fork || !philo->left_fork)
+		pthread_mutex_lock(philo->stat);
+		cond = (*philo->died || !philo->right_fork || !philo->left_fork);
+		pthread_mutex_unlock(philo->stat);
+		if (cond)
 			return (NULL);
 	}
 	return (NULL);
@@ -127,10 +138,10 @@ void philosophy_start(t_philos_table *table)
 	i = -1;
 	philos = table->philos;
 	init_checker_struct(table, &checker);
-	pthread_create(&checker->death_checker, NULL, philo_checker, checker);
 	while (++i < table->params.nb_philos)
 		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
 	i = -1;
+	pthread_create(&checker->death_checker, NULL, philo_checker, checker);
 	while (++i < table->params.nb_philos)
 			pthread_join(philos[i]->philo, NULL);
 	pthread_join(checker->death_checker, NULL);
