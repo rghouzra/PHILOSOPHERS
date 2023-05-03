@@ -1,2 +1,0 @@
-table.died->0
-table.died->1

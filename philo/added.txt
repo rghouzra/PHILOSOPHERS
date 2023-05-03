@@ -1,1 +1,0 @@
-i added some mutexes but still i didnt initalize them
