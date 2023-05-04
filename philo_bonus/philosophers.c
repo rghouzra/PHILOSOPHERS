@@ -8,16 +8,14 @@ int check_death(t_philos_table *table, int index)
 	if (get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->last_meal, 1) > table->params.time_to_die\
 	&& table->philos[index]->last_meal.tv_sec != -1)
 	{
-		__lock_print("died", table->philos[index]->id, table->philos[index]);
-		// printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
+		printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
 		table->philos[index]->id);
 		return (1);
 	}
 	pthread_mutex_lock(table->philos[index]->eat_count);
 	if((table->philos[index]->eat_counter >= table->params.eat_count && table->params.eat_count != -1))
 	{
-		__lock_print("died", table->philos[index]->id, table->philos[index]);
-		// printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
+		printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
 		table->philos[index]->id);
 		return (1);
 	}
@@ -41,7 +39,6 @@ int  philo_checker(void *ptr)
 	        pthread_mutex_unlock(checker->table->philos[i]->stat);
 	        return (0);
 	    }
-		ft_usleep(300);
 	}
 	return (1);
 }
@@ -78,7 +75,6 @@ void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 		return ;
 	pthread_mutex_init((*checker)->death, NULL);
 	(*checker)->table = table;
-	table->checker_ptr = *checker;
 }
 
 void philosophy_start(t_philos_table *table)
@@ -113,5 +109,4 @@ void	prepare_table(t_params args)
 		return ;
 	*table->died = 0;
 	philosophy_start(table);
-	free_mutexes(table);
 }

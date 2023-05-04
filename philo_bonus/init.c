@@ -28,7 +28,6 @@ t_philo **init_philos(t_philos_table *table)
 		philos[i]->last_meal = (struct timeval){-1, -1};
         philos[i]->id = i + 1;
         philos[i]->died_ptr = (*table).died;
-        philos[i]->print = (*table).print;
         philos[i]->eat_counter = 0;
         philos[i]->params = (*table).params;
         init_philo_mutexes(&philos[i], table, i);
@@ -36,25 +35,25 @@ t_philo **init_philos(t_philos_table *table)
     return philos;
 }
 
-// void free_mutexes(pthread_mutex_t **ptr, int size)
-// {
-//     int i;
+void free_mutexes(pthread_mutex_t **ptr, int size)
+{
+    int i;
 
-//     i = -1;
-//     while (++i < size)
-//     {
-//         pthread_mutex_destroy(ptr[i]);
-//         free(ptr[i]);
-//     }
-// }
+    i = -1;
+    while (++i < size)
+    {
+        pthread_mutex_destroy(ptr[i]);
+        free(ptr[i]);
+    }
+}
 
 int protect_mutexes(t_philos_table *table)
 {
     if(!(*table).forks || !(*table).meals || !(*table).eat_counts || !(*table).stats)
     {
-        // free_mutexes((*table).forks, (*table).params.nb_philos);
-        // free_mutexes((*table).meals, (*table).params.nb_philos);
-        // free_mutexes((*table).eat_counts, (*table).params.nb_philos);
+        free_mutexes((*table).forks, (*table).params.nb_philos);
+        free_mutexes((*table).meals, (*table).params.nb_philos);
+        free_mutexes((*table).eat_counts, (*table).params.nb_philos);
         // free((*table).forks);
         // free((*table).meals);
         // free((*table).eat_counts);
@@ -75,12 +74,10 @@ void init_mutexes(t_philos_table *table)
     (*table).meals = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     (*table).eat_counts = malloc(sizeof(pthread_mutex_t *) * (*table).params.nb_philos);
     (*table).stats = malloc(sizeof(pthread_mutex_t));
-    (*table).print = malloc(sizeof(pthread_mutex_t));
     if(protect_mutexes(table))
         return;
 	(*table).forks[(*table).params.nb_philos] = NULL;
     pthread_mutex_init((*table).stats, NULL);
-    pthread_mutex_init((*table).print, NULL);
     while (++i < (*table).params.nb_philos)
     {
         (*table).forks[i] = malloc(sizeof(pthread_mutex_t));

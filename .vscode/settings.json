@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "_types.h": "c",
+        "cdefs.h": "c",
+        "philosophers.h": "c"
+    }
+}

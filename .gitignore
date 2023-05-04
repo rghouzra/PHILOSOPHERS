@@ -28,6 +28,10 @@
 *.so.*
 *.dylib
 
+#testing file
+*.txt
+*.log
+
 # Executables
 *.exe
 *.out

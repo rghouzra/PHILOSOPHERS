@@ -6,10 +6,11 @@ SRCS =	main.c\
 		philosophers.c\
 		init.c\
 		print_philo_dot.c\
-		utils.c
+		utils.c\
+		routine.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-# FLAGS = -g -fsanitize=thread
+# FLAGS = -g -fsanitize=leak
 INC = philosophers.h
 
 all: $(NAME)
