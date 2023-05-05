@@ -16,9 +16,8 @@ int check_death(t_philos_table *table, int index)
 	pthread_mutex_lock(table->philos[index]->eat_count);
 	if((table->philos[index]->eat_counter >= table->params.eat_count && table->params.eat_count != -1))
 	{
+		pthread_mutex_unlock(table->philos[index]->eat_count);
 		__lock_print("died", table->philos[index]->id, table->philos[index]);
-		// printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
-		table->philos[index]->id);
 		return (1);
 	}
 	pthread_mutex_unlock(table->philos[index]->eat_count);

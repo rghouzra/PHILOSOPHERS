@@ -16,18 +16,18 @@ void philo_take_fork(t_philo	*philo)
 
 void philo_eat(t_philo *philo)
 {
-		if(philo->right_fork)
-			__lock_print("is eating", philo->id, philo);
 		philo_take_fork(philo);
+		if (philo->right_fork)
+			__lock_print("is eating", philo->id, philo);
 		pthread_mutex_lock(philo->meal);
 		gettimeofday(&philo->last_meal, NULL);
-		if(philo->right_fork == NULL)
+		if (philo->right_fork == NULL)
 			philo->last_meal.tv_sec = 0;
 		pthread_mutex_unlock(philo->meal);
-		ft_usleep(philo->params.time_to_eat);
 		pthread_mutex_lock(philo->eat_count);
 		philo->eat_counter++;
 		pthread_mutex_unlock(philo->eat_count);
+		ft_usleep(philo->params.time_to_eat);
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
 }
