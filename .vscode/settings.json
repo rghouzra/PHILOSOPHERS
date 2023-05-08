@@ -2,6 +2,8 @@
     "files.associations": {
         "_types.h": "c",
         "cdefs.h": "c",
-        "philosophers.h": "c"
+        "philosophers.h": "c",
+        "libc.h": "c",
+        "pthread.h": "c"
     }
 }

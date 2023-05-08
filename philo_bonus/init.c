@@ -98,9 +98,6 @@ int init(t_philos_table **table, t_params arg)
     *table = malloc(sizeof(t_philos_table));
     if (!table)
         return 1;
-    (*table)->params = arg;
-    (*table)->died = malloc(sizeof(int));
-    init_mutexes(*table);
     gettimeofday(&(*table)->start_time, NULL);
     (*table)->philos = init_philos(*table);
     condition = ((*table)->forks == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);

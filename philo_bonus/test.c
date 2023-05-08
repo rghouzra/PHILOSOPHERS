@@ -1,26 +1,32 @@
-#include "libgen.h"
-#include <dirent.h>
+#include <libc.h>
+#include <semaphore.h>
+#include <pthread.h>
 
-
-int main()
+struct s
 {
-    DIR *dir;
-    char *dir_name = "/";
-    dir = opendir(dir_name);
-    struct dirent *d;
-    d = readdir(dir);
-    while(d != NULL)
-    {
-        printf("%s\n", d->d_name);
-        char *dir_name = d->d_name;
-        DIR *dir2 = opendir(dir_name);
-        struct dirent *d2;
-        d2 = readdir(dir2);
-        while(d2 != NULL)
-        {
-            printf("%s\n", d2->d_name);
-            d2 = readdir(dir2);
-        }
-        d = readdir(dir);
-    }
+	int i;
+	sem_t sem;
+};
+
+void *routine(void *ptr)
+{
+	struct s p = *(struct s *)ptr;
+	// int *p = (int *)ptr;
+	sem_wait(&p.sem);
+	printf("hello\t\n");
+	sem_post(&p.sem);
+	return NULL;
+}
+
+int main(int ac, char **av)
+{
+    pthread_t t[5];
+	struct s p;
+	// sem_init(&p.sem, 0, 1);
+    for (size_t i = 0; i < 5; i++)
+        pthread_create(&t[i], NULL, routine, (void *)&p);
+    for (size_t i = 0; i < 5; i++)
+		pthread_join(t[i], NULL);
+	sem_destroy(&p.sem);
+	// sem_destroy(&semapzhore);
 }
