@@ -87,18 +87,6 @@ void philosophy_start(t_philos_table *table)
 	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
 	init_checker_struct(table, &checker);
-	while (++i < table->params.nb_philos)
-		pthread_create(&philos[i]->philo, NULL, philosophers_routine, philos[i]);
-	i = -1;
-	while(1)
-	{
-		if (!philo_checker(checker))
-		{
-			while (++i < table->params.nb_philos)
-				pthread_detach(philos[i]->philo);
-			break;
-		}
-	}
 }
 
 void	prepare_table(t_params args)
@@ -107,6 +95,6 @@ void	prepare_table(t_params args)
 
 	if (init(&table, args))
 		return ;
-	*table->died = 0;
+
 	philosophy_start(table);
 }
