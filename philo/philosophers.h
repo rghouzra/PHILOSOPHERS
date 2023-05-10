@@ -73,4 +73,5 @@ void	show_error(char *s);
 void print_philos_dot(t_philo **philos, int nb_philos);
 void free_mutexes(t_philos_table *table);
 long long get_time_in_ms(struct timeval time_par, int checker);
+void free_ptrs(void **ptr, int size);
 #endif

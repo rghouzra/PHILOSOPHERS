@@ -23,7 +23,7 @@ t_philo **init_philos(t_philos_table *table)
     {
         philos[i] = malloc(sizeof(t_philo));
         if (!philos[i])
-            return ( NULL);
+            return (free_ptrs((void **)philos, i), NULL);
 		gettimeofday(&philos[i]->start_time, NULL);
 		philos[i]->last_meal = (struct timeval){-1, -1};
         philos[i]->id = i + 1;
