@@ -4,22 +4,6 @@ int check_death(t_philos_table *table, int index)
 {
 	struct timeval time;
 
-	gettimeofday(&time, NULL);
-	if (get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->last_meal, 1) > table->params.time_to_die\
-	&& table->philos[index]->last_meal.tv_sec != -1)
-	{
-		printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
-		table->philos[index]->id);
-		return (1);
-	}
-	pthread_mutex_lock(table->philos[index]->eat_count);
-	if((table->philos[index]->eat_counter >= table->params.eat_count && table->params.eat_count != -1))
-	{
-		printf("\033[0;31m%lld\t%d\tdied\n", get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->start_time, 1),\
-		table->philos[index]->id);
-		return (1);
-	}
-	pthread_mutex_unlock(table->philos[index]->eat_count);
 	return (0);
 }
 
@@ -34,9 +18,7 @@ int  philo_checker(void *ptr)
 	{
 	    if(check_death(checker->table, i))
 	    {
-	        pthread_mutex_lock(checker->table->philos[i]->stat);
 	        *checker->table->philos[i]->died_ptr = 1;
-	        pthread_mutex_unlock(checker->table->philos[i]->stat);
 	        return (0);
 	    }
 	}
@@ -53,9 +35,7 @@ void *philosophers_routine(void *param)
 		ft_usleep(100);
 	while(1)
 	{
-		pthread_mutex_lock(philo->stat);
 		cond = (*philo->died_ptr);
-		pthread_mutex_unlock(philo->stat);
 		if (cond)
 			return (NULL);
 		philo_eat(philo);
@@ -95,6 +75,5 @@ void	prepare_table(t_params args)
 
 	if (init(&table, args))
 		return ;
-
 	philosophy_start(table);
 }

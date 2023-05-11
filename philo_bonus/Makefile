@@ -9,7 +9,7 @@ SRCS =	main.c\
 		routine.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-# FLAGS = -g -fsanitize=leak
+FLAGS = -g -fsanitize=address -Wno-deprecated-declarations
 INC = philosophers.h
 
 all: $(NAME)
