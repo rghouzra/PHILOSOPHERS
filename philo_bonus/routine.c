@@ -20,3 +20,9 @@ void philo_think(t_philo *philo)
 	__lock_print("is thinking", philo->id, philo);
 	ft_usleep(200);
 }
+
+void philosopher_routine(t_philo *philo)
+{
+	printf("id->%d\tpid->%d\n", philo->id, philo->pid);
+
+}

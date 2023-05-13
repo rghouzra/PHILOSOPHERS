@@ -1,12 +1,13 @@
 NAME = philo_bonus
 SRCS =	main.c\
-		libft_utils2.c ft_putstr_fd.c\
+		libft_utils.c ft_putstr_fd.c\
 		show_error.c memory_cleaner.c\
 		parsing.c\
 		philosophers.c\
 		init.c\
 		utils.c\
-		routine.c
+		routine.c\
+		wrapper_funcs.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
 FLAGS = -g -fsanitize=address -Wno-deprecated-declarations

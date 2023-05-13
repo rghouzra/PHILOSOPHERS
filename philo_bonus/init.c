@@ -22,7 +22,7 @@ void distrubute_forks(t_philos_table **table)
 {
 	int i;
 
-	if(!table[0]->philos[i])
+	if(!table[0]->philos)
 		return ;
 	i = -1;
 	while(++i < table[0]->params.nb_philos)

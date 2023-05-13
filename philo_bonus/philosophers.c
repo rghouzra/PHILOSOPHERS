@@ -47,8 +47,14 @@ void philosophy_start(t_philos_table *table)
 	i = -1;
 	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
-	init_checker_struct(table, &checker);
-	
+	while(++i < table->params.nb_philos)
+	{
+		philos[i]->pid = ft_fork();
+		if (!philos[i]->pid)
+			philosopher_routine(philos[i]);
+ 	}
+	while(wait(NULL) != -1)
+		;
 }
 
 void	prepare_table(t_params args)
