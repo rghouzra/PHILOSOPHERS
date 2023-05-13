@@ -43,5 +43,4 @@ void philo_sleep(t_philo *philo)
 void philo_think(t_philo *philo)
 {
 	__lock_print("is thinking", philo->id, philo);
-	ft_usleep(200);
 }
