@@ -3,10 +3,14 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
+#include <sys/stat.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/time.h>
+#include <fcntl.h>
 #include <semaphore.h>
 typedef struct s_philo_checker t_philo_checker;
 typedef struct s_params

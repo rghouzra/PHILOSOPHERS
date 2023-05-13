@@ -11,7 +11,7 @@ SRCS =	main.c\
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
 # FLAGS = -g -fsanitize=address -Wno-deprecated-declarations
-FLAGS = -g -fsanitize=undefined
+FLAGS = -g -pthread
 INC = philosophers.h
 
 all: $(NAME)

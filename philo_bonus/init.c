@@ -49,6 +49,7 @@ int init(t_philos_table **table, t_params arg)
 	table[0]->params = arg;
     gettimeofday(&(*table)->start_time, NULL);
     (*table)->philos = init_philos(*table);
+	table[0]->died = malloc(sizeof(int));
 	(*table)->forks = semaphores_init(*table);
 	distrubute_forks(table);
 	condition = ((*table)->forks == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
