@@ -16,34 +16,15 @@ int  philo_checker(void *ptr)
 	i = -1;
 	while (++i < checker->table->params.nb_philos)	
 	{
-	    if(check_death(checker->table, i))
-	    {
-	        *checker->table->philos[i]->died_ptr = 1;
-	        return (0);
-	    }
+		if (check_death(checker->table, i))
+		{
+			*checker->table->philos[i]->died_ptr = 1;
+			return (0);
+		}
 	}
 	return (1);
 }
 
-void *philosophers_routine(void *param)
-{
-	t_philo		*philo;
-	int cond;
-
-	philo = (t_philo *)param;
-	if((philo->id & 1))
-		ft_usleep(100);
-	while(1)
-	{
-		cond = (*philo->died_ptr);
-		if (cond)
-			return (NULL);
-		philo_eat(philo);
-		philo_sleep(philo);
-		philo_think(philo);
-	}
-	return (NULL);
-}
 
 void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 {
@@ -67,6 +48,7 @@ void philosophy_start(t_philos_table *table)
 	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
 	init_checker_struct(table, &checker);
+	
 }
 
 void	prepare_table(t_params args)

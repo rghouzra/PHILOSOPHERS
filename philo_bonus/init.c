@@ -6,13 +6,11 @@ t_philo **init_philos(t_philos_table *table)
 	int i;
 
 	i = -1;
-	philos = malloc(sizeof (t_philo *) * (table->params.nb_philos + 1));
-	if (!philos)
-		return (NULL);
+	philos = ft_malloc(sizeof (t_philo *) * (table->params.nb_philos + 1));
 	philos[table->params.nb_philos] = NULL;
 	while(++i < table->params.nb_philos)
 	{
-		philos[i] = malloc(sizeof (t_philo));
+		philos[i] = ft_malloc(sizeof (t_philo));
 		if (philos[i] == NULL)
 			return (free_ptrs((void **)philos, i), NULL);
 		philos[i]->id = i + 1;
@@ -24,6 +22,8 @@ void distrubute_forks(t_philos_table **table)
 {
 	int i;
 
+	if(!table[0]->philos[i])
+		return ;
 	i = -1;
 	while(++i < table[0]->params.nb_philos)
 		(*table)->philos[i]->fork = (*table)->forks;
@@ -43,7 +43,7 @@ int init(t_philos_table **table, t_params arg)
 	int condition;
 
 	condition = 0;
-	*table = malloc(sizeof(t_philos_table));
+	*table = ft_malloc(sizeof(t_philos_table));
 	if (!table)
 		return 1;
 	table[0]->params = arg;
@@ -51,6 +51,6 @@ int init(t_philos_table **table, t_params arg)
     (*table)->philos = init_philos(*table);
 	(*table)->forks = semaphores_init(*table);
 	distrubute_forks(table);
-    condition = ((*table)->forks == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
-    return (condition);
+	condition = ((*table)->forks == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
+	return (condition);
 }

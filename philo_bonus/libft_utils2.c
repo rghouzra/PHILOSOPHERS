@@ -12,6 +12,19 @@
 
 #include "philosophers.h"
 
+
+void *ft_malloc(size_t size)
+{
+	void *ptr;
+
+	ptr = malloc(size);
+	if (!ptr)
+	{
+		ft_putstr_fd("Error: malloc failed\n", 2);
+		exit(1);
+	}
+	return (ptr);
+}
 int	ft_strlen(char *s)
 {
 	int	i;

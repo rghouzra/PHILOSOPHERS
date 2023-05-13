@@ -61,6 +61,7 @@ int		init(t_philos_table **table, t_params arg);
 long	ft_atoi(const char *nptr);
 void	prepare_table(t_params args);
 int		ft_isdigit(char c);
+int check_death(t_philos_table *table, int index);
 int		parsing(int ac, char **av, t_params *params);
 void	ft_putstr_fd(char const *s, int fd);
 void	__lock_print(char *str, int id,t_philo *philo);
