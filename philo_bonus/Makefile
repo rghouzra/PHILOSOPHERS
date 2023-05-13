@@ -10,7 +10,8 @@ SRCS =	main.c\
 		wrapper_funcs.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -g -fsanitize=address -Wno-deprecated-declarations
+# FLAGS = -g -fsanitize=address -Wno-deprecated-declarations
+FLAGS = -g -fsanitize=undefined
 INC = philosophers.h
 
 all: $(NAME)
