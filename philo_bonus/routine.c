@@ -2,6 +2,7 @@
 
 void philo_take_fork(t_philo	*philo)
 {	
+	// fprintf(stderr, "lfork->%p\trfork->%p\n", philo->lfork, philo->rfork);
 	sem_wait(philo->rfork);
 	__lock_print("has taken a fork", philo->id, philo);
 	if(philo->params.nb_philos > 1)
