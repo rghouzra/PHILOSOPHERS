@@ -25,7 +25,7 @@ void philo_eat(t_philo *philo)
 			philo->last_meal.tv_sec = 0;
 		pthread_mutex_unlock(philo->meal);
 		pthread_mutex_lock(philo->eat_count);
-		philo->eat_counter++;
+		philo->eat_counter  += (philo->eat_counter == -1) + 1;
 		pthread_mutex_unlock(philo->eat_count);
 		ft_usleep(philo->params.time_to_eat);
 		if(philo->left_fork)

@@ -26,7 +26,10 @@ void distrubute_forks(t_philos_table **table)
 		return ;
 	i = -1;
 	while(++i < table[0]->params.nb_philos)
-		(*table)->philos[i]->fork = (*table)->forks;
+	{
+		(*table)->philos[i]->lfork = (*table)->lfork;
+		(*table)->philos[i]->lfork = (*table)->rfork;
+	}
 }
 sem_t	*semaphores_init(t_philos_table *table)
 {
@@ -50,8 +53,9 @@ int init(t_philos_table **table, t_params arg)
     gettimeofday(&(*table)->start_time, NULL);
     (*table)->philos = init_philos(*table);
 	table[0]->died = malloc(sizeof(int));
-	(*table)->forks = semaphores_init(*table);
+	(*table)->lfork = semaphores_init(*table);
+	(*table)->rfork = semaphores_init(*table);
 	distrubute_forks(table);
-	condition = ((*table)->forks == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
+	condition = ((*table)->lfork == NULL) + ((*table)->rfork == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
 	return (condition);
 }

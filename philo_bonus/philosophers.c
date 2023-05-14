@@ -51,7 +51,10 @@ void philosophy_start(t_philos_table *table)
 	{
 		philos[i]->pid = ft_fork();
 		if (!philos[i]->pid)
+		{
+			philos[i]->start_time = table->start_time;
 			philosopher_routine(philos[i]);
+		}
  	}
 	while(wait(NULL) != -1)
 		;

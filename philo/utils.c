@@ -51,7 +51,6 @@ int check_death(t_philos_table *table, int index)
 	if((table->philos[index]->eat_counter >= table->params.eat_count && table->params.eat_count != -1))
 	{
 		pthread_mutex_unlock(table->philos[index]->eat_count);
-		__lock_print("died", table->philos[index]->id, table->philos[index]);
 		return (1);
 	}
 	pthread_mutex_unlock(table->philos[index]->eat_count);
