@@ -41,7 +41,9 @@ void philo_think(t_philo *philo)
 
 void philosopher_routine(t_philo *philo)
 {
-	for(int i = 0; i < 100; i++)
+	if(philo->id & 1)
+		ft_usleep(200);
+	while(1)
 	{
 		philo_eat(philo);
 		philo_sleep(philo);

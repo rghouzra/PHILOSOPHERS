@@ -38,6 +38,10 @@ void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 	(*checker)->table = table;
 }
 
+int death_checker(t_philos_table *table)
+{
+	
+}
 void philosophy_start(t_philos_table *table)
 {
 	int			i;
@@ -54,8 +58,11 @@ void philosophy_start(t_philos_table *table)
 		{
 			philos[i]->start_time = table->start_time;
 			philosopher_routine(philos[i]);
+			exit(0);
 		}
  	}
+	while(death_checker(table) != 0)
+		;
 	while(wait(NULL) != -1)
 		;
 }
