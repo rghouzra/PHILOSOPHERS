@@ -1,0 +1,3 @@
+1: check death of philos in bonus part
+2: still have data race in mandatory part when the mutex is destroyed
+3: norm the code

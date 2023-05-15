@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="27b1b285-fd81-4e1d-bb89-92e37ce0c556" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/philo_bonus/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_bonus/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_bonus/memory_cleaner.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/memory_cleaner.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_bonus/philosophers.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/philosophers.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_bonus/routine.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/routine.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_bonus/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_bonus/utils.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PNRr3rIHLP1haGuEHCj7k01OrO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/redaghouzraf/PHILOSOPHERS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="CMake Application.Make">
+    <configuration name="philo" type="CLionNativeAppRunConfigurationType" PROGRAM_PARAMS="5 800 200 200 2" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/philo" PASS_PARENT_ENVS_2="true" version="1" RUN_PATH="$PROJECT_DIR$/philo/philo">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Make" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="5 800 200 200 2" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/philo" PASS_PARENT_ENVS_2="true" RUN_PATH="$PROJECT_DIR$/philo/philo" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.Make" />
+      <item itemvalue="Makefile Application.philo" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27b1b285-fd81-4e1d-bb89-92e37ce0c556" name="Changes" comment="" />
+      <created>1683295748653</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683295748653</updated>
+      <workItem from="1683295749683" duration="878000" />
+      <workItem from="1683306749265" duration="337000" />
+      <workItem from="1683663496903" duration="8521000" />
+      <workItem from="1683720902347" duration="4540000" />
+      <workItem from="1683737852361" duration="3536000" />
+      <workItem from="1683755389431" duration="599000" />
+      <workItem from="1683819445705" duration="5986000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
