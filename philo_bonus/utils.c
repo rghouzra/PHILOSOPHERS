@@ -1,5 +1,16 @@
 #include "philosophers.h"
 
+struct timeval get_timeval()
+{
+	struct timeval time;
+
+	gettimeofday(&time, NULL);
+	return time;
+}
+long long get_curr_time(t_philos_table *table, struct timeval time)
+{
+	return get_time_in_ms(time, 1) - get_time_in_ms(table->start_time, 1);
+}
 long long get_time_in_ms(struct timeval time_par, int checker)
 {
 	long long   milliseconds;

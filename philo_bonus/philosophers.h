@@ -67,6 +67,8 @@ void	philo_sleep(t_philo *philo);
 void	*ft_malloc(size_t size);
 void	philo_eat(t_philo *philo);
 void	philo_take_fork(t_philo	*philo);
+long long get_curr_time(t_philos_table *table, struct timeval time);
+struct timeval get_timeval();
 void	ft_usleep(long long time);
 pid_t	ft_fork();
 void philosopher_routine(t_philo *philo);

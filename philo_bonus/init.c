@@ -32,18 +32,20 @@ void distrubute_forks(t_philos_table **table)
 	}
 }
 
-sem_t	*semaphores_init(t_philos_table **table)
+int		semaphores_init(t_philos_table **table)
 {
 	(*table)->lfork = sem_open("/f_sem", O_CREAT, 0644 ,table[0]->params.nb_philos);
+	(*table)->rfork = NULL;
 	if(table[0]->lfork == SEM_FAILED)
-		return (NULL);
+		return (0);
 	if(table[0]->params.nb_philos > 1)
 	{
 		table[0]->rfork = sem_open("/s_sem", O_CREAT, 0644, table[0]->params.nb_philos);
 		printf("rfork->%p\n", table[0]->rfork);
 		if(table[0]->rfork == SEM_FAILED)
-			return (NULL);
+			return (0);
 	}
+	return 1;
 }
 
 int init(t_philos_table **table, t_params arg)
@@ -55,11 +57,12 @@ int init(t_philos_table **table, t_params arg)
 	if (!table)
 		return 1;
 	table[0]->params = arg;
-    gettimeofday(&(*table)->start_time, NULL);
-    (*table)->philos = init_philos(*table);
+	gettimeofday(&(*table)->start_time, NULL);
+	(*table)->philos = init_philos(*table);
 	table[0]->died = malloc(sizeof(int));
 	if(!semaphores_init(table))
 		;
+	condition += (long long)semaphores_init(table);
 	distrubute_forks(table);
 	condition = ((*table)->lfork == NULL) + ((*table)->rfork == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
 	return (condition);
