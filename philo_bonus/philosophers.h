@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <pthread.h>
 #include <string.h>
 #include <sys/types.h>
@@ -31,7 +32,6 @@ typedef struct s_philo
 	sem_t *rfork;
 	sem_t *lfork;
 	struct timeval	last_meal;
-	int				*died_ptr;
 }t_philo;
 
 typedef struct s_philos_table
@@ -40,7 +40,6 @@ typedef struct s_philos_table
 	t_params		params;
 	t_philo			**philos;
 	int				*philos_stat;
-	int				*died;
 	sem_t	*lfork;
 	sem_t	*rfork;
 	t_philo_checker	*checker_ptr;

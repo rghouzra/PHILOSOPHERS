@@ -2,7 +2,8 @@
 
 int check_death(t_philos_table *table, int index)
 {
-	if(get_curr_time(table, table->philos[index]->last_meal) >= get_curr_time(table, get_timeval()))
+	if(get_curr_time(table, table->philos[index]->last_meal) >= get_curr_time(table, get_timeval())\
+	&& table->philos[index]->last_meal.tv_sec != -1)
 	{
 		__lock_print("is died", index + 1, table->philos[index]);
 		return 1;
@@ -19,7 +20,9 @@ int death_checker(t_philo_checker *checker)
 	{
 		if (check_death(checker->table, i))
 		{
-			*checker->table->philos[i]->died_ptr = 1;
+			i = -1;
+			while(++i < checker->table->params.nb_philos)
+				kill(checker->table->philos[i]->pid, SIGTERM);
 			return (0);
 		}
 	}
@@ -34,6 +37,7 @@ void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 		return ;
 	if (!(*checker)->death)
 		return ;
+	checker[0]->death_checker = malloc(sizeof(4));
 	(*checker)->table = table;
 }
 
@@ -57,6 +61,7 @@ void philosophy_start(t_philos_table *table)
 			exit(0);
 		}
  	}
+	printf("hello\n");
 	while(death_checker(checker) != 0)
 		;
 	while(wait(NULL) != -1)

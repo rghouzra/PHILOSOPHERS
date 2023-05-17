@@ -41,8 +41,8 @@ void philo_think(t_philo *philo)
 
 void philosopher_routine(t_philo *philo)
 {
-	if(philo->id & 1)
-		ft_usleep(200);
+	// if(philo->id & 1)
+	// 	ft_usleep(200);
 	while(1)
 	{
 		philo_eat(philo);

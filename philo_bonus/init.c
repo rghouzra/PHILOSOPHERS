@@ -14,6 +14,7 @@ t_philo **init_philos(t_philos_table *table)
 		if (philos[i] == NULL)
 			return (free_ptrs((void **)philos, i), NULL);
 		philos[i]->id = i + 1;
+		philos[i]->last_meal = (struct timeval){-1, -1};
 	}
 	return (philos);
 }
@@ -41,7 +42,6 @@ int		semaphores_init(t_philos_table **table)
 	if(table[0]->params.nb_philos > 1)
 	{
 		table[0]->rfork = sem_open("/s_sem", O_CREAT, 0644, table[0]->params.nb_philos);
-		printf("rfork->%p\n", table[0]->rfork);
 		if(table[0]->rfork == SEM_FAILED)
 			return (0);
 	}
@@ -59,11 +59,11 @@ int init(t_philos_table **table, t_params arg)
 	table[0]->params = arg;
 	gettimeofday(&(*table)->start_time, NULL);
 	(*table)->philos = init_philos(*table);
-	table[0]->died = malloc(sizeof(int));
 	if(!semaphores_init(table))
 		;
-	condition += (long long)semaphores_init(table);
+	condition += semaphores_init(table);
 	distrubute_forks(table);
-	condition = ((*table)->lfork == NULL) + ((*table)->rfork == NULL) + ((*table)->philos == NULL) + ((*table)->died == NULL);
+	condition = ((*table)->lfork == NULL) + ((*table)->rfork == NULL)\
+	+ ((*table)->philos == NULL);
 	return (condition);
 }
