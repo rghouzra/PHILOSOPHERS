@@ -35,9 +35,6 @@ void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 	*checker = malloc(sizeof(t_philo_checker));
 	if (!checker)
 		return ;
-	if (!(*checker)->death)
-		return ;
-	checker[0]->death_checker = malloc(sizeof(4));
 	(*checker)->table = table;
 }
 
