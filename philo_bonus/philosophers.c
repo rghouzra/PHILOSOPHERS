@@ -55,10 +55,8 @@ void philosophy_start(t_philos_table *table)
 		{
 			philos[i]->start_time = table->start_time;
 			philosopher_routine(philos[i]);
-			exit(0);
 		}
  	}
-	printf("hello\n");
 	while(death_checker(checker) != 0)
 		;
 	while(wait(NULL) != -1)
