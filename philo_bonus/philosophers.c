@@ -57,10 +57,10 @@ void philosophy_start(t_philos_table *table)
 			philosopher_routine(philos[i]);
 		}
  	}
-	while(death_checker(checker) != 0)
-		;
-	while(wait(NULL) != -1)
-		;
+	// while(death_checker(checker) != 0)
+	// 	;
+	printf("All philosophers are dead\n");
+	waitpid(-1, NULL, 0);
 	sem_close(table->lfork);
 	sem_close(table->rfork);
 	sem_unlink("/f_sem");
