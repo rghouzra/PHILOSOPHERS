@@ -61,6 +61,8 @@ void philosophy_start(t_philos_table *table)
 		;
 	while(wait(NULL) != -1)
 		;
+	sem_destroy(table->lfork);
+	sem_destroy(table->rfork);
 }
 
 void	prepare_table(t_params args)
