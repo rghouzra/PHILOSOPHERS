@@ -14,6 +14,7 @@ t_philo **init_philos(t_philos_table *table)
 		if (philos[i] == NULL)
 			return (free_ptrs((void **)philos, i), NULL);
 		philos[i]->id = i + 1;
+		philos[i]->params = table->params;
 		philos[i]->last_meal = (struct timeval){-1, -1};
 	}
 	return (philos);
@@ -35,6 +36,7 @@ void distrubute_forks(t_philos_table **table)
 
 int		semaphores_init(t_philos_table **table)
 {
+	cleanup_processes();
 	(*table)->lfork = sem_open("/f_sem", O_CREAT, 0644 ,table[0]->params.nb_philos);
 	(*table)->rfork = NULL;
 	if(table[0]->lfork == SEM_FAILED)

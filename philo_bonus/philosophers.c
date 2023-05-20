@@ -5,7 +5,7 @@ int check_death(t_philos_table *table, int index)
 	if(get_curr_time(table, table->philos[index]->last_meal) >= get_curr_time(table, get_timeval())\
 	&& table->philos[index]->last_meal.tv_sec != -1)
 	{
-		__lock_print("is died", index + 1, table->philos[index]);
+		__lock_print("\033[0;31mis died", index + 1, table->philos[index]);
 		return 1;
 	}
 	return (0);
@@ -57,8 +57,8 @@ void philosophy_start(t_philos_table *table)
 			philosopher_routine(philos[i]);
 		}
  	}
-	// while(death_checker(checker) != 0)
-	// 	;
+	while(death_checker(checker) != 0)
+		;
 	printf("All philosophers are dead\n");
 	waitpid(-1, NULL, 0);
 	sem_close(table->lfork);
