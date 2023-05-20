@@ -1,34 +1,32 @@
 #include "philosophers.h"
 
-int check_death(t_philos_table *table, int index)
+int check_death(t_philo *philo)
 {
-	if(get_curr_time(table, table->philos[index]->last_meal) >= get_curr_time(table, get_timeval())\
-	&& table->philos[index]->last_meal.tv_sec != -1)
+	if(philo->params.time_to_die < get_time_in_ms((struct timeval){0, 0}, 0)\
+	- get_time_in_ms(philo->last_meal, 1)\
+	&& philo->last_meal.tv_sec != -1)
 	{
-		__lock_print("\033[0;31mis died", index + 1, table->philos[index]);
+		__lock_print("\033[0;31mis died", philo->id, philo);
 		return 1;
 	}
 	return (0);
 }
 
-int death_checker(t_philo_checker *checker)
+void  *death_checker(void *ptr)
 {
-	int i;
+	t_philo *philo;
 
-	i = -1;
-	while (++i < checker->table->params.nb_philos)	
+	philo = (t_philo *)ptr;	
+	while(1)
 	{
-		if (check_death(checker->table, i))
+		if (check_death(philo))
 		{
-			i = -1;
-			while(++i < checker->table->params.nb_philos)
-				kill(checker->table->philos[i]->pid, SIGTERM);
-			return (0);
+			exit(0);
+			return ((void *)0);
 		}
 	}
-	return (1);
+	return (NULL);
 }
-
 
 void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 {
@@ -53,18 +51,18 @@ void philosophy_start(t_philos_table *table)
 		philos[i]->pid = ft_fork();
 		if (!philos[i]->pid)
 		{
+			pthread_create(&checker->death_checker, NULL, death_checker, philos[i]);
 			philos[i]->start_time = table->start_time;
 			philosopher_routine(philos[i]);
 		}
  	}
-	while(death_checker(checker) != 0)
-		;
-	printf("All philosophers are dead\n");
 	waitpid(-1, NULL, 0);
+	for (i = 0; i < table->params.nb_philos; i++)
+		kill(philos[i]->pid, SIGINT);
 	sem_close(table->lfork);
+	sem_close(table->print);
 	sem_close(table->rfork);
-	sem_unlink("/f_sem");
-	sem_unlink("/s_sem");
+	cleanup_processes();
 }
 
 void	prepare_table(t_params args)

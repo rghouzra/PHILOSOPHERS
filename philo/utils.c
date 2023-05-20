@@ -28,7 +28,7 @@ void __lock_print(char *str, int id, t_philo *philo)
 void ft_usleep(long long time)
 {
 	long long start;
-
+	
 	start = get_time_in_ms((struct timeval){0, 0}, 0);
 	while (get_time_in_ms((struct timeval){0, 0}, 0) - start < time)
 		usleep(500);
@@ -36,9 +36,6 @@ void ft_usleep(long long time)
 
 int check_death(t_philos_table *table, int index)
 {
-	struct timeval time;
-
-	gettimeofday(&time, NULL);
 	pthread_mutex_lock(table->philos[index]->meal);
 	if (get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->last_meal, 1) > table->params.time_to_die\
 	&& table->philos[index]->last_meal.tv_sec != -1)

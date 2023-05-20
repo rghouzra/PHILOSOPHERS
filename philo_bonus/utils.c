@@ -27,8 +27,10 @@ void __lock_print(char *str, int id, t_philo *philo)
 {
 	// if(*philo->died_ptr)
 	// 	return ;
+	sem_wait(philo->print);
 	printf("%lld\t%d\t%s\n", get_time_in_ms((struct timeval){0, 0}, 0)\
 	- get_time_in_ms(philo->start_time, 1), id,str);
+	sem_post(philo->print);
 }
 
 
@@ -45,4 +47,5 @@ void cleanup_processes()
 {
 	sem_unlink("/f_sem");
 	sem_unlink("/s_sem");
+	sem_unlink("/t_sem");
 }

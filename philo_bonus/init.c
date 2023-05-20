@@ -31,6 +31,7 @@ void distrubute_forks(t_philos_table **table)
 	{
 		(*table)->philos[i]->lfork = (*table)->lfork;
 		(*table)->philos[i]->rfork = (*table)->rfork;
+		(*table)->philos[i]->print = (*table)->print;
 	}
 }
 
@@ -47,6 +48,9 @@ int		semaphores_init(t_philos_table **table)
 		if(table[0]->rfork == SEM_FAILED)
 			return (0);
 	}
+	(*table)->print = sem_open("/t_sem", O_CREAT, 0644, table[0]->params.nb_philos);
+	if(table[0]->print == SEM_FAILED)
+		return (0);
 	return 1;
 }
 

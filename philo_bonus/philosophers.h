@@ -31,6 +31,7 @@ typedef struct s_philo
 	pid_t	pid;
 	sem_t *rfork;
 	sem_t *lfork;
+	sem_t *print;
 	struct timeval	last_meal;
 }t_philo;
 
@@ -41,6 +42,7 @@ typedef struct s_philos_table
 	t_philo			**philos;
 	int				*philos_stat;
 	sem_t	*lfork;
+	sem_t	*print;
 	sem_t	*rfork;
 	t_philo_checker	*checker_ptr;
 	struct timeval	start_time;
@@ -49,7 +51,6 @@ typedef struct s_philo_checker
 {
 	long long	current_time;
 	pthread_t	death_checker;
-	pthread_mutex_t	*death;
 	t_philos_table	*table;
 }t_philo_checker;
 int		ft_strcmp(char *s1, char *s2);
@@ -70,9 +71,9 @@ long long get_curr_time(t_philos_table *table, struct timeval time);
 struct timeval get_timeval();
 void cleanup_processes();
 void	ft_usleep(long long time);
-pid_t	ft_fork();
-void philosopher_routine(t_philo *philo);
-void	show_error(char *s);
-void free_mutexes(t_philos_table *table);
-long long get_time_in_ms(struct timeval time_par, int checker);
+pid_t		ft_fork();
+void		philosopher_routine(t_philo *philo);
+void		show_error(char *s);
+void		free_mutexes(t_philos_table *table);
+long long	get_time_in_ms(struct timeval time_par, int checker);
 #endif

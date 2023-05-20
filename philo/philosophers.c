@@ -1,13 +1,13 @@
 #include "philosophers.h"
 
-int  philo_checker(void *ptr)
+int	philo_checker(void *ptr)
 {
-	int i;
-	t_philo_checker *checker;
+	int				i;
+	t_philo_checker	*checker;
 
-	checker  = (t_philo_checker *)ptr;
+	checker = (t_philo_checker *)ptr;
 	i = -1;
-	while (++i < checker->table->params.nb_philos)	
+	while (++i < checker->table->params.nb_philos)
 	{
 		if (check_death(checker->table, i))
 		{
@@ -20,15 +20,15 @@ int  philo_checker(void *ptr)
 	return (1);
 }
 
-void *philosophers_routine(void *param)
+void	*philosophers_routine(void *param)
 {
-	t_philo		*philo;
-	int cond;
+	t_philo	*philo;
+	int		cond;
 
 	philo = (t_philo *)param;
-	if((philo->id & 1) == 0)
+	if ((philo->id & 1) == 0)
 		ft_usleep(100);
-	while(1)
+	while (1)
 	{
 		pthread_mutex_lock(philo->stat);
 		cond = (*philo->died_ptr);
@@ -42,7 +42,7 @@ void *philosophers_routine(void *param)
 	return (NULL);
 }
 
-void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
+void	init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 {
 	*checker = malloc(sizeof(t_philo_checker));
 	if (!checker)
@@ -55,27 +55,29 @@ void init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 	table->checker_ptr = *checker;
 }
 
-void philosophy_start(t_philos_table *table)
+void	philosophy_start(t_philos_table *table)
 {
-	int			i;
-	t_philo		**philos;
-	t_philo_checker *checker;
+	int				i;
+	t_philo			**philos;
+	t_philo_checker	*checker;
 
 	i = -1;
 	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
 	init_checker_struct(table, &checker);
 	while (++i < table->params.nb_philos)
-		pthread_create(&philos[i]->philo,\
-	NULL, philosophers_routine, philos[i]);
+		pthread_create(&philos[i]->philo,
+						NULL,
+						philosophers_routine,
+						philos[i]);
 	i = -1;
-	while(1)
+	while (1)
 	{
 		if (!philo_checker(checker))
 		{
 			while (++i < table->params.nb_philos)
 				pthread_detach(philos[i]->philo);
-			break;
+			break ;
 		}
 	}
 }
