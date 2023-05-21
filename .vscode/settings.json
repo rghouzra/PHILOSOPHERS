@@ -4,6 +4,7 @@
         "cdefs.h": "c",
         "philosophers.h": "c",
         "libc.h": "c",
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "unistd.h": "c"
     }
 }
