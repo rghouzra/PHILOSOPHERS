@@ -37,7 +37,8 @@ void ft_usleep(long long time)
 int check_death(t_philos_table *table, int index)
 {
 	pthread_mutex_lock(table->philos[index]->meal);
-	if (get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->last_meal, 1) > table->params.time_to_die\
+	if (get_time_in_ms((struct timeval){0, 0}, 0) - get_time_in_ms(table->philos[index]->last_meal, 1)\
+	> table->params.time_to_die\
 	&& table->philos[index]->last_meal.tv_sec != -1)
 	{
 		__lock_print("died", table->philos[index]->id, table->philos[index]);

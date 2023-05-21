@@ -9,11 +9,8 @@ void philo_take_fork(t_philo	*philo)
 			__lock_print("has taken a fork", philo->id, philo);
 			pthread_mutex_lock(philo->right_fork);
 		}
-		if (philo->left_fork)
-		{
-			__lock_print("has taken a fork", philo->id, philo);
-			pthread_mutex_lock(philo->left_fork);
-		}
+		__lock_print("has taken a fork", philo->id, philo);
+		pthread_mutex_lock(philo->left_fork);
 	}
 	else
 	{

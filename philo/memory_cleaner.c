@@ -4,6 +4,7 @@ void free_ptrs(void **ptr, int size)
 {
   int i;
 
+  (void)size;
   i = -1;
   if (!ptr)
     return;

@@ -41,7 +41,7 @@ int fill_params(char **av, int ac, t_params *params)
 	while(++i < ac)
 	{
 		*ptr = ft_atoi(av[i]) ;
-		if(*ptr++ > INT_MAX)
+		if(*ptr == 0 ||*ptr++ > INT_MAX)
 			return (0);
 	}
 	if(ac == 4)
