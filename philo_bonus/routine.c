@@ -22,10 +22,10 @@ void philo_eat(t_philo *philo)
 		gettimeofday(&philo->last_meal, NULL);
 		philo->eat_counter++;
 	}
+	ft_usleep(philo->params.time_to_eat);
 	if(philo->params.nb_philos > 1)
 		sem_post(philo->lfork);
 	sem_post(philo->rfork);
-	ft_usleep(philo->params.time_to_eat);
 }
 
 void philo_sleep(t_philo *philo)
@@ -39,10 +39,13 @@ void philo_think(t_philo *philo)
 	__lock_print("is thinking", philo->id, philo);
 }
 
-void philosopher_routine(t_philo *philo)
+void *philosopher_routine(void *ptr)
 {
-	// if(philo->id & 1)
-	// 	ft_usleep(200);
+	t_philo *philo;
+
+	philo = (t_philo *)ptr;
+	if(philo->id & 1)
+		ft_usleep(200);
 	while(1)
 	{
 		philo_eat(philo);

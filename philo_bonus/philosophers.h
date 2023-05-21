@@ -32,6 +32,7 @@ typedef struct s_philo
 	sem_t *rfork;
 	sem_t *lfork;
 	sem_t *print;
+	pthread_t thread;
 	struct timeval	last_meal;
 }t_philo;
 
@@ -72,7 +73,7 @@ struct timeval get_timeval();
 void cleanup_processes();
 void	ft_usleep(long long time);
 pid_t		ft_fork();
-void		philosopher_routine(t_philo *philo);
+void *philosopher_routine(void *ptr);
 void		show_error(char *s);
 void		free_mutexes(t_philos_table *table);
 long long	get_time_in_ms(struct timeval time_par, int checker);

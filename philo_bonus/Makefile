@@ -10,8 +10,9 @@ SRCS =	main.c\
 		wrapper_funcs.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
+# FLAGS = -g -fsanitize=leak -Wno-deprecated-declarations -pthread -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include
 FLAGS = -g -pthread
-FLAGS = -g -fsanitize=address -Wno-deprecated-declarations -pthread
+
 INC = philosophers.h
 
 all: $(NAME)
