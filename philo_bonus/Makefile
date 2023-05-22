@@ -11,7 +11,7 @@ SRCS =	main.c\
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
 # FLAGS = -g -fsanitize=leak -Wno-deprecated-declarations -pthread -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include
-FLAGS = -g -pthread
+FLAGS = -g -pthread -fsanitize=undefined
 
 INC = philosophers.h
 

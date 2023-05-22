@@ -91,4 +91,5 @@ void	prepare_table(t_params args)
 	*table->died = 0;
 	philosophy_start(table);
 	free_mutexes(table);
+	free(table);
 }

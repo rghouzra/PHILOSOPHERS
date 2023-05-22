@@ -26,7 +26,7 @@ int	isvalid(char **s, int ac)
 		flag = 0;
 		while (s[i][++j])
 				flag += ft_isdigit(s[i][j]);
-		err_flag += ((flag == j) * j != 0);
+		err_flag += ((flag == j) * (j != 0));
 	}
 	return (err_flag == ac);
 }
