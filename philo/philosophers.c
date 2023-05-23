@@ -80,6 +80,7 @@ void	philosophy_start(t_philos_table *table)
 			break ;
 		}
 	}
+	free(checker);
 }
 
 void	prepare_table(t_params args)
@@ -91,5 +92,5 @@ void	prepare_table(t_params args)
 	*table->died = 0;
 	philosophy_start(table);
 	free_mutexes(table);
-	free(table);
+	delete_garbage(&table);
 }

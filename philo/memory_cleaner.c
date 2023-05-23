@@ -34,3 +34,14 @@ void free_mutexes(t_philos_table *table)
     (*table).meals = NULL;
     (*table).eat_counts = NULL;
 }
+void delete_garbage(t_philos_table **table)
+{
+	int i;
+
+	i = -1;
+	if(!table || !*table)
+		return ;
+	while(++i < table[0]->params.nb_philos)
+		free(table[0]->philos[i]);
+	free(*table);
+}

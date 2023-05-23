@@ -69,6 +69,7 @@ void	philo_think(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_eat(t_philo *philo);
 void	philo_take_fork(t_philo	*philo);
+void delete_garbage(t_philos_table **table);
 void ft_usleep(long long time);
 void	show_error(char *s);
 void print_philos_dot(t_philo **philos, int nb_philos);

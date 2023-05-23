@@ -10,7 +10,7 @@ SRCS =	main.c\
 		routine.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 INC = philosophers.h
 
 all: $(NAME)
