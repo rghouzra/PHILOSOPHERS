@@ -27,6 +27,8 @@ void free_mutexes(t_philos_table *table)
         free((*table).meals[i]);
         free((*table).eat_counts[i]);
     }
+    pthread_mutex_destroy(table->print);
+    free(table->print);
     free((*table).forks);
     free((*table).meals);
     free((*table).eat_counts);
@@ -41,7 +43,10 @@ void delete_garbage(t_philos_table **table)
 	i = -1;
 	if(!table || !*table)
 		return ;
+  ft_usleep(table[0]->params.time_to_die + table[0]->params.time_to_sleep + table[0]->params.time_to_eat + 200);
 	while(++i < table[0]->params.nb_philos)
 		free(table[0]->philos[i]);
+  free(table[0]->philos);
+  free(table[0]->died);
 	free(*table);
 }
