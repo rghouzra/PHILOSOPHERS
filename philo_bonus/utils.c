@@ -45,7 +45,6 @@ void ft_usleep(long long time)
 
 void cleanup_processes()
 {
-	sem_unlink("/f_sem");
-	sem_unlink("/s_sem");
+	sem_unlink("/forks");
 	sem_unlink("/t_sem");
 }

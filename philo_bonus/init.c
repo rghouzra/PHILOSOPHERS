@@ -29,8 +29,7 @@ void distrubute_forks(t_philos_table **table)
 	i = -1;
 	while(++i < table[0]->params.nb_philos)
 	{
-		(*table)->philos[i]->lfork = (*table)->lfork;
-		(*table)->philos[i]->rfork = (*table)->rfork;
+		(*table)->philos[i]->fork = (*table)->forks;
 		(*table)->philos[i]->print = (*table)->print;
 	}
 }
@@ -38,16 +37,9 @@ void distrubute_forks(t_philos_table **table)
 int		semaphores_init(t_philos_table **table)
 {
 	cleanup_processes();
-	(*table)->lfork = sem_open("/f_sem", O_CREAT, 0644 ,table[0]->params.nb_philos);
-	(*table)->rfork = NULL;
-	if(table[0]->lfork == SEM_FAILED)
+	(*table)->forks = sem_open("/forks", O_CREAT, 0644 ,table[0]->params.nb_philos);
+	if(table[0]->forks == SEM_FAILED)
 		return (0);
-	if(table[0]->params.nb_philos > 1)
-	{
-		table[0]->rfork = sem_open("/s_sem", O_CREAT, 0644, table[0]->params.nb_philos);
-		if(table[0]->rfork == SEM_FAILED)
-			return (0);
-	}
 	(*table)->print = sem_open("/t_sem", O_CREAT, 0644, table[0]->params.nb_philos);
 	if(table[0]->print == SEM_FAILED)
 		return (0);
@@ -69,7 +61,6 @@ int init(t_philos_table **table, t_params arg)
 		;
 	condition += semaphores_init(table);
 	distrubute_forks(table);
-	condition = ((*table)->lfork == NULL) + ((*table)->rfork == NULL)\
-	+ ((*table)->philos == NULL);
+	condition = ((*table)->forks == NULL) + ((*table)->philos == NULL);
 	return (condition);
 }

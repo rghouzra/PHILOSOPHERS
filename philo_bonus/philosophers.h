@@ -29,8 +29,7 @@ typedef struct s_philo
 	int			eat_counter;
 	t_params	params;
 	pid_t	pid;
-	sem_t *rfork;
-	sem_t *lfork;
+	sem_t *fork;
 	sem_t *print;
 	pthread_t thread;
 	struct timeval	last_meal;
@@ -42,9 +41,8 @@ typedef struct s_philos_table
 	t_params		params;
 	t_philo			**philos;
 	int				*philos_stat;
-	sem_t	*lfork;
-	sem_t	*print;
-	sem_t	*rfork;
+	sem_t			*forks;
+	sem_t			*print;
 	t_philo_checker	*checker_ptr;
 	struct timeval	start_time;
 }t_philos_table;

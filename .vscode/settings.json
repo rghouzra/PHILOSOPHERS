@@ -6,6 +6,7 @@
         "libc.h": "c",
         "pthread.h": "c",
         "unistd.h": "c",
-        "__locale": "c"
+        "__locale": "c",
+        "ios": "c"
     }
 }

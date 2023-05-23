@@ -17,7 +17,7 @@ void free_mutexes(t_philos_table *table)
 {
     int i;
 
-    i = -1;
+	i = -1;
     while (++i < (*table).params.nb_philos)
     {
         pthread_mutex_destroy((*table).forks[i]);
