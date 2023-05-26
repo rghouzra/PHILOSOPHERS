@@ -27,10 +27,11 @@ typedef struct s_philo
 	struct timeval	start_time;
 	int			id;
 	int			eat_counter;
+	int			*died;
 	t_params	params;
-	pid_t	pid;
-	sem_t *fork;
-	sem_t *print;
+	pid_t		pid;
+	sem_t		*fork;
+	sem_t		*print;
 	pthread_t thread;
 	struct timeval	last_meal;
 }t_philo;

@@ -16,6 +16,8 @@ t_philo **init_philos(t_philos_table *table)
 		philos[i]->id = i + 1;
 		philos[i]->params = table->params;
 		philos[i]->last_meal = (struct timeval){-1, -1};
+		philos[i]->died = malloc(4);
+		*philos[i]->died = 0;
 	}
 	return (philos);
 }
@@ -40,7 +42,7 @@ int		semaphores_init(t_philos_table **table)
 	(*table)->forks = sem_open("/forks", O_CREAT, 0644 ,table[0]->params.nb_philos);
 	if(table[0]->forks == SEM_FAILED)
 		return (0);
-	(*table)->print = sem_open("/t_sem", O_CREAT, 0644, table[0]->params.nb_philos);
+	(*table)->print = sem_open("/sem_print", O_CREAT, 0644, table[0]->params.nb_philos);
 	if(table[0]->print == SEM_FAILED)
 		return (0);
 	return 1;

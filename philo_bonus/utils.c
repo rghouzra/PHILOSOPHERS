@@ -30,6 +30,8 @@ void __lock_print(char *str, int id, t_philo *philo)
 	sem_wait(philo->print);
 	printf("%lld\t%d\t%s\n", get_time_in_ms((struct timeval){0, 0}, 0)\
 	- get_time_in_ms(philo->start_time, 1), id,str);
+	// if (philo->died)
+	// 	exit(0);
 	sem_post(philo->print);
 }
 
@@ -46,5 +48,5 @@ void ft_usleep(long long time)
 void cleanup_processes()
 {
 	sem_unlink("/forks");
-	sem_unlink("/t_sem");
+	sem_unlink("/sem_print");
 }
