@@ -3,7 +3,7 @@
 long long get_time_in_ms(struct timeval time_par, int checker)
 {
 	long long   milliseconds;
-    struct      timeval time;
+	struct      timeval time;
 
     time = time_par;
     if (!checker)
