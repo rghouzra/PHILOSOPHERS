@@ -17,6 +17,7 @@ t_philo **init_philos(t_philos_table *table)
 		philos[i]->params = table->params;
 		philos[i]->last_meal = (struct timeval){-1, -1};
 		philos[i]->died = malloc(4);
+		gettimeofday(&philos[i]->start_time, NULL);
 		*philos[i]->died = 0;
 	}
 	return (philos);

@@ -15,13 +15,13 @@ void philo_take_fork(t_philo	*philo)
 void philo_eat(t_philo *philo)
 {
 	philo_take_fork(philo);
-	philo->last_meal = (struct timeval){0, 0};
+	// philo->last_meal = (struct timeval){0, 0};
 	if(philo->params.nb_philos > 1)
 	{
-		__lock_print("is eating", philo->id, philo);
 		gettimeofday(&philo->last_meal, NULL);
-		philo->eat_counter++;
+		// philo->eat_counter++;
 	}
+	__lock_print("is eating", philo->id, philo);
 	if(philo->params.nb_philos > 1)
 		sem_post(philo->fork);
 	sem_post(philo->fork);
