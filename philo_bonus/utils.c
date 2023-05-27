@@ -25,14 +25,11 @@ long long get_time_in_ms(struct timeval time_par, int checker)
 
 void __lock_print(char *str, int id, t_philo *philo)
 {
-	// if(*philo->died_ptr)
-	// 	return ;
 	sem_wait(philo->print);
 	printf("%lld\t%d\t%s\n", get_time_in_ms((struct timeval){0, 0}, 0)\
 	- get_time_in_ms(philo->start_time, 1), id,str);
-	// if (philo->died)
-	// 	exit(0);
-	sem_post(philo->print);
+	if(philo->died)
+		sem_post(philo->print);
 }
 
 

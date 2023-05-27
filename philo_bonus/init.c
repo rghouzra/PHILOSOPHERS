@@ -42,7 +42,7 @@ int		semaphores_init(t_philos_table **table)
 	(*table)->forks = sem_open("/forks", O_CREAT, 0644 ,table[0]->params.nb_philos);
 	if(table[0]->forks == SEM_FAILED)
 		return (0);
-	(*table)->print = sem_open("/sem_print", O_CREAT, 0644, table[0]->params.nb_philos);
+	(*table)->print = sem_open("/sem_print", O_CREAT, 0644, 1);
 	if(table[0]->print == SEM_FAILED)
 		return (0);
 	return 1;

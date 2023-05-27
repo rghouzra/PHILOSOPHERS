@@ -8,7 +8,7 @@ int	check_death(t_philo *philo)
 	// - get_time_in_ms(philo->start_time, 1));
 	// fprintf(stderr, "tv_sec->%ld\n", philo->last_meal.tv_sec);
 	if(philo->params.time_to_die < (get_time_in_ms((struct timeval){0, 0}, 0)\
-	- get_time_in_ms(philo->last_meal, 1)) - get_time_in_ms(philo->start_time, 1)\
+	- get_time_in_ms(philo->last_meal, 1))\
 	&& philo->last_meal.tv_sec != -1)
 	{
 		*philo->died = 1;
@@ -39,7 +39,7 @@ void *death_checker_th(void *philo)
 	while(1)
 	{
 		if(check_death(philo))
-			return (NULL);
+			return (kill(0, SIGINT), NULL);
 	}
 	return (NULL);
 }
