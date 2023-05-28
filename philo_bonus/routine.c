@@ -24,11 +24,10 @@ void philo_eat(t_philo *philo)
 	}
 	else
 		philo->last_meal = (struct timeval){0, 0};
-		sem_post(philo->fork);
 	sem_post(philo->fork);
+	ft_usleep(philo->params.time_to_eat);
 	if(philo->params.nb_philos > 1)
 		__lock_print("is eating", philo->id, philo);
-	ft_usleep(philo->params.time_to_eat);
 }
 
 void philo_sleep(t_philo *philo)
@@ -48,7 +47,7 @@ void *philosopher_routine(void *ptr)
 	
 	philo = (t_philo *)ptr;
 	if(philo->id & 1)
-		usleep(50);
+		ft_usleep(50);
 	while(1)
 	{
 		philo_eat(philo);

@@ -42,9 +42,7 @@ void *death_checker_th(void *philo)
 void	process_routine(t_philo *philo, t_philos_table *table)
 {
 	t_philo_checker	*checker;
-	int				i;
 
-	i = -1;
 	gettimeofday(&philo->start_time, NULL);
 	init_checker_struct(table, &checker);
 	pthread_create(&checker->death_checker, NULL, death_checker_th, philo);
@@ -65,7 +63,7 @@ void	philosophy_start(t_philos_table *table)
 	philos = table->philos;
 	while (++i < table->params.nb_philos)
 	{
-		// philos[i]->start_time = table->start_time;
+		gettimeofday(&philos[i]->start_time, NULL);
 		philos[i]->pid = ft_fork();
 		if (philos[i]->pid == 0)
 			process_routine(philos[i], table);
