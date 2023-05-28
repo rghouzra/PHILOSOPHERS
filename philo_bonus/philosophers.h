@@ -27,7 +27,7 @@ typedef struct s_philo
 	struct timeval	start_time;
 	int			id;
 	int			eat_counter;
-	int			*died;
+	int		*died;
 	t_params	params;
 	pid_t		pid;
 	sem_t		*fork;

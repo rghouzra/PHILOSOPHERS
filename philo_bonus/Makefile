@@ -9,10 +9,10 @@ SRCS =	main.c\
 		routine.c\
 		wrapper_funcs.c
 OBJS = $(SRCS:%.c=%.o)
-CC   = gcc
+CC   = cc
 FLAGS = -g -pthread -fsanitize=undefined
+FLAGS = -g -fsanitize=thread
 FLAGS = -g
-
 INC = philosophers.h
 
 all: $(NAME)

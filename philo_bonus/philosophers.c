@@ -19,7 +19,7 @@ int	death_checker(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
-	return (kill(0, SIGINT),check_death(philo));
+	return (check_death(philo));
 }
 
 void	init_checker_struct(t_philos_table *table, t_philo_checker **checker)
@@ -59,23 +59,25 @@ void	philosophy_start(t_philos_table *table)
 	t_philo	**philos;
 	int exit_status;
 
+	exit_status = 0;
 	i = -1;
 	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
 	while (++i < table->params.nb_philos)
 	{
-		philos[i]->start_time = table->start_time;
+		// philos[i]->start_time = table->start_time;
 		philos[i]->pid = ft_fork();
 		if (philos[i]->pid == 0)
 			process_routine(philos[i], table);
 	}
-	waitpid(-1, &exit_status, 0);
-	if(exit_status == 1)
+	while(waitpid(-1, &exit_status, 0) != 0)
 	{
-		i = -1;
-		while(++i < table->params.nb_philos)
-			kill(philos[i]->pid, SIGTERM);
+		if(exit_status)
+			break;
 	}
+	i = -1;
+	while(++i < table->params.nb_philos)
+		kill(table->philos[i]->pid, SIGTERM);
 }
 
 void	prepare_table(t_params args)
