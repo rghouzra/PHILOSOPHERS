@@ -8,7 +8,7 @@ int	check_death(t_philo *philo)
 	&& philo->last_meal.tv_sec != -1)
 	{
 		*philo->died = 1;
-		__lock_print("\033[0;31mis died", philo->id, philo);
+		__lock_print("is died", philo->id, philo);
 		return (1);
 	}
 	return (0);
@@ -32,7 +32,6 @@ void	init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 
 void *death_checker_th(void *philo)
 {
-	ft_usleep(100);
 	while(1)
 	{
 		if(check_death(philo))
@@ -44,8 +43,9 @@ void	process_routine(t_philo *philo, t_philos_table *table)
 {
 	t_philo_checker	*checker;
 
-	gettimeofday(&philo->start_time, NULL);
 	init_checker_struct(table, &checker);
+	if (!checker)
+		return ;	
 	pthread_create(&checker->death_checker, NULL, death_checker_th, philo);
 	pthread_detach(checker->death_checker);
 	philosopher_routine(philo);
@@ -64,7 +64,7 @@ void	philosophy_start(t_philos_table *table)
 	philos = table->philos;
 	while (++i < table->params.nb_philos)
 	{
-		gettimeofday(&philos[i]->start_time, NULL);
+		philos[i]->start_time = table->start_time;
 		philos[i]->pid = ft_fork();
 		if (philos[i]->pid == 0)
 			process_routine(philos[i], table);
@@ -77,6 +77,9 @@ void	philosophy_start(t_philos_table *table)
 	i = -1;
 	while(++i < table->params.nb_philos)
 		kill(table->philos[i]->pid, SIGTERM);
+	sem_close(table->forks);
+	sem_close(table->print);
+	cleanup_processes();
 }
 
 void	prepare_table(t_params args)

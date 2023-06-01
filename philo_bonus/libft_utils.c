@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils2.c                                     :+:      :+:    :+:   */
+/*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:00:28 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/22 18:37:43 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:18:51 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	if (!s1 || !s2)
+		return (-1);
+	while (*(s1 + i) && *(s2 + i) && *(s1 + i) == *(s2 + i))
+		i++;
+	return (*(s1 + i) - *(s2 + i));
+}
 
 int	ft_strlen(char *s)
 {
