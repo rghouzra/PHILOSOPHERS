@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/01 15:03:48 by rghouzra          #+#    #+#             */
+/*   Updated: 2023/06/01 15:03:49 by rghouzra         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 void philo_take_fork(t_philo	*philo)
-{	
-	//fprintf(stderr, "nb->%ld\n", philo->params.nb_philos);
+{
 	if(philo->params.nb_philos > 1)
 	{
 		sem_wait(philo->fork);
