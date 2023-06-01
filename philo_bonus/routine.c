@@ -18,16 +18,17 @@ void philo_eat(t_philo *philo)
 	philo_take_fork(philo);
 	if(philo->params.nb_philos > 1)
 	{
+		__lock_print("is eating", philo->id, philo);
 		gettimeofday(&philo->last_meal, NULL);
 		philo->eat_counter++;
+		ft_usleep(philo->params.time_to_eat);
 		sem_post(philo->fork);
 	}
 	else
 		philo->last_meal = (struct timeval){0, 0};
+	if(philo->eat_counter == philo->params.eat_count)
+		exit(1);
 	sem_post(philo->fork);
-	ft_usleep(philo->params.time_to_eat);
-	if(philo->params.nb_philos > 1)
-		__lock_print("is eating", philo->id, philo);
 }
 
 void philo_sleep(t_philo *philo)

@@ -13,6 +13,11 @@ CC   = cc
 FLAGS = -g -pthread -fsanitize=undefined
 FLAGS = -g -fsanitize=thread
 FLAGS = -g
+OS := $(shell uname)
+
+ifeq ($(OS),Linux)
+	FLAGS += -pthread
+endif
 INC = philosophers.h
 
 all: $(NAME)

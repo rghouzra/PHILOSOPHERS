@@ -32,6 +32,7 @@ void	init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 
 void *death_checker_th(void *philo)
 {
+	ft_usleep(100);
 	while(1)
 	{
 		if(check_death(philo))
