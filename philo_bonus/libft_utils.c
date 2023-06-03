@@ -12,7 +12,7 @@
 
 #include "philosophers.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -36,26 +36,26 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
 
 long	ft_atoi(const char *nptr)
 {
-	int		sign;
-	int		i;
-	long	n;
+	int sign;
+	int i;
+	long n;
 
 	n = 0;
 	i = 0;
 	sign = 1;
 	while ((*(nptr + i) >= 9 && *(nptr + i) <= 13) || *(nptr + i) == ' ')
-			i++;
+		i++;
 	if (*(nptr + i) == '+' || *(nptr + i) == '-')
 	{
 		if (*(nptr + i) == '-')
-				sign = -1;
+			sign = -1;
 		i++;
 	}
 	while (ft_isdigit(*(nptr + i)) && *(nptr + i))

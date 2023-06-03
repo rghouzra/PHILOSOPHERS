@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:05:01 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 15:05:02 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/03 10:46:07 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	*philosophers_routine(void *param)
 	int		cond;
 
 	philo = (t_philo *)param;
-	if ((philo->id & 1) == 0)
-		ft_usleep(100);
 	while (1)
 	{
 		pthread_mutex_lock(philo->stat);

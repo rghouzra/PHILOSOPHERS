@@ -12,9 +12,9 @@
 
 #include "philosophers.h"
 
-void *ft_malloc(size_t size)
+void	*ft_malloc(size_t size)
 {
-	void *ptr;
+	void	*ptr;
 
 	ptr = malloc(size);
 	if (!ptr)
@@ -25,12 +25,12 @@ void *ft_malloc(size_t size)
 	return (ptr);
 }
 
-pid_t ft_fork()
+pid_t	ft_fork(void)
 {
 	pid_t pid;
 
 	pid = fork();
-	if(pid == -1)
+	if (pid == -1)
 	{
 		ft_putstr_fd("Error: fork failed\n", 2);
 		exit(1);

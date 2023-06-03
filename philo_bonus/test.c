@@ -1,9 +1,8 @@
 #include <libc.h>
-#include <semaphore.h>
 #include <pthread.h>
+#include <semaphore.h>
 
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	sem_t *semaphore;
 
