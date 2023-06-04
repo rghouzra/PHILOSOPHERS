@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:48 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/03 18:03:12 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 14:08:17 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	philo_take_fork(t_philo *philo)
 void	philo_eat(t_philo *philo)
 {
 	philo_take_fork(philo);
-	// fprintf(stderr, "pid->%d\tid->%d\t%p\n", getpid(), philo->id,
-			// &philo->last_meal.tv_sec);
 	if (philo->params.nb_philos > 1)
 	{
 		__lock_print("is eating", philo->id, philo);

@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:04 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/03 10:02:00 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:55:48 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	distrubute_forks(t_philos_table **table)
 
 int	semaphores_init(t_philos_table **table)
 {
-	cleanup_processes();
+	sem_unlinker();
 	(*table)->forks = sem_open("/forks", O_CREAT, 0644,
 			table[0]->params.nb_philos);
 	if (table[0]->forks == SEM_FAILED)

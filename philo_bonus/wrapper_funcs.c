@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:36 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 15:04:37 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:56:09 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_malloc(size_t size)
 
 pid_t	ft_fork(void)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = fork();
 	if (pid == -1)
@@ -36,4 +36,13 @@ pid_t	ft_fork(void)
 		exit(1);
 	}
 	return (pid);
+}
+
+void	ft_usleep(long long time)
+{
+	long long	start;
+
+	start = get_time_in_ms((struct timeval){0, 0}, 0);
+	while (get_time_in_ms((struct timeval){0, 0}, 0) - start < time)
+		usleep(500);
 }

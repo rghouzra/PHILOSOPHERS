@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:59 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/03 17:05:45 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 14:08:24 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	check_death(t_philo *philo)
 {
-	// fprintf(stderr, "ttd->%lld\n", get_time_in_ms((struct timeval){0, 0}, 0)
-	// 		- get_time_in_ms(philo->last_meal, 1));
 	if (philo->params.time_to_die <= (get_time_in_ms((struct timeval){0, 0}, 0)
 			- get_time_in_ms(philo->last_meal, 1)) && philo->last_meal.tv_sec !=
 		-1)
@@ -40,7 +38,7 @@ void	*death_checker_th(void *philo)
 	while (1)
 	{
 		if (check_death(philo))
-			return (exit(1), NULL);
+			return (NULL);
 	}
 	return (NULL);
 }
@@ -64,19 +62,4 @@ void	__lock_print(char *str, int id, t_philo *philo)
 			- get_time_in_ms(philo->start_time, 1), id, str);
 	if (ft_strcmp(str, "is died"))
 		sem_post(philo->print);
-}
-
-void	ft_usleep(long long time)
-{
-	long long	start;
-
-	start = get_time_in_ms((struct timeval){0, 0}, 0);
-	while (get_time_in_ms((struct timeval){0, 0}, 0) - start < time)
-		usleep(500);
-}
-
-void	cleanup_processes(void)
-{
-	sem_unlink("/forks");
-	sem_unlink("/sem_print");
 }

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rghouzra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 14:39:46 by rghouzra          #+#    #+#             */
-/*   Updated: 2022/12/18 14:39:48 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:54:34 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "philosophers.h"
 
 int	isvalid(char **s, int ac)

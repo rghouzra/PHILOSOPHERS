@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/03 18:04:21 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/04 09:54:58 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 void	process_routine(t_philo *philo, t_philos_table *table)
 {
 	t_philo_checker	*checker;
+	int				i;
 
+	i = -1;
 	init_checker_struct(table, &checker);
 	if (!checker)
 		return ;
-	pthread_create(&checker->death_checker, NULL, philosopher_routine, philo);
+	pthread_create(&philo->thread, NULL, philosopher_routine, philo);
 	death_checker_th(philo);
-	exit(0);
+	while (++i < table->params.nb_philos)
+		pthread_detach(table->philos[i]->thread);
+	exit(1);
 }
 
 void	philosophy_start(t_philos_table *table)
@@ -51,7 +55,7 @@ void	philosophy_start(t_philos_table *table)
 		kill(table->philos[i]->pid, SIGTERM);
 	sem_close(table->forks);
 	sem_close(table->print);
-	cleanup_processes();
+	sem_unlinker();
 }
 
 void	prepare_table(t_params args)

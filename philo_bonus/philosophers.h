@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosophers.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/03 20:36:45 by rghouzra          #+#    #+#             */
+/*   Updated: 2023/06/04 09:32:48 by rghouzra         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOPHERS_H
 #define PHILOSOPHERS_H
 #include <stdio.h>
@@ -69,9 +81,9 @@ void	philo_sleep(t_philo *philo);
 void	*ft_malloc(size_t size);
 void	philo_eat(t_philo *philo);
 void	philo_take_fork(t_philo	*philo);
-long long get_curr_time(t_philos_table *table, struct timeval time);
-struct timeval get_timeval();
-void cleanup_processes();
+long long	get_curr_time(t_philos_table *table, struct timeval time);
+struct	timeval get_timeval();
+void	sem_unlinker(void);
 void	ft_usleep(long long time);
 pid_t		ft_fork();
 void		*philosopher_routine(void *ptr);
