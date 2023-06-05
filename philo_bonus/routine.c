@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:48 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 13:18:52 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:49:26 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ void	philo_eat(t_philo *philo)
 	if (philo->params.nb_philos > 1)
 	{
 		__lock_print("is eating", philo->id, philo);
-		gettimeofday(&philo->last_meal, NULL);
 		philo->eat_counter++;
 		sem_post(philo->fork);
+		gettimeofday(&philo->last_meal, NULL);
 	}
 	else
 		philo->last_meal = (struct timeval){0, 0};
 	sem_post(philo->fork);
 	if (philo->eat_counter == philo->params.eat_count)
 		exit(1);
-	ft_usleep(philo->params.time_to_eat);
+	ft_usleep(philo->params.time_to_eat *1000);
 }
 
 void	philo_sleep(t_philo *philo)
 {
 	__lock_print("is sleeping", philo->id, philo);
-	ft_usleep(philo->params.time_to_sleep);
+	ft_usleep(philo->params.time_to_sleep * 	1000);
 }
 
 void	philo_think(t_philo *philo)
@@ -58,7 +58,7 @@ void	*philosopher_routine(void *ptr)
 
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)
-		ft_usleep(100);
+		ft_usleep(50);
 	while (1)
 	{
 		philo_eat(philo);

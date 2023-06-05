@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:04 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/04 09:55:48 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:45:56 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	init(t_philos_table **table, t_params arg)
 
 void	init_checker_struct(t_philos_table *table, t_philo_checker **checker)
 {
-	*checker = malloc(sizeof(t_philo_checker));
-	if (!checker)
-		return ;
+	*checker = ft_malloc(sizeof(t_philo_checker));
 	(*checker)->table = table;
 }
