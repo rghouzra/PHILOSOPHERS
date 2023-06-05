@@ -35,12 +35,11 @@ int	death_checker(void *ptr)
 
 void	*death_checker_th(void *philo)
 {
-	if((((t_philo *)philo)->id % 2 == 0))
-		ft_usleep(1000);
 	while (1)
 	{
 		if (check_death(philo))
 			break;;
+		usleep(10);
 	}
 	exit(1);
 	return (NULL);
