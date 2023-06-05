@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:48 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 19:49:26 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:57:31 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	philo_eat(t_philo *philo)
 	sem_post(philo->fork);
 	if (philo->eat_counter == philo->params.eat_count)
 		exit(1);
-	ft_usleep(philo->params.time_to_eat *1000);
+	ft_usleep(philo->params.time_to_eat * 1000);
 }
 
 void	philo_sleep(t_philo *philo)
 {
 	__lock_print("is sleeping", philo->id, philo);
-	ft_usleep(philo->params.time_to_sleep * 	1000);
+	ft_usleep(philo->params.time_to_sleep * 1000);
 }
 
 void	philo_think(t_philo *philo)
@@ -54,7 +54,7 @@ void	philo_think(t_philo *philo)
 
 void	*philosopher_routine(void *ptr)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
 	if (philo->id % 2 == 0)

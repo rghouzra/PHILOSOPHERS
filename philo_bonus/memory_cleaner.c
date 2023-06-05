@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:17 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/04 09:32:11 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:59:49 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ void	free_ptrs(void **ptr, int size)
 		free(ptr[i]);
 	free(ptr);
 	return ;
-}
-void	free_mutexes(t_philos_table *table)
-{
 }
 
 void	sem_unlinker(void)

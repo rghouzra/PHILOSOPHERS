@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 13:17:54 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:59:14 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	process_routine(t_philo *philo, t_philos_table *table)
 	if (!checker)
 		return ;
 	pthread_create(&checker->death_checker, NULL, death_checker_th, philo);
-	// pthread_detach(checker->death_checker);
 	philosopher_routine(philo);
 	exit(1);
 }
@@ -35,7 +34,6 @@ void	philosophy_start(t_philos_table *table)
 
 	exit_status = 0;
 	i = -1;
-	gettimeofday(&table->start_time, NULL);
 	philos = table->philos;
 	while (++i < table->params.nb_philos)
 	{
@@ -63,5 +61,6 @@ void	prepare_table(t_params args)
 
 	if (init(&table, args))
 		return ;
+	gettimeofday(&table->start_time, NULL);
 	philosophy_start(table);
 }

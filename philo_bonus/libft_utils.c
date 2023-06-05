@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 06:00:28 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 14:18:51 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:56:27 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	ft_isdigit(char c)
 
 long	ft_atoi(const char *nptr)
 {
-	int sign;
-	int i;
-	long n;
+	int		sign;
+	int		i;
+	long	n;
 
 	n = 0;
 	i = 0;

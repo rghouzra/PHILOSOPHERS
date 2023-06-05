@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:05:01 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 10:47:02 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:45:59 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ t_philos_table	*prepare_table(t_params args)
 	free(table->eat_counts);
 	free_mutexes(table->meals, table->params.nb_philos);
 	free(table->meals);
+	pthread_mutex_destroy(table->print);
+	free(table->print);
 	delete_garbage(&table);
 	return (table);
 }

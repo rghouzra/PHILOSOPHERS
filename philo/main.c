@@ -6,17 +6,23 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:48 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 15:04:49 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:43:17 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	clear(void)
+{
+	system("leaks philo");
+}
 
 int	main(int ac, char **argv)
 {
 	t_params		params;
 	t_philos_table	*table;
 
+	atexit(clear);
 	if (ac < 5 || ac > 6)
 		return (ft_putstr_fd("invalid nums of arguments\n", 2), 1);
 	if (parsing(ac - 1, argv + 1, &params) != 1)

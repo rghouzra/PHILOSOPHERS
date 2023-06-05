@@ -6,11 +6,12 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:13 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 15:04:14 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 22:00:18 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
 
 int	main(int ac, char **argv)
 {
