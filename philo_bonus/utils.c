@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:59 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/04 14:08:24 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:19:14 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	*death_checker_th(void *philo)
 	while (1)
 	{
 		if (check_death(philo))
-			return (NULL);
+			break;;
 	}
+	exit(1);
 	return (NULL);
 }
 

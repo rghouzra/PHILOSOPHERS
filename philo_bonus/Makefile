@@ -12,6 +12,7 @@ OBJS = $(SRCS:%.c=%.o)
 CC   = cc
 FLAGS = -g -pthread -fsanitize=undefined
 FLAGS = -g -fsanitize=thread
+FLAGS = -g -pthread -fsanitize=undefined
 FLAGS = -g
 OS := $(shell uname)
 

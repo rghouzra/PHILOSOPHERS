@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/04 09:54:58 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:17:54 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	process_routine(t_philo *philo, t_philos_table *table)
 	init_checker_struct(table, &checker);
 	if (!checker)
 		return ;
-	pthread_create(&philo->thread, NULL, philosopher_routine, philo);
-	death_checker_th(philo);
-	while (++i < table->params.nb_philos)
-		pthread_detach(table->philos[i]->thread);
+	pthread_create(&checker->death_checker, NULL, death_checker_th, philo);
+	// pthread_detach(checker->death_checker);
+	philosopher_routine(philo);
 	exit(1);
 }
 
