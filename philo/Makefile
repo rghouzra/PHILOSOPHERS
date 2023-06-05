@@ -5,7 +5,6 @@ SRCS =	main.c\
 		parsing.c\
 		philosophers.c\
 		init.c\
-		print_philo_dot.c\
 		utils.c\
 		routine.c
 OBJS = $(SRCS:%.c=%.o)

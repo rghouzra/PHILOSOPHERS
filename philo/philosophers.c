@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:05:01 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/03 10:46:07 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:47:02 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	philosophy_start(t_philos_table *table)
 	init_checker_struct(table, &checker);
 	while (++i < table->params.nb_philos)
 		pthread_create(&philos[i]->philo,
-						NULL,
-						philosophers_routine,
-						philos[i]);
+			NULL,
+			philosophers_routine,
+			philos[i]);
 	i = -1;
 	while (1)
 	{
@@ -99,10 +99,15 @@ t_philos_table	*prepare_table(t_params args)
 	t_philos_table	*table;
 
 	if (init(&table, args))
-		return NULL;
+		return (NULL);
 	*table->died = 0;
 	philosophy_start(table);
-	free_mutexes(table);
+	free_mutexes(table->forks, table->params.nb_philos);
+	free(table->forks);
+	free_mutexes(table->eat_counts, table->params.nb_philos);
+	free(table->eat_counts);
+	free_mutexes(table->meals, table->params.nb_philos);
+	free(table->meals);
 	delete_garbage(&table);
-	return table;
+	return (table);
 }

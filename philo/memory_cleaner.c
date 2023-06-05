@@ -6,59 +6,50 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/01 15:04:54 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 10:43:37 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void free_ptrs(void **ptr, int size)
+void	free_ptrs(void **ptr, int size)
 {
-  int i;
+	int	i;
 
-  (void)size;
-  i = -1;
-  if (!ptr)
-    return;
-  while(ptr[++i])
-    free(ptr[i]);
-  free(ptr);
-  return;
-}
-void free_mutexes(t_philos_table *table)
-{
-    int i;
-
+	(void)size;
 	i = -1;
-    while (++i < (*table).params.nb_philos)
-    {
-        pthread_mutex_destroy((*table).forks[i]);
-        pthread_mutex_destroy((*table).meals[i]);
-        pthread_mutex_destroy((*table).eat_counts[i]);
-        free((*table).forks[i]);
-        free((*table).meals[i]);
-        free((*table).eat_counts[i]);
-    }
-    pthread_mutex_destroy(table->print);
-    free(table->print);
-    free((*table).forks);
-    free((*table).meals);
-    free((*table).eat_counts);
-    (*table).forks = NULL;
-    (*table).meals = NULL;
-    (*table).eat_counts = NULL;
-}
-void delete_garbage(t_philos_table **table)
-{
-	int i;
-
-	i = -1;
-	if(!table || !*table)
+	if (!ptr)
 		return ;
-  ft_usleep(table[0]->params.time_to_die + table[0]->params.time_to_sleep + table[0]->params.time_to_eat + 200);
-	while(++i < table[0]->params.nb_philos)
+	while (ptr[++i])
+		free(ptr[i]);
+	free(ptr);
+	return ;
+}
+
+void	delete_garbage(t_philos_table **table)
+{
+	int	i;
+
+	i = -1;
+	if (!table || !*table)
+		return ;
+	ft_usleep(table[0]->params.time_to_die + table[0]->params.time_to_sleep
+		+ table[0]->params.time_to_eat + 200);
+	while (++i < table[0]->params.nb_philos)
 		free(table[0]->philos[i]);
-  free(table[0]->philos);
-  free(table[0]->died);
+	free(table[0]->philos);
+	free(table[0]->died);
 	free(*table);
+}
+
+void	free_mutexes(pthread_mutex_t **ptr, int size)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size)
+	{
+		pthread_mutex_destroy(ptr[i]);
+		free(ptr[i]);
+	}
 }
