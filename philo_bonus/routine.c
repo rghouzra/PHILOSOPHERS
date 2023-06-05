@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:48 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/04 14:08:17 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/05 06:55:38 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	*philosopher_routine(void *ptr)
 	t_philo *philo;
 
 	philo = (t_philo *)ptr;
+	if (philo->id % 2 == 0)
+		ft_usleep(100);
 	while (1)
 	{
 		philo_eat(philo);
