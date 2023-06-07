@@ -7,18 +7,12 @@ SRCS =	main.c\
 		init.c\
 		utils.c\
 		routine.c\
-		wrapper_funcs.c
+		wrapper_funcs.c\
+		semaphore_wrapper.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -g -pthread -fsanitize=undefined
-FLAGS = -g -fsanitize=thread
-FLAGS = -g -pthread -fsanitize=undefined
-FLAGS = -g
-OS := $(shell uname)
 
-ifeq ($(OS),Linux)
-	FLAGS += -pthread
-endif
+FLAGS = -Wall -Wextra -Werror
 INC = philosophers.h
 
 all: $(NAME)

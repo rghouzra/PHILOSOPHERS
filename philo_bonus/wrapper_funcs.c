@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:36 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:54:59 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:26:20 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	ft_usleep(long long time)
 
 	start = get_time_in_ms((struct timeval){0, 0}, 0);
 	while (get_time_in_ms((struct timeval){0, 0}, 0) - start < time)
-		usleep(500);
+		usleep(100);
 }

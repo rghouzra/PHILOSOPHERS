@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:56 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 10:40:43 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:02:33 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,19 @@ int	check_death(t_philos_table *table, int index)
 {
 	pthread_mutex_lock(table->philos[index]->meal);
 	if (get_time_in_ms((struct timeval){0, 0}, 0)
-		- get_time_in_ms(table->philos[index]->last_meal,
-			1) > table->params.time_to_die
+		- get_time_in_ms(table->philos[index]->last_meal, 1) > table->params.ttd
 		&& table->philos[index]->last_meal.tv_sec != -1)
 	{
+		if (table->params.nb_philos > 1)
+		{
+			__lock_print("died", table->philos[index]->id, \
+				table->philos[index]);
+			return (1);
+		}
+		else
+			while (get_time_in_ms((struct timeval){0, 0}, 0) \
+				- get_time_in_ms(table->start_time, 1) < table->params.ttd)
+				;
 		__lock_print("died", table->philos[index]->id, table->philos[index]);
 		return (1);
 	}
@@ -60,10 +69,7 @@ int	check_death(t_philos_table *table, int index)
 	pthread_mutex_lock(table->philos[index]->eat_count);
 	if ((table->philos[index]->eat_counter >= table->params.eat_count
 			&& table->params.eat_count != -1))
-	{
-		pthread_mutex_unlock(table->philos[index]->eat_count);
-		return (1);
-	}
+		return (pthread_mutex_unlock(table->philos[index]->eat_count), 2);
 	pthread_mutex_unlock(table->philos[index]->eat_count);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:17 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:59:49 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:42:38 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	free_ptrs(void **ptr, int size)
 
 void	sem_unlinker(void)
 {
-	sem_unlink("/forks");
-	sem_unlink("/sem_print");
+	ft_sem_unlink("/forks");
+	ft_sem_unlink("/sem_print");
 }

@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:59 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:55:51 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:52:45 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	check_death(t_philo *philo)
 		- get_time_in_ms(philo->last_meal, 1)) && philo->last_meal.tv_sec !=
 		-1 && philo->last_meal.tv_usec != -1)
 	{
+		if (philo->params.nb_philos == 1)
+			ft_usleep(philo->params.time_to_die);
 		*philo->died = 1;
 		__lock_print("died", philo->id, philo);
 		return (1);
@@ -39,7 +41,7 @@ void	*death_checker_th(void *philo)
 	{
 		if (check_death(philo))
 			break ;
-		usleep(10);
+		ft_usleep(10);
 	}
 	exit(1);
 	return (NULL);

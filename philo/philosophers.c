@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:05:01 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:45:59 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:04:24 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@ int	philo_checker(void *ptr)
 {
 	int				i;
 	t_philo_checker	*checker;
+	int				philos_full;
+	int				cond;
 
+	philos_full = 0;
 	checker = (t_philo_checker *)ptr;
 	i = -1;
 	while (++i < checker->table->params.nb_philos)
 	{
-		if (check_death(checker->table, i))
+		cond = check_death(checker->table, i);
+		if (cond == 1)
 		{
 			pthread_mutex_lock(checker->table->philos[i]->stat);
 			*checker->table->philos[i]->died_ptr = 1;
 			pthread_mutex_unlock(checker->table->philos[i]->stat);
 			return (0);
 		}
+		philos_full += (cond == 2);
+		if (philos_full == checker->table->params.nb_philos)
+			return (0);
 	}
 	return (1);
 }
@@ -76,9 +83,7 @@ void	philosophy_start(t_philos_table *table)
 	philos = table->philos;
 	init_checker_struct(table, &checker);
 	while (++i < table->params.nb_philos)
-		pthread_create(&philos[i]->philo,
-			NULL,
-			philosophers_routine,
+		pthread_create(&philos[i]->philo, NULL, philosophers_routine,
 			philos[i]);
 	i = -1;
 	while (1)

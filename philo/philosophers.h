@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:35:58 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 10:44:03 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:11:45 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_philo_checker	t_philo_checker;
 typedef struct s_params
 {
 	long						nb_philos;
-	long						time_to_die;
-	long						time_to_eat;
-	long						time_to_sleep;
+	long						ttd;
+	long						tte;
+	long						tts;
 	long						eat_count;
 }								t_params;
 typedef struct s_philo

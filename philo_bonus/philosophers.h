@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:36:45 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:59:04 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/06 12:07:29 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,11 @@ typedef struct s_philo_checker
 int								ft_strcmp(char *s1, char *s2);
 int								init(t_philos_table **table, t_params arg);
 long							ft_atoi(const char *nptr);
-void							prepare_table(t_params args);
+t_philos_table					*prepare_table(t_params args);
+int								ft_sem_close(sem_t *sem);
+int								ft_sem_wait(sem_t *sem);
+int								ft_sem_post(sem_t *sem);
+int								ft_sem_unlink(const char *name);
 void							init_checker_struct(t_philos_table *table,
 									t_philo_checker **checker);
 void							*death_checker_th(void *philo);

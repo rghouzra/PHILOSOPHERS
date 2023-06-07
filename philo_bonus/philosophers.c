@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:03:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 21:59:14 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:28:48 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	process_routine(t_philo *philo, t_philos_table *table)
 {
 	t_philo_checker	*checker;
-	int				i;
 
-	i = -1;
 	init_checker_struct(table, &checker);
 	if (!checker)
 		return ;
@@ -26,27 +24,10 @@ void	process_routine(t_philo *philo, t_philos_table *table)
 	exit(1);
 }
 
-void	philosophy_start(t_philos_table *table)
+void	cleanup_after_termination(t_philos_table *table)
 {
-	int		i;
-	t_philo	**philos;
-	int		exit_status;
+	int	i;
 
-	exit_status = 0;
-	i = -1;
-	philos = table->philos;
-	while (++i < table->params.nb_philos)
-	{
-		philos[i]->start_time = table->start_time;
-		philos[i]->pid = ft_fork();
-		if (philos[i]->pid == 0)
-			process_routine(philos[i], table);
-	}
-	while (waitpid(-1, &exit_status, 0) != 0)
-	{
-		if (exit_status)
-			break ;
-	}
 	i = -1;
 	while (++i < table->params.nb_philos)
 		kill(table->philos[i]->pid, SIGTERM);
@@ -55,12 +36,39 @@ void	philosophy_start(t_philos_table *table)
 	sem_unlinker();
 }
 
-void	prepare_table(t_params args)
+void	philosophy_start(t_philos_table *table)
+{
+	int		i;
+	int		exit_status;
+
+	exit_status = -1;
+	i = -1;
+	while (++i < table->params.nb_philos)
+	{
+		table->philos[i]->start_time = table->start_time;
+		table->philos[i]->pid = ft_fork();
+		if (table->philos[i]->pid == 0)
+			process_routine(table->philos[i], table);
+	}
+	while (waitpid(-1, &exit_status, 0) != 0)
+	{
+		if (WEXITSTATUS(exit_status) == 1)
+			break ;
+		else if (exit_status == 0)
+		{
+			ft_usleep(1000);
+			break ;
+		}
+	}
+	cleanup_after_termination(table);
+}
+
+t_philos_table	*prepare_table(t_params args)
 {
 	t_philos_table	*table;
 
 	if (init(&table, args))
-		return ;
-	gettimeofday(&table->start_time, NULL);
+		return (NULL);
 	philosophy_start(table);
+	return (table);
 }

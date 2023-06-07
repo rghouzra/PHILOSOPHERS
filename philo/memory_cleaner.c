@@ -6,7 +6,7 @@
 /*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:04:53 by rghouzra          #+#    #+#             */
-/*   Updated: 2023/06/05 10:43:37 by rghouzra         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:14:41 by rghouzra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	delete_garbage(t_philos_table **table)
 	i = -1;
 	if (!table || !*table)
 		return ;
-	ft_usleep(table[0]->params.time_to_die + table[0]->params.time_to_sleep
-		+ table[0]->params.time_to_eat + 200);
+	ft_usleep(table[0]->params.ttd + table[0]->params.tts
+		+ table[0]->params.tte + 50);
 	while (++i < table[0]->params.nb_philos)
 		free(table[0]->philos[i]);
 	free(table[0]->philos);
