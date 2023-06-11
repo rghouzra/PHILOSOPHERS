@@ -1,4 +1,5 @@
-Philosophers
+#PHILISOPHERS
+
 Table of Contents
 
     Introduction
