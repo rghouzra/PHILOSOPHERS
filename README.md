@@ -1,4 +1,4 @@
-#42_Philosophers
+#Philosophers
 Table of Contents
 
     Introduction
