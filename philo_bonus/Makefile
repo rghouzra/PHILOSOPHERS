@@ -11,8 +11,11 @@ SRCS =	main.c\
 		semaphore_wrapper.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-
 FLAGS = -Wall -Wextra -Werror
+OS := $(shell uname)
+ifeq ($(OS),Linux)
+	FLAGS += -pthread
+endif
 INC = philosophers.h
 
 all: $(NAME)
