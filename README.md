@@ -1,4 +1,4 @@
-#PHILISOPHERS
+#PHILOSOPHERS
 
 Table of Contents
 
