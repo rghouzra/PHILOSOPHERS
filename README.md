@@ -46,8 +46,7 @@ To run the simulation for the mandatory part (using threads and mutexes), follow
 
     bash
 
-git clone https://github.com/username/42-philosophers.git
-
+https://github.com/rghouzra/PHILOSOPHERS.git
 Navigate to the philo directory:
 
 bash
