@@ -9,7 +9,7 @@ SRCS =	main.c\
 		routine.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -pthread
 INC = philosophers.h
 
 all: $(NAME)
