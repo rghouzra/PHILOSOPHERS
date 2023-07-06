@@ -61,8 +61,6 @@ void	*philosopher_routine(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
-	if (philo->id % 2 == 0)
-		ft_usleep(50);
 	while (1)
 	{
 		philo_eat(philo);
