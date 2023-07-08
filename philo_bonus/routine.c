@@ -61,8 +61,9 @@ void	*philosopher_routine(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
-	while (1)
-	{
+	if(philo->id & 1) 
+		usleep(100);
+	while (1){
 		philo_eat(philo);
 		philo_sleep(philo);
 		philo_think(philo);
