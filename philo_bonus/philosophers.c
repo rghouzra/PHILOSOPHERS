@@ -54,9 +54,7 @@ void	philosophy_start(t_philos_table *table)
 	{
 		if (WEXITSTATUS(exit_status) == 1)
 			break ;
-		else if (exit_status == 0)
-		{
-			ft_usleep(1000);
+		else if (exit_status == 0){
 			break ;
 		}
 	}
