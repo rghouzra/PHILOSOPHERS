@@ -11,7 +11,7 @@ SRCS =	main.c\
 		semaphore_wrapper.c
 OBJS = $(SRCS:%.c=%.o)
 CC   = cc
-FLAGS = -Wall -Wextra -Werror -pthread
+FLAGS = -Wall -Wextra -Werror
 OS := $(shell uname)
 ifeq ($(OS),Linux)
 	FLAGS += -pthread
