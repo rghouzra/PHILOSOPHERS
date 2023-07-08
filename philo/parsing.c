@@ -20,8 +20,7 @@ int	isvalid(char **s, int ac)
 
 	i = -1;
 	err_flag = 0;
-	while (++i < ac)
-	{
+	while (++i < ac){
 		j = -1;
 		flag = 0;
 		while (s[i][++j])
@@ -38,8 +37,7 @@ int	fill_params(char **av, int ac, t_params *params)
 
 	i = -1;
 	ptr = (long *)params;
-	while (++i < ac)
-	{
+	while (++i < ac){
 		*ptr = ft_atoi(av[i]);
 		if (*ptr == 0 || *ptr++ > INT_MAX)
 			return (0);
