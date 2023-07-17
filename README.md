@@ -12,7 +12,7 @@ Table of Contents
 
 Introduction
 
-Welcome to the 42 Philosophers project! This project is inspired by the classical problem of the Dining Philosophers, which involves a set of philosophers sitting around a table and thinking and eating. The goal of this project is to create a simulation where multiple philosophers can coexist and perform their activities without deadlocks or resource starvation.
+This project is inspired by the classical problem of the Dining Philosophers, which involves a set of philosophers sitting around a table and thinking and eating. The goal of this project is to create a simulation where multiple philosophers can coexist and perform their activities without deadlocks or resource starvation.
 Problem Statement
 
 The Dining Philosophers problem presents the challenge of avoiding deadlock and resource contention in a concurrent system. In this scenario, there are N philosophers sitting around a circular table, and each philosopher alternates between thinking and eating. There are only a limited number of shared resources, such as forks, that the philosophers need to use while eating.
