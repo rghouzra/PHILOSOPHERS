@@ -1,15 +1,5 @@
 # PHILOSOPHERS
 
-Table of Contents
-
-    Introduction
-    Problem Statement
-    Solution Approach
-    Requirements
-    Usage
-    Contributing
-    License
-
 Introduction
 
 This project is inspired by the classical problem of the Dining Philosophers, which involves a set of philosophers sitting around a table and thinking and eating. The goal of this project is to create a simulation where multiple philosophers can coexist and perform their activities without deadlocks or resource starvation.
